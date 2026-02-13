@@ -514,7 +514,7 @@ function initCharts() {
                     endLabel: inlineLabel('#FFD54F')
                 },
                 {
-                    name: 'Geoptimaliseerd',
+                    name: 'Verbruik',
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -597,11 +597,25 @@ function initCharts() {
         charts.push(chart);
     }
 
-    // Unified resize handler with ResizeObserver for all chart containers
+    // Unified resize handler - debounced for performance
+    let resizeTimer;
     const resizeAllCharts = () => {
-        charts.forEach(c => c.resize());
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            charts.forEach(c => {
+                const dom = c.getDom();
+                if (dom && dom.offsetWidth > 0) {
+                    c.resize();
+                }
+            });
+        }, 100);
     };
     window.addEventListener('resize', resizeAllCharts);
+
+    // Also handle orientation change (mobile/iPad)
+    window.addEventListener('orientationchange', () => {
+        setTimeout(resizeAllCharts, 300);
+    });
 
     // Use ResizeObserver to catch container size changes
     if (typeof ResizeObserver !== 'undefined') {
