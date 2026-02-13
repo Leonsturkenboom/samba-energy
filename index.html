@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMBA | Rhythm in your assets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p class="cookie-text" data-i18n="cookie.text">Deze website gebruikt cookies om je ervaring te verbeteren. Door verder te gaan ga je akkoord met ons cookiebeleid.</p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="cookieAccept" data-i18n="cookie.accept">Accepteren</button>
+                <button class="cookie-btn cookie-decline" id="cookieDecline" data-i18n="cookie.decline">Weigeren</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="nav-logo">
+                    <img class="logo-icon" src="Logo SAMBA.svg" alt="SAMBA" width="32" height="32">
+                </a>
+                <span class="nav-dashes" id="navDashes">
+                    <span class="nav-dashes-inner">/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /</span>
+                </span>
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#smart" data-i18n="nav.smart">SLIM</a></li>
+                    <li><a href="#flexible" data-i18n="nav.flexible">FLEXIBEL</a></li>
+                    <li><a href="#assets" data-i18n="nav.assets">ASSETS</a></li>
+                    <li><a href="#success" data-i18n="nav.success">SUCCES</a></li>
+                </ul>
+                <button class="lang-toggle" id="langToggle">ENG</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+        <div class="slash-bg" id="slashBg"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="heartbeat-container">
+                    <svg class="heartbeat-svg" viewBox="0 0 600 80" preserveAspectRatio="none">
+                        <path class="heartbeat-line" d="M0,40 L150,40 L180,40 L200,10 L220,70 L240,20 L260,50 L280,35 L300,40 L600,40" fill="none" stroke="#EEFF41" stroke-width="3"/>
+                    </svg>
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-line hero-line-1" data-i18n="hero.line1">Ritme in je assets,</span>
+                    <span class="hero-line hero-line-2" data-i18n="hero.line2">Grip op de zaak</span>
+                </h1>
+                <div class="hero-buttons">
+                    <a href="#request" class="btn btn-outline" data-i18n="hero.cta1">Demo aanvragen</a>
+                    <a href="#request" class="btn btn-outline" data-i18n="hero.cta2">Besparingsanalyse aanvragen</a>
+                </div>
+            </div>
+            <div class="globe-container">
+                <div class="globe-wrapper">
+                    <canvas id="globeCanvas" width="550" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Abbreviation Marquee -->
+    <section class="abbreviation" id="abbreviation">
+        <div class="marquee">
+            <div class="marquee-content" id="marqueeContent">
+                <span>SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / </span>
+                <span>SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: SMART / KPIs -->
+    <section class="smart-section" id="smart">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title yellow" data-i18n="smart.title">SLIM</h2>
+                <p class="section-subtitle yellow" data-i18n="smart.subtitle">Een compleet platform voor asset management & automatisering</p>
+            </div>
+            <div class="smart-cards scroll-reveal">
+                <div class="smart-card">
+                    <div class="smart-card-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><text x="24" y="30" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="26" font-weight="600" fill="currentColor" class="smart-stroke">&euro;</text></svg>
+                    </div>
+                    <h3 class="smart-card-title" data-i18n="smart.card1.title">Kosten besparen</h3>
+                    <p class="smart-card-desc" data-i18n="smart.card1.desc">Bespaar in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.</p>
+                </div>
+                <div class="smart-card">
+                    <div class="smart-card-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 10 C18 10, 14 14, 14 18 C14 22, 18 24, 20 24 C22 24, 22 22, 24 22 C26 22, 26 24, 28 24 C30 24, 34 22, 34 18 C34 14, 30 10, 24 10Z" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 18 Q21 14, 24 18 Q27 22, 29 18" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="16" r="1.5" fill="currentColor" class="smart-stroke"/><circle cx="28" cy="16" r="1.5" fill="currentColor" class="smart-stroke"/></svg>
+                    </div>
+                    <h3 class="smart-card-title" data-i18n="smart.card2.title">AI forecasting</h3>
+                    <p class="smart-card-desc" data-i18n="smart.card2.desc">Om per dag en per week het gebruik van je assets te plannen, maken we gebruik van AI forecasting algoritmen.</p>
+                </div>
+                <div class="smart-card">
+                    <div class="smart-card-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="14" y="8" width="20" height="32" rx="3" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="2"/><line x1="14" y1="14" x2="34" y2="14" stroke="currentColor" class="smart-stroke" stroke-width="1.5"/><line x1="14" y1="34" x2="34" y2="34" stroke="currentColor" class="smart-stroke" stroke-width="1.5"/><rect x="18" y="18" width="12" height="12" rx="1" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="1.5"/><line x1="21" y1="37" x2="27" y2="37" stroke="currentColor" class="smart-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="smart-card-title" data-i18n="smart.card3.title">Simpel</h3>
+                    <p class="smart-card-desc" data-i18n="smart.card3.desc">Al je asset-beheer vanuit één app. Implementatie volledig verzorgd en met doorlopende ondersteuning.</p>
+                </div>
+                <div class="smart-card">
+                    <div class="smart-card-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 8 L36 18 L36 34 C36 36, 34 38, 32 38 L16 38 C14 38, 12 36, 12 34 L12 18 Z" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 26 L22 29 L29 20" fill="none" stroke="currentColor" class="smart-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="smart-card-title" data-i18n="smart.card4.title">Veilig</h3>
+                    <p class="smart-card-desc" data-i18n="smart.card4.desc">Lokale aansturing en dataopslag. Werkt volledig in eigen beheer, blijft operationeel bij internet of stroom uitval en is digitaal veilig afgeschermd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: FLEXIBLE -->
+    <section class="flexible-section" id="flexible">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title dark" data-i18n="flexible.title">FLEXIBEL</h2>
+                <p class="section-subtitle dark" data-i18n="flexible.subtitle">Synchroniseert je energieverbruik met zonne-energie en dynamische energieprijzen en houdt je verbruik onder het maximum van de netaansluiting</p>
+            </div>
+            <div class="flexible-tabs scroll-reveal">
+                <button class="tab-btn active" data-tab="cost-savings" data-i18n="flexible.tab1">Kostenbesparing</button>
+                <button class="tab-btn" data-tab="grid-limit" data-i18n="flexible.tab2">Netlimiet</button>
+            </div>
+            <div class="flexible-content scroll-reveal">
+                <!-- Cost Savings Tab -->
+                <div class="tab-panel active" id="tab-cost-savings">
+                    <h3 class="tab-subtitle" data-i18n="flexible.cost.title">Bespaar kosten met slim timen</h3>
+                    <div class="chart-comparison">
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <span class="chart-card-title" data-i18n="flexible.cost.without">Zonder SAMBA</span>
+                                <span class="status-dot red"></span>
+                            </div>
+                            <p class="chart-card-desc" data-i18n="flexible.cost.without.desc">Verbruik is niet afgestemd op zonne-opwek of lage dynamische energieprijzen. Veel energie wordt ingekocht wanneer de prijs hoog is.</p>
+                            <div class="chart-wrapper">
+                                <div id="chartWithout" style="width:100%;height:100%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <span class="chart-card-title" data-i18n="flexible.cost.with">Met SAMBA</span>
+                                <span class="status-dot green"></span>
+                            </div>
+                            <p class="chart-card-desc" data-i18n="flexible.cost.with.desc">Verbruik volgt de zonne-opwek of wanneer prijzen laag zijn vanuit het net. Hierdoor bespaar je significant kosten.</p>
+                            <div class="chart-wrapper">
+                                <div id="chartWith" style="width:100%;height:100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid Limit Tab -->
+                <div class="tab-panel" id="tab-grid-limit">
+                    <h3 class="tab-subtitle" data-i18n="flexible.grid.title">Blijf binnen je netcapaciteit</h3>
+                    <div class="chart-comparison">
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <span class="chart-card-title" data-i18n="flexible.grid.without">Zonder SAMBA</span>
+                                <span class="status-dot red"></span>
+                            </div>
+                            <p class="chart-card-desc" data-i18n="flexible.grid.without.desc">Verbruik overschrijdt regelmatig de netlimiet. Dit leidt tot boetes en hogere kosten voor je netaansluiting.</p>
+                            <div class="chart-wrapper">
+                                <div id="chartGridWithout" style="width:100%;height:100%;"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <span class="chart-card-title" data-i18n="flexible.grid.with">Met SAMBA</span>
+                                <span class="status-dot green"></span>
+                            </div>
+                            <p class="chart-card-desc" data-i18n="flexible.grid.with.desc">Houdt automatisch je verbruik onder de netlimiet. Voorkom daarmee boetes en bespaar significant op je netaansluiting.</p>
+                            <div class="chart-wrapper">
+                                <div id="chartGridWith" style="width:100%;height:100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: ASSETS -->
+    <section class="assets-section" id="assets">
+        <div class="assets-header scroll-reveal">
+            <h2 class="section-title yellow" data-i18n="assets.title">ASSETS</h2>
+            <p class="section-subtitle yellow" data-i18n="assets.subtitle">Energie & Asset management was nog nooit zo goedkoop en simpel</p>
+        </div>
+        <div class="assets-carousel-wrapper">
+            <div class="assets-carousel" id="assetsCarousel">
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="4" y="20" width="40" height="20" rx="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M14 20 L14 12 C14 8, 18 4, 24 4 C30 4, 34 8, 34 12 L34 20" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="16" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="32" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="20" y1="30" x2="28" y2="30" stroke="currentColor" class="asset-stroke" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card1.title">Laadpark</h3>
+                    <p class="asset-desc" data-i18n="assets.card1.desc">Tot 400 euro per jaar per laadpunt besparen met slim laden</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M24 8 L24 16 M24 32 L24 40 M8 24 L16 24 M32 24 L40 24" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M12 12 L17 17 M31 31 L36 36 M36 12 L31 17 M17 31 L12 36" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card2.title">Andere flex assets</h3>
+                    <p class="asset-desc" data-i18n="assets.card2.desc">Van boilers, tot warmtepompen en forklift trucks. Bespaar tot wel 25% van je energiekosten</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="12" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="12" y1="14" x2="36" y2="14" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="12" y1="34" x2="36" y2="34" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><rect x="16" y="18" width="16" height="12" rx="1" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="20" y1="37" x2="28" y2="37" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card3.title">Batterijsysteem</h3>
+                    <p class="asset-desc" data-i18n="assets.card3.desc">Voor de niet flexibele load sturen we een batterij aan</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 C24 6, 28 14, 28 22 C28 28, 24 32, 24 32 C24 32, 20 28, 20 22 C20 14, 24 6, 24 6Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="24" y1="32" x2="24" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="18" y1="38" x2="30" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="42" x2="28" y2="42" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M16 24 L12 20 M32 24 L36 20 M16 18 L10 16 M32 18 L38 16" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card4.title">Verlichting</h3>
+                    <p class="asset-desc" data-i18n="assets.card4.desc">Verlaag verbruik en verhoog comfort met slimme aansturing</p>
+                </div>
+                <!-- Duplicates for seamless scroll -->
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="4" y="20" width="40" height="20" rx="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M14 20 L14 12 C14 8, 18 4, 24 4 C30 4, 34 8, 34 12 L34 20" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="16" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="32" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="20" y1="30" x2="28" y2="30" stroke="currentColor" class="asset-stroke" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card1.title">Laadpark</h3>
+                    <p class="asset-desc" data-i18n="assets.card1.desc">Tot 400 euro per jaar per laadpunt besparen met slim laden</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M24 8 L24 16 M24 32 L24 40 M8 24 L16 24 M32 24 L40 24" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M12 12 L17 17 M31 31 L36 36 M36 12 L31 17 M17 31 L12 36" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card2.title">Andere flex assets</h3>
+                    <p class="asset-desc" data-i18n="assets.card2.desc">Van boilers, tot warmtepompen en forklift trucks. Bespaar tot wel 25% van je energiekosten</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="12" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="12" y1="14" x2="36" y2="14" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="12" y1="34" x2="36" y2="34" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><rect x="16" y="18" width="16" height="12" rx="1" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="20" y1="37" x2="28" y2="37" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card3.title">Batterijsysteem</h3>
+                    <p class="asset-desc" data-i18n="assets.card3.desc">Voor de niet flexibele load sturen we een batterij aan</p>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-icon">
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 C24 6, 28 14, 28 22 C28 28, 24 32, 24 32 C24 32, 20 28, 20 22 C20 14, 24 6, 24 6Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="24" y1="32" x2="24" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="18" y1="38" x2="30" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="42" x2="28" y2="42" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M16 24 L12 20 M32 24 L36 20 M16 18 L10 16 M32 18 L38 16" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="asset-title" data-i18n="assets.card4.title">Verlichting</h3>
+                    <p class="asset-desc" data-i18n="assets.card4.desc">Verlaag verbruik en verhoog comfort met slimme aansturing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: SUCCESS -->
+    <section class="success-section" id="success">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title dark" data-i18n="success.title">SUCCES</h2>
+                <p class="section-subtitle dark" data-i18n="success.subtitle">Ontdek hoe we andere bedrijven hebben geholpen</p>
+            </div>
+            <div class="success-cards scroll-reveal">
+                <div class="success-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text" data-i18n="success.quote1">"Sinds SAMBA benutten we 85% van onze eigen zonneopwek. De besparingen zijn indrukwekkend."</p>
+                    <div class="quote-divider"></div>
+                    <div class="quote-footer">
+                        <div class="quote-author">
+                            <strong>Jan de Vries</strong>
+                            <span data-i18n="success.role1">Directeur, GreenBuildings BV</span>
+                        </div>
+                        <div class="savings-badge"><span class="savings-amount">&euro;14.200</span>/jaar</div>
+                    </div>
+                </div>
+                <div class="success-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text" data-i18n="success.quote2">"Het systeem werkt volledig autonoom. Zelfs bij internet uitval blijft alles draaien. Precies wat we zochten."</p>
+                    <div class="quote-divider"></div>
+                    <div class="quote-footer">
+                        <div class="quote-author">
+                            <strong>Lisa Jansen</strong>
+                            <span data-i18n="success.role2">Facility Manager, TechnoFlex Industries</span>
+                        </div>
+                        <div class="savings-badge"><span class="savings-amount">&euro;8.750</span>/jaar</div>
+                    </div>
+                </div>
+                <div class="success-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p class="quote-text" data-i18n="success.quote3">"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."</p>
+                    <div class="quote-divider"></div>
+                    <div class="quote-footer">
+                        <div class="quote-author">
+                            <strong>Peter Bakker</strong>
+                            <span data-i18n="success.role3">CEO, EcoLogistics</span>
+                        </div>
+                        <div class="savings-badge"><span class="savings-amount">&euro;22.400</span>/jaar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: REQUEST -->
+    <section class="request-section" id="request">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title yellow" data-i18n="request.title">VRAAG AAN</h2>
+                <p class="section-subtitle yellow" data-i18n="request.subtitle">Ontdek je besparingspotentieel met SAMBA. Wij analyseren jouw situatie en geven persoonlijk advies. Of plan direct een demo.</p>
+            </div>
+            <form class="request-form scroll-reveal" id="requestForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyName" data-i18n="request.company">Bedrijfsnaam *</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Uw bedrijfsnaam" data-i18n-placeholder="request.placeholder.company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPerson" data-i18n="request.contact">Contactpersoon *</label>
+                        <input type="text" id="contactPerson" name="contactPerson" placeholder="Uw naam" data-i18n-placeholder="request.placeholder.contact" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email" data-i18n="request.email">E-mailadres *</label>
+                        <input type="email" id="email" name="email" placeholder="email@bedrijf.nl" data-i18n-placeholder="request.placeholder.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-i18n="request.phone">Telefoonnummer</label>
+                        <input type="tel" id="phone" name="phone" placeholder="06 12345678" data-i18n-placeholder="request.placeholder.phone">
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label for="situation" data-i18n="request.situation">Uw situatie (optioneel)</label>
+                    <textarea id="situation" name="situation" rows="4" placeholder="Vertel ons over uw huidige energiesituatie, apparaten, of specifieke wensen..." data-i18n-placeholder="request.placeholder.situation"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-submit" data-i18n="request.cta.demo">Demo aanvragen</button>
+                    <button type="submit" class="btn btn-submit" data-i18n="request.cta.analysis">Analyse aanvragen</button>
+                </div>
+                <p class="form-note" data-i18n="request.note">Geheel vrijblijvend bespreken we graag alle mogelijkheden door.</p>
+            </form>
+            <div class="form-success" id="formSuccess" style="display:none;">
+                <div class="success-icon">&#10003;</div>
+                <h3 data-i18n="request.success.title">Bedankt!</h3>
+                <p data-i18n="request.success.text">We hebben je aanvraag ontvangen en nemen binnen 2 werkdagen contact met je op.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <a href="#smart" class="footer-link" data-i18n="footer.smart">SLIM</a>
+                    <a href="#flexible" class="footer-link" data-i18n="footer.flexible">FLEXIBEL</a>
+                    <a href="#assets" class="footer-link" data-i18n="footer.assets">ASSETS</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#success" class="footer-link" data-i18n="footer.success">SUCCES</a>
+                    <a href="#request" class="footer-link" data-i18n="footer.request">AANVRAAG</a>
+                    <a href="#" class="footer-link">STATUS</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#" class="footer-link">LEGAL</a>
+                    <a href="#" class="footer-link">PRIVACY</a>
+                    <a href="#request" class="footer-link" data-i18n="footer.contact">CONTACT</a>
+                </div>
+            </div>
+            <div class="footer-brand">
+                <a href="#hero" class="footer-logo">
+                    <img class="logo-icon-footer" src="Logo SAMBA.svg" alt="SAMBA" width="120" height="120">
+                </a>
+                <p class="footer-slogan">Ritme in je assets,<br>Grip op de zaak</p>
+                <a href="https://www.linkedin.com/company/sambaenergy" class="linkedin-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#FBFBFB"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
