@@ -130,21 +130,19 @@ const translations = {
         'assets.title': 'ASSETS',
         'assets.subtitle': 'Energy & Asset management has never been this affordable and simple',
         'assets.card1.title': 'Charging park',
-        'assets.card1.desc': 'Save up to \u20AC700 per charging point per year by automatically aligning charging moments with dynamic energy prices and solar generation.',
-        'assets.card2.title': 'Boiler tanks',
-        'assets.card2.desc': 'Reduce your hot water energy costs by up to 50% by smartly charging boiler tanks during cheap or green hours.',
-        'assets.card3.title': 'Heat pumps',
-        'assets.card3.desc': 'Save up to 30% on heating costs by automatically scheduling heat pumps at favorable price moments.',
-        'assets.card4.title': 'Chillers',
-        'assets.card4.desc': 'Reduce cooling costs by up to 30% by pre-scheduling cooling capacity during cheap hours.',
-        'assets.card5.title': 'Solar panels',
-        'assets.card5.desc': 'Maximize the use of your own solar generation. SAMBA monitors real-time energy flow and automatically controls assets during solar hours.',
-        'assets.card6.title': 'Battery system',
-        'assets.card6.desc': 'Charge during cheap and green moments, discharge smartly during peak hours. Often 50-70% less battery capacity is needed.',
-        'assets.card7.title': 'Lighting',
-        'assets.card7.desc': 'Reduce energy consumption through automatic control based on presence, schedule and sun position.',
-        'assets.card8.title': 'Other flex assets',
-        'assets.card8.desc': 'From cold storage and air compressors to forklift trucks. SAMBA manages all your energy consumers from one platform.',
+        'assets.card1.desc': 'Save up to \u20AC700 per charging point per year by automatically aligning charging moments with dynamic energy prices and solar generation. SAMBA charges your fleet at the cheapest moment, monitors your grid limit and supports load balancing and bidirectional charging.',
+        'assets.card2.title': 'Solar panels',
+        'assets.card2.desc': 'Maximize the use of your own solar generation. SAMBA monitors real-time energy flow between your solar system, grid connection and assets, and automatically controls assets during solar hours.',
+        'assets.card3.title': 'Battery system',
+        'assets.card3.desc': 'Focus on optimizing your own consumption. SAMBA first controls your flexible assets during cheap and green moments, reducing your required battery capacity by 50\u201370%.',
+        'assets.card4.title': 'Other flex assets',
+        'assets.card4.desc': 'From boiler tanks, heat pumps, cold storage, chillers, air conditioning to forklift charging. SAMBA monitors and controls the energy consumption of all your flexible assets. Save up to 40% on your energy consumption.',
+        'assets.card5.title': 'Ventilation',
+        'assets.card5.desc': 'Save up to 20% on ventilation by planning capacity based on air quality, CO\u2082 levels and occupancy. SAMBA ensures a healthy indoor climate only when needed.',
+        'assets.card6.title': 'Lighting',
+        'assets.card6.desc': 'Reduce lighting-related energy consumption through automatic control based on presence, schedule or outdoor light.',
+        'assets.card7.title': 'Security',
+        'assets.card7.desc': 'Combine asset management with securing your premises. SAMBA can be used in many ways to secure your building.',
         'success.title': 'SUCCESS',
         'success.subtitle': 'Discover how we helped other companies',
         'success.quote1': '"Since using SAMBA we utilize 85% of our own solar generation. The savings are impressive."',
@@ -164,7 +162,7 @@ const translations = {
         'request.cta.analysis': 'Request analysis',
         'request.note': 'Completely without obligation, we are happy to discuss all possibilities.',
         'request.success.title': 'Thank you!',
-        'request.success.text': 'We have received your request and will contact you within 2 business days.',
+        'request.success.text': 'We have received your request and will contact you as soon as possible.',
         'request.placeholder.company': 'Your company name',
         'request.placeholder.contact': 'Your name',
         'request.placeholder.email': 'email@company.com',
@@ -217,21 +215,19 @@ const translations = {
         'assets.title': 'ASSETS',
         'assets.subtitle': 'Energie & Asset management was nog nooit zo goedkoop en simpel',
         'assets.card1.title': 'Laadpark',
-        'assets.card1.desc': 'Bespaar tot \u20AC700 per laadpunt per jaar door laadmomenten automatisch af te stemmen op dynamische energieprijzen en zonne-opwek.',
-        'assets.card2.title': 'Boilervaten',
-        'assets.card2.desc': 'Verlaag je energiekosten op warmwater met tot 50% door boilervaten slim op te laden op goedkope of groene uren.',
-        'assets.card3.title': 'Warmtepompen',
-        'assets.card3.desc': 'Bespaar tot 30% op verwarmingskosten door warmtepompen automatisch te plannen op gunstige prijsmomenten.',
-        'assets.card4.title': 'Chillers',
-        'assets.card4.desc': 'Verlaag koelkosten met tot 30% door koelcapaciteit vooraf in te plannen op goedkope uren.',
-        'assets.card5.title': 'Zonnepanelen',
-        'assets.card5.desc': 'Maximaliseer het gebruik van eigen zonne-opwek. SAMBA monitort realtime de energieflow en stuurt assets automatisch aan op zonne-uren.',
-        'assets.card6.title': 'Batterijsysteem',
-        'assets.card6.desc': 'Laad op goedkope en groene momenten, ontlaad slim tijdens piekuren. Vaak is 50-70% minder batterijcapaciteit nodig.',
-        'assets.card7.title': 'Verlichting',
-        'assets.card7.desc': 'Verlaag energieverbruik door automatische sturing op aanwezigheid, tijdschema en zonstand.',
-        'assets.card8.title': 'Andere flex assets',
-        'assets.card8.desc': 'Van koelcellen en luchtcompressoren tot vorkheftrucks. SAMBA beheert al je energieverbruikers vanuit \u00e9\u00e9n platform.',
+        'assets.card1.desc': 'Bespaar tot wel \u20AC700 per laadpunt per jaar door laadmomenten automatisch af te stemmen op dynamische energieprijzen en zonne-opwek. SAMBA laadt je wagenpark op het goedkoopste moment, bewaakt je netlimiet en ondersteunt loadbalancing en bidirectioneel laden.',
+        'assets.card2.title': 'Zonnepanelen',
+        'assets.card2.desc': 'Maximaliseer het gebruik van eigen zonne-opwek. SAMBA monitort realtime de energieflow tussen je zonnesysteem, netaansluiting en je assets, en stuurt assets automatisch aan op zonne-uren.',
+        'assets.card3.title': 'Batterijsysteem',
+        'assets.card3.desc': 'Focus op het optimaliseren van je eigen verbruik. SAMBA stuurt eerst je flexibele assets aan op goedkope en groene momenten, waardoor je 50\u201370% minder batterijcapaciteit nodig hebt.',
+        'assets.card4.title': 'Andere flex assets',
+        'assets.card4.desc': 'Van boilervaten, warmtepompen, koelcellen, chillers, aircos tot het laden van vorkheftrucks. SAMBA monitort en controleert het energieverbruik van al je flexibele assets. Bespaar daarmee tot wel 40% op je energieverbruik.',
+        'assets.card5.title': 'Ventilatie',
+        'assets.card5.desc': 'Bespaar tot 20% op ventilatie door capaciteit te plannen op basis van luchtkwaliteit, CO\u2082-niveaus en bezetting. SAMBA zorgt voor een gezond binnenklimaat alleen wanneer dat nodig is.',
+        'assets.card6.title': 'Verlichting',
+        'assets.card6.desc': 'Verlaag verlichting-gerelateerd energieverbruik door automatische sturing afgestemd op aanwezigheid, tijdschema of licht buiten.',
+        'assets.card7.title': 'Beveiliging',
+        'assets.card7.desc': 'Combineer asset management samen met het beveiligen van je pand. SAMBA kan op tal van manieren worden gebruikt om je pand te beveiligen.',
         'success.title': 'SUCCES',
         'success.subtitle': 'Ontdek hoe we andere bedrijven hebben geholpen',
         'success.quote1': '"Sinds SAMBA benutten we 85% van onze eigen zonneopwek. De besparingen zijn indrukwekkend."',
@@ -251,7 +247,7 @@ const translations = {
         'request.cta.analysis': 'Analyse aanvragen',
         'request.note': 'Geheel vrijblijvend bespreken we graag alle mogelijkheden door.',
         'request.success.title': 'Bedankt!',
-        'request.success.text': 'We hebben je aanvraag ontvangen en nemen binnen 2 werkdagen contact met je op.',
+        'request.success.text': 'We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.',
         'request.placeholder.company': 'Uw bedrijfsnaam',
         'request.placeholder.contact': 'Uw naam',
         'request.placeholder.email': 'email@bedrijf.nl',
@@ -391,7 +387,7 @@ function initAssetCardHover() {
     const isTouchDevice = () => window.matchMedia('(max-width: 1024px)').matches || 'ontouchstart' in window;
 
     // Ensure we have enough clones for seamless scrolling (3x original set)
-    const cardCount = 8;
+    const cardCount = 7;
     const originals = Array.from(carousel.querySelectorAll('.asset-card')).slice(0, cardCount);
     const allCards = Array.from(carousel.querySelectorAll('.asset-card'));
     allCards.slice(cardCount).forEach(c => c.remove());
@@ -757,25 +753,22 @@ function initContactForm() {
         }
 
         if (valid) {
-            // Build mailto link
-            const company = form.querySelector('#companyName').value;
-            const contact = form.querySelector('#contactPerson').value;
-            const emailVal = form.querySelector('#email').value;
-            const phone = form.querySelector('#phone').value;
-            const situation = form.querySelector('#situation').value;
+            // Send form data via FormSubmit (no mail popup)
             const clickedBtn = e.submitter ? e.submitter.textContent : 'Aanvraag';
-            const subject = encodeURIComponent(clickedBtn + ' - ' + company);
-            const body = encodeURIComponent(
-                'Bedrijfsnaam: ' + company + '\n' +
-                'Contactpersoon: ' + contact + '\n' +
-                'E-mail: ' + emailVal + '\n' +
-                'Telefoon: ' + (phone || '-') + '\n' +
-                'Type: ' + clickedBtn + '\n\n' +
-                'Situatie:\n' + (situation || '-')
-            );
-            window.location.href = 'mailto:leon@smart-homie.nl?subject=' + subject + '&body=' + body;
-            form.style.display = 'none';
-            formSuccess.style.display = 'block';
+            const formData = new FormData(form);
+            formData.append('_subject', clickedBtn + ' - ' + form.querySelector('#companyName').value);
+            formData.append('type', clickedBtn);
+
+            fetch('https://formsubmit.co/ajax/leon@smart-homie.nl', {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+            }).catch(() => {
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+            });
         }
     });
 
@@ -1172,45 +1165,4 @@ function initGlobe() {
     }
 
     render();
-
-    // --- Tooltip on hover ---
-    const tooltip = document.createElement('div');
-    tooltip.className = 'globe-tooltip';
-    canvas.parentElement.appendChild(tooltip);
-
-    function getMouseNode(e) {
-        const rect = canvas.getBoundingClientRect();
-        const scaleX = (canvas.width / dpr) / W;
-        const scaleY = (canvas.height / dpr) / H;
-        const mx = ((e.clientX - rect.left) / rect.width) * (canvas.width / dpr) / scaleX;
-        const my = ((e.clientY - rect.top) / rect.height) * (canvas.height / dpr) / scaleY;
-        const rawNow = performance.now() / 1000 - t0;
-        const now = Math.max(0, rawNow - START_DELAY);
-        for (const n of nodes) {
-            if (now < n.revealT) continue;
-            const dx = mx - n.x;
-            const dy = my - n.y;
-            if (dx * dx + dy * dy < (n.r * 4) * (n.r * 4)) return n;
-        }
-        return null;
-    }
-
-    canvas.addEventListener('mousemove', (e) => {
-        const node = getMouseNode(e);
-        if (node && node.label) {
-            tooltip.textContent = node.label;
-            tooltip.style.opacity = '1';
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = rect.width / W;
-            const scaleY = rect.height / H;
-            tooltip.style.left = (node.x * scaleX) + 'px';
-            tooltip.style.top = (node.y * scaleY - 20) + 'px';
-        } else {
-            tooltip.style.opacity = '0';
-        }
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = '0';
-    });
 }
