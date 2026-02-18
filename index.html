@@ -63,7 +63,7 @@
                     <li><a href="#smart" data-i18n="nav.smart">SLIM</a></li>
                     <li><a href="#flexible" data-i18n="nav.flexible">FLEXIBEL</a></li>
                     <li><a href="#assets" data-i18n="nav.assets">ASSETS</a></li>
-                    <li><a href="#success" data-i18n="nav.success">SUCCES</a></li>
+                    <!-- <li><a href="#success" data-i18n="nav.success">SUCCES</a></li> -->
                 </ul>
                 <button class="lang-toggle" id="langToggle">ENG</button>
             </div>
@@ -103,10 +103,7 @@
     <!-- Section 2: Abbreviation Marquee -->
     <section class="abbreviation" id="abbreviation">
         <div class="marquee">
-            <div class="marquee-content" id="marqueeContent">
-                <span>SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / </span>
-                <span>SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING / </span>
-            </div>
+            <div class="marquee-content" id="marqueeContent"><span>SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / </span><span>SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / SLIMME ASSET MANAGEMENT &amp; BEDRIJFS AUTOMATISERING / </span></div>
         </div>
     </section>
 
@@ -226,68 +223,75 @@
         </div>
         <div class="assets-carousel-wrapper">
             <div class="assets-carousel" id="assetsCarousel">
+                <!-- Card 1: Laadpark -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="4" y="20" width="40" height="20" rx="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M14 20 L14 12 C14 8, 18 4, 24 4 C30 4, 34 8, 34 12 L34 20" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="16" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="32" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="20" y1="30" x2="28" y2="30" stroke="currentColor" class="asset-stroke" stroke-width="2"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M28 6 L20 22 L26 22 L20 38 L32 18 L26 18 Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="40" width="28" height="4" rx="2" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/></svg>
                     </div>
                     <h3 class="asset-title" data-i18n="assets.card1.title">Laadpark</h3>
-                    <p class="asset-desc" data-i18n="assets.card1.desc">Tot 400 euro per jaar per laadpunt besparen met slim laden</p>
+                    <p class="asset-desc" data-i18n="assets.card1.desc">Bespaar tot &euro;700 per laadpunt per jaar door laadmomenten automatisch af te stemmen op dynamische energieprijzen en zonne-opwek.</p>
                 </div>
+                <!-- Card 2: Boilervaten -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M24 8 L24 16 M24 32 L24 40 M8 24 L16 24 M32 24 L40 24" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M12 12 L17 17 M31 31 L36 36 M36 12 L31 17 M17 31 L12 36" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M16 8 L16 36 C16 40, 20 44, 24 44 C28 44, 32 40, 32 36 L32 8" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="16" y1="8" x2="32" y2="8" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M20 28 Q22 24, 24 28 Q26 32, 28 28" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card2.title">Andere flex assets</h3>
-                    <p class="asset-desc" data-i18n="assets.card2.desc">Van boilers, tot warmtepompen en forklift trucks. Bespaar tot wel 25% van je energiekosten</p>
+                    <h3 class="asset-title" data-i18n="assets.card2.title">Boilervaten</h3>
+                    <p class="asset-desc" data-i18n="assets.card2.desc">Verlaag je energiekosten op warmwater met tot 50% door boilervaten slim op te laden op goedkope of groene uren.</p>
                 </div>
+                <!-- Card 3: Warmtepompen -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="12" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="12" y1="14" x2="36" y2="14" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="12" y1="34" x2="36" y2="34" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><rect x="16" y="18" width="16" height="12" rx="1" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="20" y1="37" x2="28" y2="37" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 L24 14 M20 8 L24 14 L28 8" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="14" width="20" height="24" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="24" cy="26" r="6" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><path d="M24 22 L24 30 M20 26 L28 26" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card3.title">Batterijsysteem</h3>
-                    <p class="asset-desc" data-i18n="assets.card3.desc">Voor de niet flexibele load sturen we een batterij aan</p>
+                    <h3 class="asset-title" data-i18n="assets.card3.title">Warmtepompen</h3>
+                    <p class="asset-desc" data-i18n="assets.card3.desc">Bespaar tot 30% op verwarmingskosten door warmtepompen automatisch te plannen op gunstige prijsmomenten.</p>
                 </div>
+                <!-- Card 4: Chillers -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 C24 6, 28 14, 28 22 C28 28, 24 32, 24 32 C24 32, 20 28, 20 22 C20 14, 24 6, 24 6Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="24" y1="32" x2="24" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="18" y1="38" x2="30" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="42" x2="28" y2="42" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M16 24 L12 20 M32 24 L36 20 M16 18 L10 16 M32 18 L38 16" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 8 L24 40 M14 14 L34 34 M34 14 L14 34" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M24 8 L20 12 M24 8 L28 12 M24 40 L20 36 M24 40 L28 36" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card4.title">Verlichting</h3>
-                    <p class="asset-desc" data-i18n="assets.card4.desc">Verlaag verbruik en verhoog comfort met slimme aansturing</p>
+                    <h3 class="asset-title" data-i18n="assets.card4.title">Chillers</h3>
+                    <p class="asset-desc" data-i18n="assets.card4.desc">Verlaag koelkosten met tot 30% door koelcapaciteit vooraf in te plannen op goedkope uren.</p>
                 </div>
-                <!-- Duplicates for seamless scroll -->
+                <!-- Card 5: Zonnepanelen -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="4" y="20" width="40" height="20" rx="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M14 20 L14 12 C14 8, 18 4, 24 4 C30 4, 34 8, 34 12 L34 20" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="16" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="32" cy="30" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="20" y1="30" x2="28" y2="30" stroke="currentColor" class="asset-stroke" stroke-width="2"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="6" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M24 8 L24 14 M24 34 L24 40 M8 24 L14 24 M34 24 L40 24 M13 13 L17 17 M31 31 L35 35 M35 13 L31 17 M17 31 L13 35" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card1.title">Laadpark</h3>
-                    <p class="asset-desc" data-i18n="assets.card1.desc">Tot 400 euro per jaar per laadpunt besparen met slim laden</p>
+                    <h3 class="asset-title" data-i18n="assets.card5.title">Zonnepanelen</h3>
+                    <p class="asset-desc" data-i18n="assets.card5.desc">Maximaliseer het gebruik van eigen zonne-opwek. SAMBA monitort realtime de energieflow en stuurt assets automatisch aan op zonne-uren.</p>
                 </div>
+                <!-- Card 6: Batterijsysteem -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><circle cx="24" cy="24" r="4" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><path d="M24 8 L24 16 M24 32 L24 40 M8 24 L16 24 M32 24 L40 24" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M12 12 L17 17 M31 31 L36 36 M36 12 L31 17 M17 31 L12 36" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="10" y="14" width="24" height="20" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="34" y1="22" x2="38" y2="22" stroke="currentColor" class="asset-stroke" stroke-width="3" stroke-linecap="round"/><line x1="34" y1="26" x2="38" y2="26" stroke="currentColor" class="asset-stroke" stroke-width="3" stroke-linecap="round"/><path d="M18 20 L18 28 M22 20 L22 28 M26 20 L26 28" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card2.title">Andere flex assets</h3>
-                    <p class="asset-desc" data-i18n="assets.card2.desc">Van boilers, tot warmtepompen en forklift trucks. Bespaar tot wel 25% van je energiekosten</p>
+                    <h3 class="asset-title" data-i18n="assets.card6.title">Batterijsysteem</h3>
+                    <p class="asset-desc" data-i18n="assets.card6.desc">Laad op goedkope en groene momenten, ontlaad slim tijdens piekuren. Vaak is 50-70% minder batterijcapaciteit nodig.</p>
                 </div>
+                <!-- Card 7: Verlichting -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="12" y="8" width="24" height="32" rx="3" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="12" y1="14" x2="36" y2="14" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="12" y1="34" x2="36" y2="34" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><rect x="16" y="18" width="16" height="12" rx="1" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="1.5"/><line x1="20" y1="37" x2="28" y2="37" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 C18 6, 14 12, 14 18 C14 24, 18 28, 20 30 L20 34 L28 34 L28 30 C30 28, 34 24, 34 18 C34 12, 30 6, 24 6Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="20" y1="38" x2="28" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="42" x2="27" y2="42" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card3.title">Batterijsysteem</h3>
-                    <p class="asset-desc" data-i18n="assets.card3.desc">Voor de niet flexibele load sturen we een batterij aan</p>
+                    <h3 class="asset-title" data-i18n="assets.card7.title">Verlichting</h3>
+                    <p class="asset-desc" data-i18n="assets.card7.desc">Verlaag energieverbruik door automatische sturing op aanwezigheid, tijdschema en zonstand.</p>
                 </div>
+                <!-- Card 8: Andere flex assets -->
                 <div class="asset-card">
                     <div class="asset-icon">
-                        <svg viewBox="0 0 48 48" width="48" height="48"><path d="M24 6 C24 6, 28 14, 28 22 C28 28, 24 32, 24 32 C24 32, 20 28, 20 22 C20 14, 24 6, 24 6Z" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="24" y1="32" x2="24" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2"/><line x1="18" y1="38" x2="30" y2="38" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><line x1="20" y1="42" x2="28" y2="42" stroke="currentColor" class="asset-stroke" stroke-width="2" stroke-linecap="round"/><path d="M16 24 L12 20 M32 24 L36 20 M16 18 L10 16 M32 18 L38 16" stroke="currentColor" class="asset-stroke" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <svg viewBox="0 0 48 48" width="48" height="48"><rect x="8" y="10" width="32" height="8" rx="2" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><rect x="8" y="20" width="32" height="8" rx="2" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><rect x="8" y="30" width="32" height="8" rx="2" fill="none" stroke="currentColor" class="asset-stroke" stroke-width="2"/><circle cx="34" cy="14" r="2" fill="currentColor" class="asset-stroke"/><circle cx="34" cy="24" r="2" fill="currentColor" class="asset-stroke"/><circle cx="34" cy="34" r="2" fill="currentColor" class="asset-stroke"/></svg>
                     </div>
-                    <h3 class="asset-title" data-i18n="assets.card4.title">Verlichting</h3>
-                    <p class="asset-desc" data-i18n="assets.card4.desc">Verlaag verbruik en verhoog comfort met slimme aansturing</p>
+                    <h3 class="asset-title" data-i18n="assets.card8.title">Andere flex assets</h3>
+                    <p class="asset-desc" data-i18n="assets.card8.desc">Van koelcellen en luchtcompressoren tot vorkheftrucks. SAMBA beheert al je energieverbruikers vanuit &eacute;&eacute;n platform.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 6: SUCCESS -->
+    <!-- Section 6: SUCCESS (temporarily hidden - uncomment to restore)
     <section class="success-section" id="success">
         <div class="container">
             <div class="section-header scroll-reveal">
@@ -334,6 +338,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Section 7: REQUEST -->
     <section class="request-section" id="request">
@@ -391,7 +396,7 @@
                     <a href="#assets" class="footer-link" data-i18n="footer.assets">ASSETS</a>
                 </div>
                 <div class="footer-col">
-                    <a href="#success" class="footer-link" data-i18n="footer.success">SUCCES</a>
+                    <!-- <a href="#success" class="footer-link" data-i18n="footer.success">SUCCES</a> -->
                     <a href="#request" class="footer-link" data-i18n="footer.request">AANVRAAG</a>
                     <a href="#" class="footer-link">STATUS</a>
                 </div>

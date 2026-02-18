@@ -130,13 +130,21 @@ const translations = {
         'assets.title': 'ASSETS',
         'assets.subtitle': 'Energy & Asset management has never been this affordable and simple',
         'assets.card1.title': 'Charging park',
-        'assets.card1.desc': 'Save up to 400 euros per year per charging point with smart charging',
-        'assets.card2.title': 'Other flex assets',
-        'assets.card2.desc': 'From boilers to heat pumps and forklift trucks. Save up to 25% on your energy costs',
-        'assets.card3.title': 'Battery system',
-        'assets.card3.desc': 'For non-flexible loads we control a battery',
-        'assets.card4.title': 'Lighting',
-        'assets.card4.desc': 'Reduce consumption and increase comfort with smart control',
+        'assets.card1.desc': 'Save up to \u20AC700 per charging point per year by automatically aligning charging moments with dynamic energy prices and solar generation.',
+        'assets.card2.title': 'Boiler tanks',
+        'assets.card2.desc': 'Reduce your hot water energy costs by up to 50% by smartly charging boiler tanks during cheap or green hours.',
+        'assets.card3.title': 'Heat pumps',
+        'assets.card3.desc': 'Save up to 30% on heating costs by automatically scheduling heat pumps at favorable price moments.',
+        'assets.card4.title': 'Chillers',
+        'assets.card4.desc': 'Reduce cooling costs by up to 30% by pre-scheduling cooling capacity during cheap hours.',
+        'assets.card5.title': 'Solar panels',
+        'assets.card5.desc': 'Maximize the use of your own solar generation. SAMBA monitors real-time energy flow and automatically controls assets during solar hours.',
+        'assets.card6.title': 'Battery system',
+        'assets.card6.desc': 'Charge during cheap and green moments, discharge smartly during peak hours. Often 50-70% less battery capacity is needed.',
+        'assets.card7.title': 'Lighting',
+        'assets.card7.desc': 'Reduce energy consumption through automatic control based on presence, schedule and sun position.',
+        'assets.card8.title': 'Other flex assets',
+        'assets.card8.desc': 'From cold storage and air compressors to forklift trucks. SAMBA manages all your energy consumers from one platform.',
         'success.title': 'SUCCESS',
         'success.subtitle': 'Discover how we helped other companies',
         'success.quote1': '"Since using SAMBA we utilize 85% of our own solar generation. The savings are impressive."',
@@ -209,13 +217,21 @@ const translations = {
         'assets.title': 'ASSETS',
         'assets.subtitle': 'Energie & Asset management was nog nooit zo goedkoop en simpel',
         'assets.card1.title': 'Laadpark',
-        'assets.card1.desc': 'Tot 400 euro per jaar per laadpunt besparen met slim laden',
-        'assets.card2.title': 'Andere flex assets',
-        'assets.card2.desc': 'Van boilers, tot warmtepompen en forklift trucks. Bespaar tot wel 25% van je energiekosten',
-        'assets.card3.title': 'Batterijsysteem',
-        'assets.card3.desc': 'Voor de niet flexibele load sturen we een batterij aan',
-        'assets.card4.title': 'Verlichting',
-        'assets.card4.desc': 'Verlaag verbruik en verhoog comfort met slimme aansturing',
+        'assets.card1.desc': 'Bespaar tot \u20AC700 per laadpunt per jaar door laadmomenten automatisch af te stemmen op dynamische energieprijzen en zonne-opwek.',
+        'assets.card2.title': 'Boilervaten',
+        'assets.card2.desc': 'Verlaag je energiekosten op warmwater met tot 50% door boilervaten slim op te laden op goedkope of groene uren.',
+        'assets.card3.title': 'Warmtepompen',
+        'assets.card3.desc': 'Bespaar tot 30% op verwarmingskosten door warmtepompen automatisch te plannen op gunstige prijsmomenten.',
+        'assets.card4.title': 'Chillers',
+        'assets.card4.desc': 'Verlaag koelkosten met tot 30% door koelcapaciteit vooraf in te plannen op goedkope uren.',
+        'assets.card5.title': 'Zonnepanelen',
+        'assets.card5.desc': 'Maximaliseer het gebruik van eigen zonne-opwek. SAMBA monitort realtime de energieflow en stuurt assets automatisch aan op zonne-uren.',
+        'assets.card6.title': 'Batterijsysteem',
+        'assets.card6.desc': 'Laad op goedkope en groene momenten, ontlaad slim tijdens piekuren. Vaak is 50-70% minder batterijcapaciteit nodig.',
+        'assets.card7.title': 'Verlichting',
+        'assets.card7.desc': 'Verlaag energieverbruik door automatische sturing op aanwezigheid, tijdschema en zonstand.',
+        'assets.card8.title': 'Andere flex assets',
+        'assets.card8.desc': 'Van koelcellen en luchtcompressoren tot vorkheftrucks. SAMBA beheert al je energieverbruikers vanuit \u00e9\u00e9n platform.',
         'success.title': 'SUCCES',
         'success.subtitle': 'Ontdek hoe we andere bedrijven hebben geholpen',
         'success.quote1': '"Sinds SAMBA benutten we 85% van onze eigen zonneopwek. De besparingen zijn indrukwekkend."',
@@ -286,7 +302,7 @@ function applyTranslations() {
     const marqueeContent = document.getElementById('marqueeContent');
     if (marqueeContent) {
         const text = translations[currentLang]['marquee'];
-        const marqueeText = (text + ' / ').repeat(3);
+        const marqueeText = (text + ' / ').repeat(4);
         const spans = marqueeContent.querySelectorAll('span');
         spans.forEach(span => {
             span.textContent = marqueeText;
@@ -364,30 +380,101 @@ function initSmartCardHover() {
 }
 
 /* ----------------------------------------
-   Asset Card Hover - only expand hovered card
-   Also ensures seamless carousel by re-cloning
+   Asset Card Hover / Tap + Seamless Carousel
+   Desktop: hover to expand, auto-scroll
+   Mobile: tap to toggle, swipe to scroll, no auto-scroll
    ---------------------------------------- */
 function initAssetCardHover() {
     const carousel = document.getElementById('assetsCarousel');
-    if (carousel) {
-        const originals = Array.from(carousel.querySelectorAll('.asset-card')).slice(0, 4);
-        const allCards = Array.from(carousel.querySelectorAll('.asset-card'));
-        allCards.slice(4).forEach(c => c.remove());
+    if (!carousel) return;
+
+    const isTouchDevice = () => window.matchMedia('(max-width: 1024px)').matches || 'ontouchstart' in window;
+
+    // Ensure we have enough clones for seamless scrolling (3x original set)
+    const cardCount = 8;
+    const originals = Array.from(carousel.querySelectorAll('.asset-card')).slice(0, cardCount);
+    const allCards = Array.from(carousel.querySelectorAll('.asset-card'));
+    allCards.slice(cardCount).forEach(c => c.remove());
+    // Clone 3 extra sets for seamless infinite scroll
+    for (let i = 0; i < 3; i++) {
         originals.forEach(card => {
             const clone = card.cloneNode(true);
             carousel.appendChild(clone);
         });
     }
 
-    const cards = document.querySelectorAll('.asset-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.classList.add('expanded');
+    function bindCardInteractions() {
+        const cards = carousel.querySelectorAll('.asset-card');
+        cards.forEach(card => {
+            // Desktop hover
+            card.addEventListener('mouseenter', () => {
+                if (!isTouchDevice()) card.classList.add('expanded');
+            });
+            card.addEventListener('mouseleave', () => {
+                if (!isTouchDevice()) card.classList.remove('expanded');
+            });
+            // Mobile tap to toggle
+            card.addEventListener('click', (e) => {
+                if (!isTouchDevice()) return;
+                e.preventDefault();
+                e.stopPropagation();
+                const wasExpanded = card.classList.contains('expanded');
+                // Close all expanded cards
+                cards.forEach(c => c.classList.remove('expanded'));
+                // Toggle clicked card
+                if (!wasExpanded) {
+                    card.classList.add('expanded');
+                    // Stop carousel animation when card is open
+                    carousel.style.animationPlayState = 'paused';
+                }
+            });
         });
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('expanded');
-        });
+    }
+    bindCardInteractions();
+
+    // --- Touch swipe for mobile/iPad ---
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    let isDragging = false;
+    let startScrollLeft = 0;
+
+    const wrapper = carousel.parentElement;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        if (!isTouchDevice()) return;
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+        carousel.style.animationPlayState = 'paused';
+        // Get current transform position
+        const style = window.getComputedStyle(carousel);
+        const matrix = new DOMMatrix(style.transform);
+        startScrollLeft = matrix.m41;
+        carousel.style.animation = 'none';
+        carousel.style.transform = `translateX(${startScrollLeft}px)`;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+        if (!isDragging || !isTouchDevice()) return;
+        touchCurrentX = e.touches[0].clientX;
+        const diff = touchCurrentX - touchStartX;
+        carousel.style.transform = `translateX(${startScrollLeft + diff}px)`;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+        if (!isDragging || !isTouchDevice()) return;
+        isDragging = false;
+        // Keep the current position, don't restart animation on mobile
     });
+
+    // On desktop, ensure animation runs
+    function checkAnimationState() {
+        if (!isTouchDevice()) {
+            carousel.style.animation = '';
+            carousel.style.transform = '';
+            carousel.style.animationPlayState = '';
+        }
+    }
+    window.addEventListener('resize', checkAnimationState);
 }
 
 /* ----------------------------------------
@@ -605,16 +692,23 @@ function initCharts() {
             charts.forEach(c => {
                 const dom = c.getDom();
                 if (dom && dom.offsetWidth > 0) {
+                    // Force the canvas to match parent width
+                    const parent = dom.parentElement;
+                    if (parent) {
+                        dom.style.width = parent.clientWidth + 'px';
+                        dom.style.height = parent.clientHeight + 'px';
+                    }
                     c.resize();
                 }
             });
-        }, 100);
+        }, 50);
     };
     window.addEventListener('resize', resizeAllCharts);
 
     // Also handle orientation change (mobile/iPad)
     window.addEventListener('orientationchange', () => {
-        setTimeout(resizeAllCharts, 300);
+        setTimeout(resizeAllCharts, 100);
+        setTimeout(resizeAllCharts, 500);
     });
 
     // Use ResizeObserver to catch container size changes
@@ -626,6 +720,11 @@ function initCharts() {
             ro.observe(el);
         });
     }
+
+    // Also resize on visibility change (tab switch, etc.)
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) setTimeout(resizeAllCharts, 100);
+    });
 }
 
 /* ----------------------------------------
@@ -658,6 +757,23 @@ function initContactForm() {
         }
 
         if (valid) {
+            // Build mailto link
+            const company = form.querySelector('#companyName').value;
+            const contact = form.querySelector('#contactPerson').value;
+            const emailVal = form.querySelector('#email').value;
+            const phone = form.querySelector('#phone').value;
+            const situation = form.querySelector('#situation').value;
+            const clickedBtn = e.submitter ? e.submitter.textContent : 'Aanvraag';
+            const subject = encodeURIComponent(clickedBtn + ' - ' + company);
+            const body = encodeURIComponent(
+                'Bedrijfsnaam: ' + company + '\n' +
+                'Contactpersoon: ' + contact + '\n' +
+                'E-mail: ' + emailVal + '\n' +
+                'Telefoon: ' + (phone || '-') + '\n' +
+                'Type: ' + clickedBtn + '\n\n' +
+                'Situatie:\n' + (situation || '-')
+            );
+            window.location.href = 'mailto:leon@smart-homie.nl?subject=' + subject + '&body=' + body;
             form.style.display = 'none';
             formSuccess.style.display = 'block';
         }
@@ -750,15 +866,16 @@ function initGlobe() {
     // --- Nodes ---
     const W = baseW, H = baseH;
     const nodes = [
-        { id: 'solar',    x: W * 0.45, y: 50,  r: 7, col: COL_SOLAR, revealT: 20, baseX: W * 0.45, baseY: 50 },
-        { id: 'grid',     x: 50,       y: 240, r: 7, col: COL_GRID,  revealT: 0,  baseX: 50,       baseY: 240 },
-        { id: 'business', x: W * 0.45, y: 270, r: 9, col: COL_SOLAR, revealT: 0,  baseX: W * 0.45, baseY: 270 },
-        { id: 'battery',  x: 80,       y: 450, r: 6, col: COL_BATT,  revealT: 55, baseX: 80,       baseY: 450 },
-        { id: 'ev',       x: W * 0.70, y: 180, r: 5, col: COL_SOLAR, revealT: 8,  baseX: W * 0.70, baseY: 180 },
-        { id: 'hp',       x: W * 0.85, y: 240, r: 5, col: COL_SOLAR, revealT: 10, baseX: W * 0.85, baseY: 240 },
-        { id: 'boiler',   x: W * 0.78, y: 330, r: 5, col: COL_SOLAR, revealT: 12, baseX: W * 0.78, baseY: 330 },
-        { id: 'light',    x: W * 0.90, y: 380, r: 5, col: COL_SOLAR, revealT: 14, baseX: W * 0.90, baseY: 380 },
-        { id: 'security', x: W * 0.70, y: 420, r: 5, col: COL_SOLAR, revealT: 16, baseX: W * 0.70, baseY: 420 },
+        { id: 'solar',    x: W * 0.45, y: 50,  r: 7, col: COL_SOLAR, revealT: 20, baseX: W * 0.45, baseY: 50,  label: 'Sun' },
+        { id: 'grid',     x: 50,       y: 240, r: 7, col: COL_GRID,  revealT: 0,  baseX: 50,       baseY: 240, label: 'Grid' },
+        { id: 'business', x: W * 0.45, y: 270, r: 9, col: COL_SOLAR, revealT: 0,  baseX: W * 0.45, baseY: 270, label: 'SAMBA' },
+        { id: 'battery',  x: 80,       y: 450, r: 6, col: COL_BATT,  revealT: 55, baseX: 80,       baseY: 450, label: 'Battery' },
+        { id: 'ev',       x: W * 0.70, y: 180, r: 5, col: COL_SOLAR, revealT: 8,  baseX: W * 0.70, baseY: 180, label: 'Charger' },
+        { id: 'hp',       x: W * 0.85, y: 240, r: 5, col: COL_SOLAR, revealT: 10, baseX: W * 0.85, baseY: 240, label: 'Heat Pump' },
+        { id: 'boiler',   x: W * 0.78, y: 310, r: 5, col: COL_SOLAR, revealT: 12, baseX: W * 0.78, baseY: 310, label: 'Boiler' },
+        { id: 'chiller',  x: W * 0.90, y: 370, r: 5, col: COL_SOLAR, revealT: 14, baseX: W * 0.90, baseY: 370, label: 'Chiller' },
+        { id: 'coolcell', x: W * 0.70, y: 420, r: 5, col: COL_SOLAR, revealT: 15, baseX: W * 0.70, baseY: 420, label: 'Coolcell' },
+        { id: 'light',    x: W * 0.85, y: 470, r: 5, col: COL_SOLAR, revealT: 16, baseX: W * 0.85, baseY: 470, label: 'Lightning' },
     ];
 
     function nodeById(id) { return nodes.find(n => n.id === id); }
@@ -774,18 +891,19 @@ function initGlobe() {
         { from: 'business', to: 'ev',       col: COL_GRID,  revealT: 10, curKW: 0, tgtKW: 2.5 },
         { from: 'business', to: 'hp',       col: COL_GRID,  revealT: 12, curKW: 0, tgtKW: 2 },
         { from: 'business', to: 'boiler',   col: COL_GRID,  revealT: 14, curKW: 0, tgtKW: 1.5 },
-        { from: 'business', to: 'light',    col: COL_GRID,  revealT: 16, curKW: 0, tgtKW: 1 },
-        { from: 'business', to: 'security', col: COL_GRID,  revealT: 18, curKW: 0, tgtKW: 0.5 },
+        { from: 'business', to: 'chiller',  col: COL_GRID,  revealT: 15, curKW: 0, tgtKW: 1 },
+        { from: 'business', to: 'coolcell', col: COL_GRID,  revealT: 16, curKW: 0, tgtKW: 0.8 },
+        { from: 'business', to: 'light',    col: COL_GRID,  revealT: 17, curKW: 0, tgtKW: 0.5 },
         { from: 'solar',    to: 'battery',  col: COL_BATT,  revealT: 60, curKW: 0, tgtKW: 0 },
         { from: 'battery',  to: 'business', col: COL_BATT,  revealT: 65, curKW: 0, tgtKW: 0 },
     ];
 
     // --- Mesh lines ---
     const meshPairs = [
-        ['solar', 'grid'], ['solar', 'ev'], ['grid', 'security'],
-        ['battery', 'security'], ['battery', 'boiler'], ['ev', 'hp'],
-        ['hp', 'boiler'], ['light', 'security'], ['ev', 'light'],
-        ['grid', 'boiler'], ['solar', 'light'],
+        ['solar', 'grid'], ['solar', 'ev'], ['grid', 'coolcell'],
+        ['battery', 'coolcell'], ['battery', 'boiler'], ['ev', 'hp'],
+        ['hp', 'boiler'], ['light', 'chiller'], ['ev', 'light'],
+        ['grid', 'boiler'], ['solar', 'light'], ['chiller', 'coolcell'],
     ];
 
     // --- Satellite dots around business hub ---
@@ -869,14 +987,14 @@ function initGlobe() {
         };
 
         // Update asset flow colors and targets (scaled for larger kW)
-        const assetShares = [0.3, 0.25, 0.2, 0.15, 0.1];
-        for (let i = 2; i <= 6; i++) {
+        const assetShares = [0.25, 0.20, 0.18, 0.15, 0.12, 0.10];
+        for (let i = 2; i <= 7; i++) {
             flows[i].col = blendedCol;
             flows[i].tgtKW = totalIn * assetShares[i - 2] * 0.6;
         }
 
-        flows[7].tgtKW = battSolarPower;    // solar -> battery
-        flows[8].tgtKW = battToBizPower;     // battery -> business
+        flows[8].tgtKW = battSolarPower;    // solar -> battery
+        flows[9].tgtKW = battToBizPower;     // battery -> business
     }
 
     // --- Smooth interpolation for flow values ---
@@ -1054,4 +1172,45 @@ function initGlobe() {
     }
 
     render();
+
+    // --- Tooltip on hover ---
+    const tooltip = document.createElement('div');
+    tooltip.className = 'globe-tooltip';
+    canvas.parentElement.appendChild(tooltip);
+
+    function getMouseNode(e) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = (canvas.width / dpr) / W;
+        const scaleY = (canvas.height / dpr) / H;
+        const mx = ((e.clientX - rect.left) / rect.width) * (canvas.width / dpr) / scaleX;
+        const my = ((e.clientY - rect.top) / rect.height) * (canvas.height / dpr) / scaleY;
+        const rawNow = performance.now() / 1000 - t0;
+        const now = Math.max(0, rawNow - START_DELAY);
+        for (const n of nodes) {
+            if (now < n.revealT) continue;
+            const dx = mx - n.x;
+            const dy = my - n.y;
+            if (dx * dx + dy * dy < (n.r * 4) * (n.r * 4)) return n;
+        }
+        return null;
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+        const node = getMouseNode(e);
+        if (node && node.label) {
+            tooltip.textContent = node.label;
+            tooltip.style.opacity = '1';
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = rect.width / W;
+            const scaleY = rect.height / H;
+            tooltip.style.left = (node.x * scaleX) + 'px';
+            tooltip.style.top = (node.y * scaleY - 20) + 'px';
+        } else {
+            tooltip.style.opacity = '0';
+        }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+    });
 }
