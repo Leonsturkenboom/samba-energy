@@ -745,6 +745,27 @@ body {
     color: var(--accent-yellow);
 }
 
+.asset-headline {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #555;
+    line-height: 1.4;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    transition: all 0.4s ease;
+}
+
+.asset-card.expanded .asset-headline {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    color: rgba(251, 251, 251, 0.95);
+}
+
 .asset-desc {
     font-family: var(--font-body);
     font-size: 0.85rem;
@@ -759,7 +780,7 @@ body {
 .asset-card.expanded .asset-desc {
     max-height: 200px;
     opacity: 1;
-    margin-top: 8px;
+    margin-top: 0;
     color: rgba(251, 251, 251, 0.7);
 }
 
