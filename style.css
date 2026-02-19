@@ -198,33 +198,17 @@ body {
     align-items: center;
 }
 
-.hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-.hero-video-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(10, 10, 15, 0.55) 0%, rgba(10, 10, 15, 0.7) 100%);
-    z-index: 0;
-}
-
 .slash-bg {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.15;
+    opacity: 0.4;
     transition: opacity 0.8s ease;
     z-index: 1;
 }
 
 .hero:hover .slash-bg {
-    opacity: 0.3;
+    opacity: 1;
 }
 
 .slash-char {
@@ -725,38 +709,17 @@ body {
     background: var(--white);
     border: none;
     border-radius: 16px;
-    padding: 0;
+    padding: 32px 24px;
     transition: all 0.4s ease;
     cursor: default;
     min-height: 180px;
     vertical-align: top;
-    overflow: hidden;
-}
-
-.asset-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-.asset-card .asset-title,
-.asset-card .asset-headline,
-.asset-card .asset-desc {
-    padding-left: 24px;
-    padding-right: 24px;
-}
-
-.asset-card .asset-title {
-    padding-top: 16px;
 }
 
 .asset-card.expanded {
     min-height: auto;
     background: var(--bg-dark);
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-    padding-bottom: 24px;
 }
 
 .asset-icon {
