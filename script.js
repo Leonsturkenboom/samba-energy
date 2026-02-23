@@ -98,6 +98,7 @@ const translations = {
         'nav.smart': 'Smart',
         'nav.flexible': 'Flexible',
         'nav.assets': 'Assets',
+        'nav.request': 'Request',
         'nav.success': 'Success',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
@@ -136,19 +137,19 @@ const translations = {
         'assets.card2.headline': 'Get more out of every sunny minute.',
         'assets.card2.desc': 'SAMBA automatically controls your assets during solar hours and monitors your grid limit, so your own generation is maximally utilized.',
         'assets.card3.title': 'Other flex assets',
-        'assets.card3.headline': 'Automatic energy savings, tailored to your process rhythm.',
+        'assets.card3.headline': 'Automatic savings, tailored to your process rhythm.',
         'assets.card3.desc': 'From heat pumps, boilers, cold storage to forklifts: SAMBA monitors and controls all your flexible assets based on energy prices, your own solar generation and grid capacity. Save up to 50% on your energy costs.',
         'assets.card4.title': 'Battery',
         'assets.card4.headline': 'Less battery, more return.',
-        'assets.card4.desc': 'Thanks to smart control of your flexible assets, you need 50\u201370% less battery capacity and our control ensures your battery pays back significantly faster.',
-        'assets.card5.title': 'Ventilation',
-        'assets.card5.headline': 'Healthy indoor climate, without waste.',
-        'assets.card5.desc': 'SAMBA controls ventilation based on CO\u2082 levels, air quality and occupancy \u2014 only when truly needed. Save up to 20% on your energy costs.',
+        'assets.card4.desc': 'Thanks to smart control of your flexible assets with SAMBA, you need 50\u201370% less battery capacity. Together with our smart battery control it ensures your battery pays back significantly faster.',
+        'assets.card5.title': 'Back-up power',
+        'assets.card5.headline': 'Guarantee business continuity',
+        'assets.card5.desc': 'Seamlessly switches to your battery system or diesel generator during power outages or grid congestion and prioritises your critical business processes. By intelligently shutting down non-essential assets, you avoid unnecessary costs and costly downtime.',
         'assets.card6.title': 'Lighting',
         'assets.card6.headline': 'Always light where needed, never where not.',
         'assets.card6.desc': 'SAMBA detects presence and automatically adjusts lighting to occupancy and schedules. So the lights are never on unnecessarily.',
         'assets.card7.title': 'Security',
-        'assets.card7.headline': 'Smart asset management and building security in one.',
+        'assets.card7.headline': 'Smart asset & security management in one.',
         'assets.card7.desc': 'SAMBA can be flexibly deployed to secure your premises.',
         'success.title': 'SUCCESS',
         'success.subtitle': 'Discover how we helped other companies',
@@ -159,7 +160,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'REQUEST',
-        'request.subtitle': 'Discover your savings potential with SAMBA. We analyse your situation and provide personal advice. Or book a demo directly.',
+        'request.subtitle': 'Discover your savings potential. We analyse your situation and provide personal advice. Or book a demo to discover our platform and its functionalities in more detail.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -167,7 +168,7 @@ const translations = {
         'request.situation': 'Your situation (optional)',
         'request.cta.demo': 'Book a demo',
         'request.cta.analysis': 'Request analysis',
-        'request.note': 'Completely without obligation, we are happy to discuss all possibilities.',
+        'request.note': 'Completely without obligation, we are happy to discuss all options.',
         'request.success.title': 'Thank you!',
         'request.success.text': 'We have received your request and will contact you as soon as possible.',
         'request.placeholder.company': 'Your company name',
@@ -190,6 +191,7 @@ const translations = {
         'nav.smart': 'SLIM',
         'nav.flexible': 'FLEXIBEL',
         'nav.assets': 'ASSETS',
+        'nav.request': 'AANVRAAG',
         'nav.success': 'SUCCES',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
@@ -233,9 +235,9 @@ const translations = {
         'assets.card4.title': 'Batterij',
         'assets.card4.headline': 'Minder batterij, meer rendement.',
         'assets.card4.desc': 'Dankzij slimme aansturing van je flexibele assets heb je 50\u201370% minder batterijcapaciteit nodig en door onze aansturing verdient je batterij zich aanzienlijk sneller terug.',
-        'assets.card5.title': 'Ventilatie',
-        'assets.card5.headline': 'Gezond binnenklimaat, zonder verspilling.',
-        'assets.card5.desc': 'SAMBA regelt ventilatie op basis van CO\u2082-niveau, luchtkwaliteit en bezetting \u2014 alleen wanneer het echt nodig is. Bespaar hiermee tot wel 20% op je energiekosten.',
+        'assets.card5.title': 'Back-up power',
+        'assets.card5.headline': 'Garandeer bedrijfscontinu\u00EFteit',
+        'assets.card5.desc': 'Schakelt naadloos over naar je batterijsysteem of dieselgenerator bij stroomuitval of netcongestie en prioriteert je kritieke bedrijfsprocessen. Door niet-essenti\u00EBle assets slim af te schakelen, voorkom je onnodige kosten en kostbare stilstand.',
         'assets.card6.title': 'Verlichting',
         'assets.card6.headline': 'Altijd licht waar nodig, nooit waar niet.',
         'assets.card6.desc': 'SAMBA detecteert aanwezigheid en stemt verlichting automatisch af op bezetting en tijdschema\'s. Zo staat de verlichting nooit onnodig aan.',
@@ -379,12 +381,27 @@ function initScrollAnimations() {
    ---------------------------------------- */
 function initSmartCardHover() {
     const cards = document.querySelectorAll('.smart-card');
+    const isTouchDevice = () => window.matchMedia('(max-width: 1024px)').matches || 'ontouchstart' in window;
+
     cards.forEach(card => {
+        // Desktop hover
         card.addEventListener('mouseenter', () => {
-            card.classList.add('expanded');
+            if (!isTouchDevice()) card.classList.add('expanded');
         });
         card.addEventListener('mouseleave', () => {
-            card.classList.remove('expanded');
+            if (!isTouchDevice()) card.classList.remove('expanded');
+        });
+        // Mobile tap to toggle (open/close on same card)
+        card.addEventListener('click', (e) => {
+            if (!isTouchDevice()) return;
+            e.preventDefault();
+            const wasExpanded = card.classList.contains('expanded');
+            // Close all expanded cards
+            cards.forEach(c => c.classList.remove('expanded'));
+            // Toggle clicked card
+            if (!wasExpanded) {
+                card.classList.add('expanded');
+            }
         });
     });
 }
@@ -442,38 +459,78 @@ function initAssetCardHover() {
     }
     bindCardInteractions();
 
-    // --- Touch swipe for mobile/iPad ---
+    // --- Touch swipe for mobile/iPad with momentum ---
     let touchStartX = 0;
     let touchCurrentX = 0;
     let isDragging = false;
     let startScrollLeft = 0;
+    let lastTouchX = 0;
+    let lastTouchTime = 0;
+    let velocityX = 0;
+    let momentumRAF = null;
+    let currentTranslateX = 0;
 
     const wrapper = carousel.parentElement;
 
     wrapper.addEventListener('touchstart', (e) => {
         if (!isTouchDevice()) return;
+        // Cancel any ongoing momentum animation
+        if (momentumRAF) {
+            cancelAnimationFrame(momentumRAF);
+            momentumRAF = null;
+        }
         touchStartX = e.touches[0].clientX;
+        lastTouchX = touchStartX;
+        lastTouchTime = Date.now();
+        velocityX = 0;
         isDragging = true;
         carousel.style.animationPlayState = 'paused';
         // Get current transform position
         const style = window.getComputedStyle(carousel);
         const matrix = new DOMMatrix(style.transform);
         startScrollLeft = matrix.m41;
+        currentTranslateX = startScrollLeft;
         carousel.style.animation = 'none';
+        carousel.style.transition = 'none';
         carousel.style.transform = `translateX(${startScrollLeft}px)`;
     }, { passive: true });
 
     wrapper.addEventListener('touchmove', (e) => {
         if (!isDragging || !isTouchDevice()) return;
         touchCurrentX = e.touches[0].clientX;
+        const now = Date.now();
+        const dt = now - lastTouchTime;
+        if (dt > 0) {
+            velocityX = (touchCurrentX - lastTouchX) / dt * 16; // velocity per frame
+        }
+        lastTouchX = touchCurrentX;
+        lastTouchTime = now;
         const diff = touchCurrentX - touchStartX;
-        carousel.style.transform = `translateX(${startScrollLeft + diff}px)`;
+        currentTranslateX = startScrollLeft + diff;
+        carousel.style.transform = `translateX(${currentTranslateX}px)`;
     }, { passive: true });
 
     wrapper.addEventListener('touchend', () => {
         if (!isDragging || !isTouchDevice()) return;
         isDragging = false;
-        // Keep the current position, don't restart animation on mobile
+        // Apply momentum scrolling
+        const friction = 0.95;
+        const minVelocity = 0.5;
+
+        function momentumStep() {
+            velocityX *= friction;
+            if (Math.abs(velocityX) < minVelocity) {
+                momentumRAF = null;
+                return;
+            }
+            currentTranslateX += velocityX;
+            carousel.style.transform = `translateX(${currentTranslateX}px)`;
+            momentumRAF = requestAnimationFrame(momentumStep);
+        }
+
+        if (Math.abs(velocityX) > minVelocity) {
+            momentumRAF = requestAnimationFrame(momentumStep);
+        }
     });
 
     // On desktop, ensure animation runs
