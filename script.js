@@ -160,7 +160,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'REQUEST',
-        'request.subtitle': 'Discover your savings potential. We analyse your situation and provide personal advice. Or book a demo to discover our platform and its functionalities in more detail.',
+        'request.subtitle': 'Discover your savings potential. We analyse your situation and provide personal advice. Or book a demo directly.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -320,6 +320,9 @@ function applyTranslations() {
             span.textContent = marqueeText;
         });
     }
+
+    // Update chart labels
+    updateChartLanguage();
 }
 
 function initLanguageToggle() {
@@ -571,9 +574,38 @@ function initFlexibleTabs() {
 /* ----------------------------------------
    Charts (ECharts)
    ---------------------------------------- */
+// Chart label translations
+const chartLabels = {
+    nl: { solar: 'Zonne-opwek', consumption: 'Verbruik', gridLimit: 'Netlimiet' },
+    en: { solar: 'Solar generation', consumption: 'Consumption', gridLimit: 'Grid limit' }
+};
+
+// Global chart instances for language updates
+let sambaCharts = [];
+
+function getChartSeriesNames() {
+    return chartLabels[currentLang];
+}
+
+function updateChartLanguage() {
+    const labels = getChartSeriesNames();
+    sambaCharts.forEach(({ chart, type }) => {
+        if (type === 'cost-without') {
+            chart.setOption({ series: [{ name: labels.solar }, { name: labels.consumption }] });
+        } else if (type === 'cost-with') {
+            chart.setOption({ series: [{ name: labels.solar }, { name: labels.consumption }] });
+        } else if (type === 'grid-without') {
+            chart.setOption({ series: [{ name: labels.gridLimit }, { name: labels.consumption }] });
+        } else if (type === 'grid-with') {
+            chart.setOption({ series: [{ name: labels.gridLimit }, { name: labels.consumption }] });
+        }
+    });
+}
+
 function initCharts() {
     const timeLabels = ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
     const gridLabels = ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00', '24:00'];
+    const labels = getChartSeriesNames();
 
     const baseOption = {
         grid: { left: 50, right: 80, top: 20, bottom: 25 },
@@ -601,6 +633,7 @@ function initCharts() {
 
     // Store chart instances for resize
     const charts = [];
+    sambaCharts = [];
 
     // Inline label style helper
     const inlineLabel = (color) => ({
@@ -621,7 +654,7 @@ function initCharts() {
             xAxis: { ...baseOption.xAxis, data: timeLabels },
             series: [
                 {
-                    name: 'Zonne-opwek',
+                    name: labels.solar,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -632,7 +665,7 @@ function initCharts() {
                     endLabel: inlineLabel('#FFD54F')
                 },
                 {
-                    name: 'Verbruik',
+                    name: labels.consumption,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -645,6 +678,7 @@ function initCharts() {
             ]
         });
         charts.push(chart);
+        sambaCharts.push({ chart, type: 'cost-without' });
     }
 
     // Chart: With SAMBA (cost savings)
@@ -657,7 +691,7 @@ function initCharts() {
             xAxis: { ...baseOption.xAxis, data: timeLabels },
             series: [
                 {
-                    name: 'Zonne-opwek',
+                    name: labels.solar,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -668,7 +702,7 @@ function initCharts() {
                     endLabel: inlineLabel('#FFD54F')
                 },
                 {
-                    name: 'Verbruik',
+                    name: labels.consumption,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -681,6 +715,7 @@ function initCharts() {
             ]
         });
         charts.push(chart);
+        sambaCharts.push({ chart, type: 'cost-with' });
     }
 
     // Chart: Grid Limit - Without SAMBA
@@ -692,7 +727,7 @@ function initCharts() {
             xAxis: { ...baseOption.xAxis, data: gridLabels },
             series: [
                 {
-                    name: 'Netlimiet',
+                    name: labels.gridLimit,
                     type: 'line',
                     smooth: false,
                     symbol: 'none',
@@ -702,7 +737,7 @@ function initCharts() {
                     endLabel: inlineLabel('#E53935')
                 },
                 {
-                    name: 'Verbruik',
+                    name: labels.consumption,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -715,6 +750,7 @@ function initCharts() {
             ]
         });
         charts.push(chart);
+        sambaCharts.push({ chart, type: 'grid-without' });
     }
 
     // Chart: Grid Limit - With SAMBA
@@ -726,7 +762,7 @@ function initCharts() {
             xAxis: { ...baseOption.xAxis, data: gridLabels },
             series: [
                 {
-                    name: 'Netlimiet',
+                    name: labels.gridLimit,
                     type: 'line',
                     smooth: false,
                     symbol: 'none',
@@ -736,7 +772,7 @@ function initCharts() {
                     endLabel: inlineLabel('#E53935')
                 },
                 {
-                    name: 'Verbruik',
+                    name: labels.consumption,
                     type: 'line',
                     smooth: true,
                     symbol: 'none',
@@ -749,6 +785,7 @@ function initCharts() {
             ]
         });
         charts.push(chart);
+        sambaCharts.push({ chart, type: 'grid-with' });
     }
 
     // Unified resize handler - debounced for performance
