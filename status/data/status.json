@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T08:37:32.744Z",
+  "generated_at": "2026-02-24T08:40:00.769Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 132,
+      "response_time_ms": 109,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -25,6 +25,10 @@
         {
           "time": "2026-02-24 08:37:32",
           "ms": 132
+        },
+        {
+          "time": "2026-02-24 08:40:00",
+          "ms": 109
         }
       ]
     },
@@ -33,7 +37,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 105,
+      "response_time_ms": 106,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -51,6 +55,10 @@
         {
           "time": "2026-02-24 08:37:32",
           "ms": 105
+        },
+        {
+          "time": "2026-02-24 08:40:00",
+          "ms": 106
         }
       ]
     },
@@ -59,7 +67,7 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 119,
+      "response_time_ms": 131,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -77,6 +85,10 @@
         {
           "time": "2026-02-24 08:37:32",
           "ms": 119
+        },
+        {
+          "time": "2026-02-24 08:40:00",
+          "ms": 131
         }
       ]
     },
@@ -85,7 +97,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 125,
+      "response_time_ms": 123,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -103,6 +115,10 @@
         {
           "time": "2026-02-24 08:37:32",
           "ms": 125
+        },
+        {
+          "time": "2026-02-24 08:40:00",
+          "ms": 123
         }
       ]
     },
@@ -111,7 +127,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 120,
+      "response_time_ms": 114,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -129,6 +145,10 @@
         {
           "time": "2026-02-24 08:37:32",
           "ms": 120
+        },
+        {
+          "time": "2026-02-24 08:40:00",
+          "ms": 114
         }
       ]
     }
