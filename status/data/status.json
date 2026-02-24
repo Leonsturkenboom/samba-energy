@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T07:58:04.985Z",
+  "generated_at": "2026-02-24T08:00:01.003Z",
   "overall_status": "degraded",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "WZ123-1",
       "group": "Home Assistant",
       "status": "operational",
-      "response_time_ms": 253,
+      "response_time_ms": 266,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -25,6 +25,10 @@
         {
           "time": "2026-02-24 07:58:04",
           "ms": 253
+        },
+        {
+          "time": "2026-02-24 08:00:01",
+          "ms": 266
         }
       ]
     },
@@ -50,6 +54,10 @@
         },
         {
           "time": "2026-02-24 07:58:04",
+          "ms": 0
+        },
+        {
+          "time": "2026-02-24 08:00:00",
           "ms": 0
         }
       ]
@@ -77,6 +85,10 @@
         {
           "time": "2026-02-24 07:58:04",
           "ms": 0
+        },
+        {
+          "time": "2026-02-24 08:00:00",
+          "ms": 0
         }
       ]
     },
@@ -85,7 +97,7 @@
       "name": "samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 251,
+      "response_time_ms": 82,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -103,6 +115,10 @@
         {
           "time": "2026-02-24 07:58:04",
           "ms": 251
+        },
+        {
+          "time": "2026-02-24 08:00:00",
+          "ms": 82
         }
       ]
     }
