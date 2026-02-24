@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T08:05:00.717Z",
+  "generated_at": "2026-02-24T08:10:01.034Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "WZ123-1",
       "group": "Home Assistant",
       "status": "operational",
-      "response_time_ms": 83,
+      "response_time_ms": 264,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -41,6 +41,10 @@
         {
           "time": "2026-02-24 08:05:00",
           "ms": 83
+        },
+        {
+          "time": "2026-02-24 08:10:00",
+          "ms": 264
         }
       ]
     },
@@ -49,14 +53,14 @@
       "name": "WZ123-1",
       "group": "Pricing Forecast API",
       "status": "operational",
-      "response_time_ms": 80,
+      "response_time_ms": 99,
       "error": null,
-      "uptime_90d": 50,
+      "uptime_90d": 57.1,
       "history": [
         {
           "date": "2026-02-24",
           "status": "degraded",
-          "uptime_pct": 50
+          "uptime_pct": 57.1
         }
       ],
       "response_times_24h": [
@@ -83,6 +87,10 @@
         {
           "time": "2026-02-24 08:05:00",
           "ms": 80
+        },
+        {
+          "time": "2026-02-24 08:10:00",
+          "ms": 99
         }
       ]
     },
@@ -91,14 +99,14 @@
       "name": "WZ123-1",
       "group": "Energy Use API",
       "status": "operational",
-      "response_time_ms": 98,
+      "response_time_ms": 145,
       "error": null,
-      "uptime_90d": 50,
+      "uptime_90d": 57.1,
       "history": [
         {
           "date": "2026-02-24",
           "status": "degraded",
-          "uptime_pct": 50
+          "uptime_pct": 57.1
         }
       ],
       "response_times_24h": [
@@ -125,6 +133,10 @@
         {
           "time": "2026-02-24 08:05:00",
           "ms": 98
+        },
+        {
+          "time": "2026-02-24 08:10:00",
+          "ms": 145
         }
       ]
     },
@@ -133,7 +145,7 @@
       "name": "samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 215,
+      "response_time_ms": 428,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -167,6 +179,10 @@
         {
           "time": "2026-02-24 08:05:00",
           "ms": 215
+        },
+        {
+          "time": "2026-02-24 08:10:01",
+          "ms": 428
         }
       ]
     }
