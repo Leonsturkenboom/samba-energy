@@ -817,29 +817,28 @@ body {
     background: var(--white);
     border: none;
     border-radius: 16px;
-    padding: 24px 24px;
+    padding: 32px 24px;
     transition: all 0.4s ease;
     cursor: default;
-    height: 250px;
+    min-height: 180px;
     vertical-align: top;
     position: relative;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
 .asset-card.expanded {
-    height: auto;
-    min-height: 250px;
     background: var(--bg-dark);
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Asset card image: positioned right, sized by height only, no object-fit */
+/* Asset card image: absolute right-bottom, sized per card */
 .asset-card-img {
     position: absolute;
-    opacity: 0.85;
+    right: 0;
+    bottom: 0;
+    height: 140px;
+    width: auto;
+    opacity: 0.9;
     pointer-events: none;
     z-index: 1;
 }
@@ -848,51 +847,21 @@ body {
     opacity: 0.7;
 }
 
-/* Per-card image sizing (7n+ for carousel clones)
-   Card=390x250. Calculated: height→auto width via aspect ratio.
-   Negative right pushes past edge for flush/cut effect. */
-/* Card 1: Laadpark (411x585 portrait 0.70:1) w=123px visible~93px=24% */
-.asset-card:nth-child(7n+1) .asset-card-img {
-    height: 70%;
-    right: -30px;
-    top: 12%;
-}
-/* Card 2: Zonnepanelen (284x324 portrait 0.88:1) w=165px visible~95px=24% */
-.asset-card:nth-child(7n+2) .asset-card-img {
-    height: 75%;
-    right: -70px;
-    top: 10%;
-}
-/* Card 3: Flex assets (560x420 landscape 1.33:1) w=177px visible~137px=35% */
-.asset-card:nth-child(7n+3) .asset-card-img {
-    height: 53%;
-    right: -40px;
-    top: 22%;
-}
-/* Card 4: Batterij (800x740 square 1.08:1) w=158px visible~98px=25% */
-.asset-card:nth-child(7n+4) .asset-card-img {
-    height: 58%;
-    right: -60px;
-    top: 12%;
-}
-/* Card 5: Back-up power (500x351 landscape 1.42:1) w=178px visible~138px=35% */
-.asset-card:nth-child(7n+5) .asset-card-img {
-    height: 50%;
-    right: -40px;
-    top: 18%;
-}
-/* Card 6: Verlichting (512x512 square 1:1) w=125px visible~85px=22% */
-.asset-card:nth-child(7n+6) .asset-card-img {
-    height: 50%;
-    right: -40px;
-    top: 10%;
-}
-/* Card 7: Beveiliging (370x350 square 1.06:1) w=119px visible~89px=23% */
-.asset-card:nth-child(7n+7) .asset-card-img {
-    height: 45%;
-    right: -30px;
-    top: 10%;
-}
+/* Per-card image sizing (7n+ for carousel clones) */
+/* Card 1: Laadpark - portrait van */
+.asset-card:nth-child(7n+1) .asset-card-img { height: 150px; }
+/* Card 2: Zonnepanelen - portrait panel */
+.asset-card:nth-child(7n+2) .asset-card-img { height: 160px; }
+/* Card 3: Flex assets - landscape HVAC */
+.asset-card:nth-child(7n+3) .asset-card-img { height: 120px; }
+/* Card 4: Batterij - square */
+.asset-card:nth-child(7n+4) .asset-card-img { height: 140px; }
+/* Card 5: Back-up power - landscape generator */
+.asset-card:nth-child(7n+5) .asset-card-img { height: 130px; }
+/* Card 6: Verlichting - square bulb */
+.asset-card:nth-child(7n+6) .asset-card-img { height: 120px; }
+/* Card 7: Beveiliging - square camera */
+.asset-card:nth-child(7n+7) .asset-card-img { height: 110px; }
 
 /* Ensure text content sits above image */
 .asset-card .asset-icon,
