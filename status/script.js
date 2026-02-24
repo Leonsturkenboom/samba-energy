@@ -6,22 +6,35 @@
 (function () {
   'use strict';
 
-  const DATA_URL = 'data/status.json';
+  const DATA_URL = '/status/data/status.json';
   const REFRESH_INTERVAL = 60000; // 60 seconds
 
-  const STATUS_LABELS = {
-    operational: 'Operational',
-    degraded: 'Degraded',
-    down: 'Down',
-    unknown: 'Unknown',
+  const lang = document.documentElement.lang || 'nl';
+
+  const I18N = {
+    en: {
+      STATUS_LABELS: { operational: 'Operational', degraded: 'Degraded', down: 'Down', unknown: 'Unknown' },
+      OVERALL_MESSAGES: { operational: 'All systems operational', degraded: 'Some systems experiencing issues', down: 'Major outage detected', unknown: 'Checking services...' },
+      lastUpdated: 'Last updated',
+      days90: '90 days ago',
+      today: 'Today',
+      responseTime: 'Response time',
+      uptime: 'uptime',
+    },
+    nl: {
+      STATUS_LABELS: { operational: 'Operationeel', degraded: 'Verstoord', down: 'Uitgevallen', unknown: 'Onbekend' },
+      OVERALL_MESSAGES: { operational: 'Alle systemen operationeel', degraded: 'Sommige systemen ondervinden problemen', down: 'Grote storing gedetecteerd', unknown: 'Services controleren...' },
+      lastUpdated: 'Laatst bijgewerkt',
+      days90: '90 dagen geleden',
+      today: 'Vandaag',
+      responseTime: 'Responstijd',
+      uptime: 'uptime',
+    },
   };
 
-  const OVERALL_MESSAGES = {
-    operational: 'All systems operational',
-    degraded: 'Some systems experiencing issues',
-    down: 'Major outage detected',
-    unknown: 'Checking services...',
-  };
+  const t = I18N[lang] || I18N.nl;
+  const STATUS_LABELS = t.STATUS_LABELS;
+  const OVERALL_MESSAGES = t.OVERALL_MESSAGES;
 
   // ── Fetch data ──────────────────────────────────
 
@@ -53,7 +66,7 @@
     // Last updated
     const updated = new Date(data.generated_at);
     document.getElementById('lastUpdated').textContent =
-      'Last updated: ' + updated.toLocaleString('nl-NL', {
+      t.lastUpdated + ': ' + updated.toLocaleString(lang === 'en' ? 'en-GB' : 'nl-NL', {
         day: 'numeric', month: 'short', year: 'numeric',
         hour: '2-digit', minute: '2-digit',
       });
@@ -143,7 +156,7 @@
     var html = '<div class="timeline">' + bars + '</div>';
     html += '<div class="timeline-labels">';
     html += '<span class="timeline-label">' + formatDate(ninetyAgo.toISOString().split('T')[0]) + '</span>';
-    html += '<span class="timeline-label">Today</span>';
+    html += '<span class="timeline-label">' + t.today + '</span>';
     html += '</div>';
 
     return html;
@@ -164,7 +177,7 @@
 
     var html = '<div class="response-time-section">';
     html += '<div class="response-time-header">';
-    html += '<span class="response-time-label">Response time (24h)</span>';
+    html += '<span class="response-time-label">' + t.responseTime + ' (24h)</span>';
     html += '<span class="response-time-value">' + currentMs + '</span>';
     html += '</div>';
     html += '<div class="sparkline">' + bars + '</div>';

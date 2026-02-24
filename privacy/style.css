@@ -79,6 +79,29 @@ body {
     text-transform: uppercase;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.lang-toggle {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--bg);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.lang-toggle:hover {
+    opacity: 0.8;
+}
+
 /* ========================================
    Privacy Content
    ======================================== */

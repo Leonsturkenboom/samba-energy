@@ -858,19 +858,19 @@ body {
 
 /* Per-card image sizing, top offset, and right bleed (7n+ for carousel clones) */
 /* Card 1: Laadpark (busje) */
-.asset-card:nth-child(7n+1) .asset-card-img { height: 128px; right: -12px; top: 70px; }
+.asset-card:nth-child(7n+1) .asset-card-img { height: 128px; right: -12px; top: 55px; }
 /* Card 2: Zonnepanelen (paneel) */
-.asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; top: 40px; }
+.asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; top: 30px; }
 /* Card 3: Flex assets (unit) */
-.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -10px; top: 50px; }
+.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -10px; top: 20px; }
 /* Card 4: Batterij */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 160px; right: -4px; top: 40px; }
+.asset-card:nth-child(7n+4) .asset-card-img { height: 160px; right: -4px; top: 15px; }
 /* Card 5: Back-up */
-.asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 70px; }
+.asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 10px; }
 /* Card 6: Verlichting (lampje) */
-.asset-card:nth-child(7n+6) .asset-card-img { height: 144px; right: -6px; top: 100px; }
-/* Card 7: Beveiliging (camera) */
-.asset-card:nth-child(7n+7) .asset-card-img { height: 136px; right: -6px; top: 40px; }
+.asset-card:nth-child(7n+6) .asset-card-img { height: 144px; right: -6px; top: 55px; }
+/* Card 7: Beveiliging (camera) — 80% of 136px = 109px */
+.asset-card:nth-child(7n+7) .asset-card-img { height: 109px; right: -6px; top: 5px; }
 
 /* Ensure text content sits above image */
 .asset-card .asset-icon,
@@ -1164,7 +1164,7 @@ body {
 }
 
 .form-checkbox {
-    margin: 4px 0;
+    margin: 12px 0;
 }
 
 .checkbox-label {
