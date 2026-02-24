@@ -848,48 +848,50 @@ body {
     opacity: 0.7;
 }
 
-/* Per-card image sizing (7n+ for carousel clones) */
-/* Card 1: Laadpark (411x585 portrait) - van, cut at right */
+/* Per-card image sizing (7n+ for carousel clones)
+   Card=390x250. Calculated: height→auto width via aspect ratio.
+   Negative right pushes past edge for flush/cut effect. */
+/* Card 1: Laadpark (411x585 portrait 0.70:1) w=123px visible~93px=24% */
 .asset-card:nth-child(7n+1) .asset-card-img {
     height: 70%;
-    right: -20px;
-    top: 15%;
-}
-/* Card 2: Zonnepanelen (284x324 portrait) - tall narrow panel */
-.asset-card:nth-child(7n+2) .asset-card-img {
-    height: 80%;
     right: -30px;
-    top: 10%;
-}
-/* Card 3: Flex assets (560x420 landscape) - wide HVAC, lower */
-.asset-card:nth-child(7n+3) .asset-card-img {
-    height: 65%;
-    right: -15px;
-    top: 18%;
-}
-/* Card 4: Batterij (800x740 square-ish) - smaller, right */
-.asset-card:nth-child(7n+4) .asset-card-img {
-    height: 75%;
-    right: -25px;
-    top: 10%;
-}
-/* Card 5: Back-up power (500x351 landscape) - generator */
-.asset-card:nth-child(7n+5) .asset-card-img {
-    height: 70%;
-    right: -10px;
     top: 12%;
 }
-/* Card 6: Verlichting (512x512 square) - light bulb, upper */
-.asset-card:nth-child(7n+6) .asset-card-img {
-    height: 55%;
-    right: -10px;
-    top: 8%;
+/* Card 2: Zonnepanelen (284x324 portrait 0.88:1) w=165px visible~95px=24% */
+.asset-card:nth-child(7n+2) .asset-card-img {
+    height: 75%;
+    right: -70px;
+    top: 10%;
 }
-/* Card 7: Beveiliging (370x350 square) - camera, upper-right */
-.asset-card:nth-child(7n+7) .asset-card-img {
+/* Card 3: Flex assets (560x420 landscape 1.33:1) w=177px visible~137px=35% */
+.asset-card:nth-child(7n+3) .asset-card-img {
+    height: 53%;
+    right: -40px;
+    top: 22%;
+}
+/* Card 4: Batterij (800x740 square 1.08:1) w=158px visible~98px=25% */
+.asset-card:nth-child(7n+4) .asset-card-img {
+    height: 58%;
+    right: -60px;
+    top: 12%;
+}
+/* Card 5: Back-up power (500x351 landscape 1.42:1) w=178px visible~138px=35% */
+.asset-card:nth-child(7n+5) .asset-card-img {
     height: 50%;
-    right: -10px;
-    top: 8%;
+    right: -40px;
+    top: 18%;
+}
+/* Card 6: Verlichting (512x512 square 1:1) w=125px visible~85px=22% */
+.asset-card:nth-child(7n+6) .asset-card-img {
+    height: 50%;
+    right: -40px;
+    top: 10%;
+}
+/* Card 7: Beveiliging (370x350 square 1.06:1) w=119px visible~89px=23% */
+.asset-card:nth-child(7n+7) .asset-card-img {
+    height: 45%;
+    right: -30px;
+    top: 10%;
 }
 
 /* Ensure text content sits above image */
