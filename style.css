@@ -764,7 +764,7 @@ body {
 .assets-section {
     background: var(--blue-accent);
     padding: 80px 0;
-    overflow: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -778,8 +778,6 @@ body {
 }
 
 .assets-carousel-wrapper {
-    overflow-x: hidden;
-    overflow-y: visible;
     width: 100%;
     padding: 0 0 20px;
 }
@@ -819,6 +817,7 @@ body {
     border: none;
     border-radius: 16px;
     padding: 32px 24px;
+    padding-top: 125px;
     transition: all 0.4s ease;
     cursor: default;
     height: 250px;
@@ -827,7 +826,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .asset-card.expanded {
@@ -841,7 +840,7 @@ body {
 .asset-card-img {
     position: absolute;
     top: 0;
-    height: 200px;
+    height: 160px;
     width: auto;
     opacity: 0.9;
     pointer-events: none;
@@ -853,20 +852,21 @@ body {
 }
 
 /* Per-card image sizing + right offset for bleed (7n+ for carousel clones) */
-/* Card 1: Laadpark (330x302, wide) */
-.asset-card:nth-child(7n+1) .asset-card-img { height: 160px; right: -15px; }
-/* Card 2: Zonnepanelen (130x299, tall/thin) */
-.asset-card:nth-child(7n+2) .asset-card-img { height: 190px; right: -8px; }
-/* Card 3: Flex assets (287x332, squarish) */
-.asset-card:nth-child(7n+3) .asset-card-img { height: 160px; right: -12px; }
-/* Card 4: Batterij (139x593, very tall/thin) */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 200px; right: -5px; }
-/* Card 5: Back-up (309x331, wide) */
-.asset-card:nth-child(7n+5) .asset-card-img { height: 160px; right: -15px; }
-/* Card 6: Verlichting (260x512, tall) */
-.asset-card:nth-child(7n+6) .asset-card-img { height: 180px; right: -8px; }
-/* Card 7: Beveiliging (191x350, medium) */
-.asset-card:nth-child(7n+7) .asset-card-img { height: 170px; right: -8px; }
+/* All sizes at 80% of previous values */
+/* Card 1: Laadpark */
+.asset-card:nth-child(7n+1) .asset-card-img { height: 128px; right: -12px; }
+/* Card 2: Zonnepanelen */
+.asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; }
+/* Card 3: Flex assets */
+.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -10px; }
+/* Card 4: Batterij */
+.asset-card:nth-child(7n+4) .asset-card-img { height: 160px; right: -4px; }
+/* Card 5: Back-up */
+.asset-card:nth-child(7n+5) .asset-card-img { height: 128px; right: -12px; }
+/* Card 6: Verlichting */
+.asset-card:nth-child(7n+6) .asset-card-img { height: 144px; right: -6px; }
+/* Card 7: Beveiliging */
+.asset-card:nth-child(7n+7) .asset-card-img { height: 136px; right: -6px; }
 
 /* Ensure text content sits above image */
 .asset-card .asset-icon,
