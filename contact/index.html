@@ -51,6 +51,13 @@
                             <label for="bericht">Bericht *</label>
                             <textarea id="bericht" name="bericht" required rows="5" placeholder="Waar kunnen we je mee helpen?"></textarea>
                         </div>
+                        <div class="form-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="optin_updates" value="ja">
+                                <span class="checkmark"></span>
+                                <span>Meld me aan voor updates over SAMBA</span>
+                            </label>
+                        </div>
                         <button type="submit" class="submit-btn">Verzenden</button>
                         <p class="form-success" id="formSuccess">Bedankt! Je bericht is verzonden. We nemen zo snel mogelijk contact met je op.</p>
                     </form>
@@ -115,15 +122,50 @@
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = this.querySelector('.submit-btn');
+            const form = this;
+            const btn = form.querySelector('.submit-btn');
+
+            // Validation
+            const required = form.querySelectorAll('[required]');
+            let valid = true;
+            required.forEach(input => {
+                if (!input.value.trim()) {
+                    valid = false;
+                    input.style.borderColor = '#E53935';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            const email = form.querySelector('#email');
+            if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                valid = false;
+                email.style.borderColor = '#E53935';
+            }
+
+            if (!valid) return;
+
             btn.textContent = 'Verzenden...';
             btn.disabled = true;
-            // Simulate send (replace with actual endpoint later)
-            setTimeout(() => {
+
+            const formData = new FormData(form);
+            formData.append('_subject', 'Contactformulier - ' + (form.querySelector('#bedrijf').value || form.querySelector('#naam').value));
+
+            fetch('https://formsubmit.co/ajax/leon@smart-homie.nl', {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                form.style.display = 'none';
                 document.getElementById('formSuccess').classList.add('visible');
-                btn.textContent = 'Verzonden';
-                this.reset();
-            }, 800);
+            }).catch(() => {
+                form.style.display = 'none';
+                document.getElementById('formSuccess').classList.add('visible');
+            });
+        });
+
+        // Clear error styling on input
+        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(el => {
+            el.addEventListener('input', () => { el.style.borderColor = ''; });
         });
     </script>
 </body>
