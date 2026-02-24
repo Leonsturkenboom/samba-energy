@@ -817,13 +817,16 @@ body {
     background: var(--white);
     border: none;
     border-radius: 16px;
-    padding: 32px 24px;
+    padding: 24px 24px;
     transition: all 0.4s ease;
     cursor: default;
     height: 250px;
     vertical-align: top;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .asset-card.expanded {
@@ -833,23 +836,24 @@ body {
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Asset card image: right side, vertically centered, flush cut at edge */
+/* Asset card image: right side, flush against edge, large */
 .asset-card-img {
     position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 80%;
-    max-width: 45%;
-    object-fit: contain;
-    object-position: right center;
-    opacity: 0.9;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: left center;
+    opacity: 0.85;
     pointer-events: none;
     z-index: 1;
+    border-radius: 0 16px 16px 0;
 }
 
 .asset-card.expanded .asset-card-img {
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 /* Ensure text content sits above image */
@@ -950,12 +954,10 @@ body {
     color: var(--bg-dark);
     margin-bottom: 4px;
     transition: color 0.4s ease;
-    max-width: 55%;
 }
 
 .asset-card.expanded .asset-title {
     color: var(--accent-yellow);
-    max-width: 55%;
 }
 
 .asset-headline {
@@ -965,13 +967,13 @@ body {
     color: #777;
     line-height: 1.3;
     margin-top: 2px;
-    max-width: 50%;
+    max-width: 60%;
     transition: all 0.4s ease;
 }
 
 .asset-card.expanded .asset-headline {
     color: rgba(251, 251, 251, 0.85);
-    max-width: 50%;
+    max-width: 60%;
 }
 
 .asset-desc {
@@ -990,7 +992,7 @@ body {
     opacity: 1;
     margin-top: 0;
     color: rgba(251, 251, 251, 0.7);
-    max-width: 55%;
+    max-width: 70%;
 }
 
 /* ========================================
@@ -1484,12 +1486,12 @@ body {
 
     .asset-card {
         width: 280px;
-        height: 220px;
+        height: 200px;
     }
 
     .asset-card-img {
-        height: 70%;
-        max-width: 42%;
+        height: 100%;
+        max-width: none;
     }
 
     .success-cards {
