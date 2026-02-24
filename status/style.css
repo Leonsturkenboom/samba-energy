@@ -81,7 +81,8 @@ body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 3px;
-    color: var(--text-muted);
+    color: var(--white);
+    font-weight: 500;
 }
 
 /* ========================================
@@ -364,24 +365,82 @@ body {
 }
 
 /* ========================================
-   Footer
+   Footer (matching samba.energy)
    ======================================== */
 
-.status-footer {
-    border-top: 1px solid #333;
-    padding: 24px 0;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.footer {
+    background: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 60px 0;
 }
 
-.status-footer a {
+.footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-links-grid {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-link {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
     color: var(--accent);
+}
+
+.footer-brand {
+    text-align: right;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
     text-decoration: none;
 }
 
-.status-footer a:hover {
-    text-decoration: underline;
+.logo-icon-footer {
+    width: 120px;
+    height: auto;
+}
+
+.footer-slogan {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.linkedin-icon {
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.linkedin-icon:hover {
+    opacity: 0.7;
 }
 
 /* ========================================
@@ -395,4 +454,8 @@ body {
     .service-meta { width: 100%; justify-content: space-between; }
     .timeline { height: 24px; }
     .nav-label { display: none; }
+    .footer-inner { flex-direction: column; gap: 40px; }
+    .footer-links-grid { gap: 40px; }
+    .footer-brand { text-align: left; }
+    .footer-logo { justify-content: flex-start; }
 }

@@ -65,18 +65,12 @@
       groups[svc.group].push(svc);
     });
 
-    // Render groups
-    var html = '';
-    Object.keys(groups).forEach(function (groupName) {
-      html += '<div class="service-group">';
-      html += '<h2 class="group-title">' + escapeHtml(groupName) + '</h2>';
-
-      groups[groupName].forEach(function (svc) {
-        html += renderService(svc);
-      });
-
-      html += '</div>';
+    // Render all services as a flat list (no group titles)
+    var html = '<div class="service-group">';
+    data.services.forEach(function (svc) {
+      html += renderService(svc);
     });
+    html += '</div>';
 
     document.getElementById('serviceGroups').innerHTML = html;
   }
