@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T10:10:01.013Z",
+  "generated_at": "2026-02-24T10:15:00.447Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 98,
+      "response_time_ms": 105,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -105,6 +105,10 @@
         {
           "time": "2026-02-24 10:10:00",
           "ms": 98
+        },
+        {
+          "time": "2026-02-24 10:15:00",
+          "ms": 105
         }
       ]
     },
@@ -113,7 +117,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 113,
+      "response_time_ms": 345,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -211,6 +215,10 @@
         {
           "time": "2026-02-24 10:10:00",
           "ms": 113
+        },
+        {
+          "time": "2026-02-24 10:15:00",
+          "ms": 345
         }
       ]
     },
@@ -219,7 +227,7 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 112,
+      "response_time_ms": 347,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -317,6 +325,10 @@
         {
           "time": "2026-02-24 10:10:01",
           "ms": 112
+        },
+        {
+          "time": "2026-02-24 10:15:00",
+          "ms": 347
         }
       ]
     },
@@ -325,7 +337,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 115,
+      "response_time_ms": 367,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -423,6 +435,10 @@
         {
           "time": "2026-02-24 10:10:00",
           "ms": 115
+        },
+        {
+          "time": "2026-02-24 10:15:00",
+          "ms": 367
         }
       ]
     },
@@ -431,7 +447,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 128,
+      "response_time_ms": 349,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -529,6 +545,10 @@
         {
           "time": "2026-02-24 10:10:01",
           "ms": 128
+        },
+        {
+          "time": "2026-02-24 10:15:00",
+          "ms": 349
         }
       ]
     }
