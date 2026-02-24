@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T08:20:01.385Z",
+  "generated_at": "2026-02-24T08:25:00.163Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "WZ123-1",
       "group": "Home Assistant",
       "status": "operational",
-      "response_time_ms": 102,
+      "response_time_ms": 95,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -53,6 +53,10 @@
         {
           "time": "2026-02-24 08:20:00",
           "ms": 102
+        },
+        {
+          "time": "2026-02-24 08:25:00",
+          "ms": 95
         }
       ]
     },
@@ -61,14 +65,14 @@
       "name": "WZ123-1",
       "group": "Pricing Forecast API",
       "status": "operational",
-      "response_time_ms": 100,
+      "response_time_ms": 102,
       "error": null,
-      "uptime_90d": 66.7,
+      "uptime_90d": 70,
       "history": [
         {
           "date": "2026-02-24",
           "status": "degraded",
-          "uptime_pct": 66.7
+          "uptime_pct": 70
         }
       ],
       "response_times_24h": [
@@ -107,6 +111,10 @@
         {
           "time": "2026-02-24 08:20:00",
           "ms": 100
+        },
+        {
+          "time": "2026-02-24 08:25:00",
+          "ms": 102
         }
       ]
     },
@@ -115,14 +123,14 @@
       "name": "WZ123-1",
       "group": "Energy Use API",
       "status": "operational",
-      "response_time_ms": 118,
+      "response_time_ms": 106,
       "error": null,
-      "uptime_90d": 66.7,
+      "uptime_90d": 70,
       "history": [
         {
           "date": "2026-02-24",
           "status": "degraded",
-          "uptime_pct": 66.7
+          "uptime_pct": 70
         }
       ],
       "response_times_24h": [
@@ -161,6 +169,10 @@
         {
           "time": "2026-02-24 08:20:01",
           "ms": 118
+        },
+        {
+          "time": "2026-02-24 08:25:00",
+          "ms": 106
         }
       ]
     },
@@ -169,7 +181,7 @@
       "name": "samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 492,
+      "response_time_ms": 95,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -215,6 +227,10 @@
         {
           "time": "2026-02-24 08:20:01",
           "ms": 492
+        },
+        {
+          "time": "2026-02-24 08:25:00",
+          "ms": 95
         }
       ]
     }
