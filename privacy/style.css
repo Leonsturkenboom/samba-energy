@@ -1,0 +1,306 @@
+/* ========================================
+   SAMBA Privacy Page
+   Design tokens from samba.energy
+   ======================================== */
+
+:root {
+    --accent: #EEFF41;
+    --bg: #212121;
+    --bg-card: #2a2a2a;
+    --white: #FBFBFB;
+    --text-muted: #9e9e9e;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { font-size: 16px; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--white);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+
+.status-nav {
+    border-bottom: 1px solid #333;
+    padding: 16px 0;
+}
+
+.nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.nav-title {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.nav-label {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   Privacy Content
+   ======================================== */
+
+.privacy-main {
+    flex: 1;
+    padding: 48px 0 80px;
+}
+
+.privacy-header {
+    margin-bottom: 40px;
+}
+
+.privacy-header h1 {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.privacy-meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.privacy-intro {
+    background: var(--bg-card);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.privacy-intro p {
+    margin-bottom: 12px;
+}
+
+.privacy-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-section {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #333;
+}
+
+.privacy-section:last-of-type {
+    border-bottom: none;
+}
+
+.privacy-section h2 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.privacy-section h3 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.privacy-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(251, 251, 251, 0.85);
+    margin-bottom: 12px;
+}
+
+.privacy-section ul {
+    margin: 12px 0;
+    padding-left: 24px;
+}
+
+.privacy-section li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(251, 251, 251, 0.85);
+    margin-bottom: 8px;
+}
+
+.privacy-section a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.privacy-section a:hover {
+    opacity: 0.8;
+}
+
+.privacy-intro a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.privacy-address {
+    font-style: normal;
+    background: var(--bg-card);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.privacy-footer-note {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+}
+
+.privacy-footer-note p {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+    background: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 60px 0;
+}
+
+.footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-links-grid {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-link {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent);
+}
+
+.footer-brand {
+    text-align: right;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.logo-icon-footer {
+    width: auto;
+    height: 60px;
+    object-fit: contain;
+}
+
+.footer-slogan {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.linkedin-icon {
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.linkedin-icon:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+    .privacy-main { padding: 32px 0 60px; }
+    .privacy-header h1 { font-size: 1.5rem; }
+    .privacy-intro { padding: 20px 24px; }
+    .nav-label { display: none; }
+    .footer-inner { flex-direction: column; gap: 40px; }
+    .footer-links-grid { gap: 40px; }
+    .footer-brand { text-align: left; }
+    .footer-logo { justify-content: flex-start; }
+}
