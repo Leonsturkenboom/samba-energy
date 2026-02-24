@@ -518,51 +518,104 @@ body {
     overflow: visible;
 }
 
-.smart-card-icon svg .icon-animate-up,
-.smart-card-icon svg .icon-animate-pulse,
-.smart-card-icon svg .icon-animate-draw,
-.smart-card-icon svg .icon-animate-shield {
+.smart-card-icon svg * {
     transform-box: fill-box;
     transform-origin: center;
-    transition: transform 0.4s ease;
 }
 
-.smart-card.expanded .smart-card-icon .icon-animate-up {
-    animation: iconMoveUp 2s ease-out forwards;
+/* --- Card 1: Kosten besparen --- */
+/* Chart line snakes to upper-right, grey trail stays, then returns */
+.smart-card:nth-child(1).expanded .smart-card-icon .icon-animate-up {
+    animation: arrowSnake 2.5s ease-in-out;
+}
+.smart-card:nth-child(1).expanded .smart-card-icon .icon-yellow {
+    animation: arrowHeadSnake 2.5s ease-in-out;
+}
+.smart-card:nth-child(1).expanded .smart-card-icon text {
+    animation: euroRotate 2.5s ease-in-out 0.3s;
 }
 
-.smart-card.expanded .smart-card-icon .icon-animate-pulse {
-    animation: iconPulse 2s ease-in-out infinite;
+@keyframes arrowSnake {
+    0% { transform: translate(0, 0); }
+    15% { transform: translate(2px, -2px) skewX(-2deg); }
+    35% { transform: translate(6px, -5px) skewX(2deg); }
+    55% { transform: translate(8px, -7px); }
+    100% { transform: translate(0, 0); }
+}
+@keyframes arrowHeadSnake {
+    0% { transform: translate(0, 0); }
+    35% { transform: translate(5px, -5px); }
+    55% { transform: translate(7px, -6px); }
+    100% { transform: translate(0, 0); }
+}
+@keyframes euroRotate {
+    0% { transform: rotate(0deg); }
+    40% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
 }
 
-.smart-card.expanded .smart-card-icon .icon-animate-draw {
-    animation: iconDraw 2s ease-out forwards;
+/* --- Card 2: AI forecasting --- */
+/* Yellow dashed line: dashes slide along path to upper-right */
+.smart-card:nth-child(2).expanded .smart-card-icon .icon-yellow.icon-animate-up {
+    animation: dashSlide 2s ease-in-out;
+}
+.smart-card:nth-child(2).expanded .smart-card-icon .icon-yellow-fill {
+    animation: dotPulse 2s ease-in-out;
 }
 
-.smart-card.expanded .smart-card-icon .icon-animate-shield {
-    animation: iconShield 1.5s ease-out forwards;
+@keyframes dashSlide {
+    0% { stroke-dashoffset: 0; transform: translate(0, 0); }
+    50% { stroke-dashoffset: -24; transform: translate(4px, -5px); }
+    100% { stroke-dashoffset: 0; transform: translate(0, 0); }
+}
+@keyframes dotPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
 }
 
-@keyframes iconMoveUp {
+/* --- Card 3: Simpel --- */
+/* Grey elements disappear left-to-right, then reappear */
+.smart-card:nth-child(3).expanded .smart-card-icon .icon-grey,
+.smart-card:nth-child(3).expanded .smart-card-icon .icon-grey-fill {
+    animation: greyWipe 2s ease-in-out;
+}
+.smart-card:nth-child(3).expanded .smart-card-icon .icon-animate-pulse {
+    animation: greyWipe 2s ease-in-out !important;
+}
+
+@keyframes greyWipe {
+    0% { opacity: 1; transform: translateX(0); }
+    25% { opacity: 0; transform: translateX(8px); }
+    50% { opacity: 0; transform: translateX(-8px); }
+    75% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Card 4: Veilig --- */
+/* Lock shackle clicks from open to closed, then back */
+.smart-card:nth-child(4).expanded .smart-card-icon .icon-lock-shackle {
+    animation: lockClose 2s ease-in-out;
+}
+.smart-card:nth-child(4).expanded .smart-card-icon .icon-animate-shield {
+    animation: shieldPulse 2s ease-in-out;
+}
+
+@keyframes lockClose {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(-4px); }
+    30% { transform: translateY(3.5px); }
+    70% { transform: translateY(3.5px); }
+    100% { transform: translateY(0); }
+}
+@keyframes shieldPulse {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.04); }
+    100% { transform: scale(1); }
 }
 
+/* Generic keyframes used by asset cards */
 @keyframes iconPulse {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.15); opacity: 0.8; }
-}
-
-@keyframes iconDraw {
-    0% { stroke-dashoffset: 200; }
-    100% { stroke-dashoffset: 0; }
-}
-
-@keyframes iconShield {
-    0% { transform: scale(0.95); }
-    50% { transform: scale(1.06); }
-    100% { transform: scale(1); }
 }
 
 .smart-card-title {
@@ -803,24 +856,23 @@ body {
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Asset card image (right-aligned, half-cut) */
+/* Asset card image (right-aligned, flush cut against edge) */
 .asset-card-img {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
-    height: 60%;
-    max-width: 42%;
+    right: 0;
+    bottom: 0;
+    height: 75%;
+    max-width: 48%;
     object-fit: contain;
     object-position: right bottom;
-    opacity: 0.85;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
     pointer-events: none;
     z-index: 1;
 }
 
 .asset-card.expanded .asset-card-img {
-    opacity: 0.12;
-    transform: scale(1.05);
+    opacity: 0.7;
 }
 
 /* Ensure text content sits above image */
@@ -915,9 +967,9 @@ body {
 }
 
 .asset-title {
-    font-family: var(--font-body);
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--bg-dark);
     margin-bottom: 4px;
     transition: color 0.4s ease;
@@ -1458,8 +1510,8 @@ body {
     }
 
     .asset-card-img {
-        height: 55%;
-        max-width: 40%;
+        height: 65%;
+        max-width: 45%;
     }
 
     .success-cards {
