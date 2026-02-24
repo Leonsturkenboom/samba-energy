@@ -480,40 +480,13 @@ body {
     color: rgba(251, 251, 251, 0.7);
 }
 
+/* Smart card icons: black when closed, grey+yellow on expand */
 .smart-card-icon {
     margin-bottom: 20px;
+    color: var(--bg-dark);
     transition: color 0.4s ease;
 }
 
-.smart-card-icon svg .icon-grey {
-    stroke: #666;
-    transition: stroke 0.4s ease;
-}
-
-.smart-card-icon svg .icon-grey-fill {
-    fill: #666;
-    transition: fill 0.4s ease;
-}
-
-.smart-card-icon svg .icon-yellow {
-    stroke: var(--accent-yellow);
-    transition: stroke 0.4s ease;
-}
-
-.smart-card-icon svg .icon-yellow-fill {
-    fill: var(--accent-yellow);
-    transition: fill 0.4s ease;
-}
-
-.smart-card.expanded .smart-card-icon svg .icon-grey {
-    stroke: var(--accent-yellow);
-}
-
-.smart-card.expanded .smart-card-icon svg .icon-grey-fill {
-    fill: var(--accent-yellow);
-}
-
-/* Icon animations on expand */
 .smart-card-icon svg {
     overflow: visible;
 }
@@ -521,17 +494,40 @@ body {
 .smart-card-icon svg * {
     transform-box: fill-box;
     transform-origin: center;
+    transition: stroke 0.4s ease, fill 0.4s ease;
+}
+
+/* Expanded: base color becomes yellow (via currentColor) */
+.smart-card.expanded .smart-card-icon {
+    color: var(--accent-yellow);
+}
+
+/* Grey elements override on expand */
+.smart-card.expanded .smart-card-icon .smart-grey {
+    stroke: #999;
+}
+.smart-card.expanded .smart-card-icon .smart-grey-fill {
+    fill: #999;
+}
+
+/* Grey trail: hidden when closed, appears on expand */
+.smart-trail {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.smart-card.expanded .smart-trail {
+    opacity: 1;
 }
 
 /* --- Card 1: Kosten besparen --- */
-/* Chart line snakes to upper-right, grey trail stays, then returns */
-.smart-card:nth-child(1).expanded .smart-card-icon .icon-animate-up {
+/* Arrow snakes to upper-right (grey trail stays), euro rotates */
+.smart-card:nth-child(1).expanded .smart-arrow {
     animation: arrowSnake 2.5s ease-in-out;
 }
-.smart-card:nth-child(1).expanded .smart-card-icon .icon-yellow {
+.smart-card:nth-child(1).expanded .smart-arrow-head {
     animation: arrowHeadSnake 2.5s ease-in-out;
 }
-.smart-card:nth-child(1).expanded .smart-card-icon text {
+.smart-card:nth-child(1).expanded text {
     animation: euroRotate 2.5s ease-in-out 0.3s;
 }
 
@@ -555,12 +551,9 @@ body {
 }
 
 /* --- Card 2: AI forecasting --- */
-/* Yellow dashed line: dashes slide along path to upper-right */
-.smart-card:nth-child(2).expanded .smart-card-icon .icon-yellow.icon-animate-up {
+/* Yellow dashed line slides to upper-right */
+.smart-card:nth-child(2).expanded .smart-dash {
     animation: dashSlide 2s ease-in-out;
-}
-.smart-card:nth-child(2).expanded .smart-card-icon .icon-yellow-fill {
-    animation: dotPulse 2s ease-in-out;
 }
 
 @keyframes dashSlide {
@@ -568,19 +561,11 @@ body {
     50% { stroke-dashoffset: -24; transform: translate(4px, -5px); }
     100% { stroke-dashoffset: 0; transform: translate(0, 0); }
 }
-@keyframes dotPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-}
 
 /* --- Card 3: Simpel --- */
-/* Grey elements disappear left-to-right, then reappear */
-.smart-card:nth-child(3).expanded .smart-card-icon .icon-grey,
-.smart-card:nth-child(3).expanded .smart-card-icon .icon-grey-fill {
+/* Only grey content boxes inside disappear/reappear left-to-right */
+.smart-card:nth-child(3).expanded .smart-content {
     animation: greyWipe 2s ease-in-out;
-}
-.smart-card:nth-child(3).expanded .smart-card-icon .icon-animate-pulse {
-    animation: greyWipe 2s ease-in-out !important;
 }
 
 @keyframes greyWipe {
@@ -592,24 +577,16 @@ body {
 }
 
 /* --- Card 4: Veilig --- */
-/* Lock shackle clicks from open to closed, then back */
-.smart-card:nth-child(4).expanded .smart-card-icon .icon-lock-shackle {
-    animation: lockClose 2s ease-in-out;
-}
-.smart-card:nth-child(4).expanded .smart-card-icon .icon-animate-shield {
-    animation: shieldPulse 2s ease-in-out;
+/* Lock shackle lifts up and tilts open, then returns */
+.smart-card:nth-child(4).expanded .smart-shackle {
+    animation: lockOpen 2s ease-in-out;
 }
 
-@keyframes lockClose {
-    0% { transform: translateY(0); }
-    30% { transform: translateY(3.5px); }
-    70% { transform: translateY(3.5px); }
-    100% { transform: translateY(0); }
-}
-@keyframes shieldPulse {
-    0% { transform: scale(1); }
-    30% { transform: scale(1.04); }
-    100% { transform: scale(1); }
+@keyframes lockOpen {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-20deg); }
+    65% { transform: translateY(-5px) rotate(-20deg); }
+    100% { transform: translateY(0) rotate(0deg); }
 }
 
 /* Generic keyframes used by asset cards */
