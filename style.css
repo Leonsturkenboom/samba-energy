@@ -820,23 +820,28 @@ body {
     padding: 32px 24px;
     transition: all 0.4s ease;
     cursor: default;
-    min-height: 180px;
+    height: 250px;
     vertical-align: top;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .asset-card.expanded {
+    height: auto;
+    min-height: 250px;
     background: var(--bg-dark);
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Asset card image: absolute right-bottom, sized per card */
+/* Asset card image: top-right, flush against edge (PNGs are cropped) */
 .asset-card-img {
     position: absolute;
     right: 0;
-    bottom: 0;
-    height: 140px;
+    top: 0;
+    height: 160px;
     width: auto;
     opacity: 0.9;
     pointer-events: none;
@@ -848,20 +853,20 @@ body {
 }
 
 /* Per-card image sizing (7n+ for carousel clones) */
-/* Card 1: Laadpark - portrait van */
-.asset-card:nth-child(7n+1) .asset-card-img { height: 150px; }
-/* Card 2: Zonnepanelen - portrait panel */
-.asset-card:nth-child(7n+2) .asset-card-img { height: 160px; }
-/* Card 3: Flex assets - landscape HVAC */
-.asset-card:nth-child(7n+3) .asset-card-img { height: 120px; }
-/* Card 4: Batterij - square */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 140px; }
-/* Card 5: Back-up power - landscape generator */
-.asset-card:nth-child(7n+5) .asset-card-img { height: 130px; }
-/* Card 6: Verlichting - square bulb */
-.asset-card:nth-child(7n+6) .asset-card-img { height: 120px; }
-/* Card 7: Beveiliging - square camera */
-.asset-card:nth-child(7n+7) .asset-card-img { height: 110px; }
+/* Card 1: Laadpark (327x299) → 160px h = 175px w = 45% */
+.asset-card:nth-child(7n+1) .asset-card-img { height: 160px; }
+/* Card 2: Zonnepanelen (164x308) → 200px h = 107px w = 27% */
+.asset-card:nth-child(7n+2) .asset-card-img { height: 200px; }
+/* Card 3: Flex assets (288x349) → 160px h = 132px w = 34% */
+.asset-card:nth-child(7n+3) .asset-card-img { height: 160px; }
+/* Card 4: Batterij (134x589) → 200px h = 45px w = 12% */
+.asset-card:nth-child(7n+4) .asset-card-img { height: 200px; }
+/* Card 5: Back-up (305x324) → 170px h = 160px w = 41% */
+.asset-card:nth-child(7n+5) .asset-card-img { height: 170px; }
+/* Card 6: Verlichting (164x512) → 180px h = 58px w = 15% */
+.asset-card:nth-child(7n+6) .asset-card-img { height: 180px; }
+/* Card 7: Beveiliging (233x350) → 160px h = 107px w = 27% */
+.asset-card:nth-child(7n+7) .asset-card-img { height: 160px; }
 
 /* Ensure text content sits above image */
 .asset-card .asset-icon,
@@ -1494,6 +1499,11 @@ body {
     .asset-card {
         width: 280px;
         height: 200px;
+    }
+
+    .asset-card.expanded {
+        height: auto;
+        min-height: 200px;
     }
 
     .success-cards {
