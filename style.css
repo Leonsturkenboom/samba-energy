@@ -836,24 +836,64 @@ body {
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Asset card image: right side, flush against edge, large */
+/* Asset card image: base styles */
 .asset-card-img {
     position: absolute;
     right: 0;
-    top: 0;
-    height: 100%;
     width: auto;
-    max-width: none;
-    object-fit: cover;
-    object-position: left center;
+    object-fit: contain;
+    object-position: right center;
     opacity: 0.85;
     pointer-events: none;
     z-index: 1;
-    border-radius: 0 16px 16px 0;
 }
 
 .asset-card.expanded .asset-card-img {
     opacity: 0.7;
+}
+
+/* Per-card image sizing (7n+ pattern for carousel clones) */
+/* Card 1: Laadpark - van, medium-wide */
+.asset-card:nth-child(7n+1) .asset-card-img {
+    height: 65%;
+    max-width: 45%;
+    top: 15%;
+}
+/* Card 2: Zonnepanelen - tall narrow solar panel */
+.asset-card:nth-child(7n+2) .asset-card-img {
+    height: 90%;
+    max-width: 30%;
+    top: 5%;
+}
+/* Card 3: Flex assets - wide HVAC unit */
+.asset-card:nth-child(7n+3) .asset-card-img {
+    height: 70%;
+    max-width: 50%;
+    top: 15%;
+}
+/* Card 4: Batterij - tall narrow */
+.asset-card:nth-child(7n+4) .asset-card-img {
+    height: 85%;
+    max-width: 28%;
+    top: 8%;
+}
+/* Card 5: Back-up power - tall generator */
+.asset-card:nth-child(7n+5) .asset-card-img {
+    height: 85%;
+    max-width: 40%;
+    top: 8%;
+}
+/* Card 6: Verlichting - light bulb */
+.asset-card:nth-child(7n+6) .asset-card-img {
+    height: 65%;
+    max-width: 35%;
+    top: 5%;
+}
+/* Card 7: Beveiliging - security camera */
+.asset-card:nth-child(7n+7) .asset-card-img {
+    height: 60%;
+    max-width: 38%;
+    top: 5%;
 }
 
 /* Ensure text content sits above image */
@@ -1487,11 +1527,6 @@ body {
     .asset-card {
         width: 280px;
         height: 200px;
-    }
-
-    .asset-card-img {
-        height: 100%;
-        max-width: none;
     }
 
     .success-cards {
