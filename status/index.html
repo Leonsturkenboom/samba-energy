@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMBA | System Status</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon-white.svg">
+    <meta name="description" content="SAMBA Energy system status - Real-time monitoring of all services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="status-nav">
+        <div class="nav-inner">
+            <a href="https://samba.energy" class="nav-brand">
+                <img src="../Logo SAMBA.svg" alt="SAMBA" width="32" height="32">
+                <span class="nav-title">SAMBA</span>
+            </a>
+            <span class="nav-label">SYSTEM STATUS</span>
+        </div>
+    </nav>
+
+    <main class="status-main">
+        <div class="container">
+            <header class="status-header" id="statusHeader">
+                <div class="status-indicator" id="overallIndicator">
+                    <div class="pulse-dot"></div>
+                    <span class="status-text" id="overallText">Checking services...</span>
+                </div>
+                <p class="status-updated" id="lastUpdated"></p>
+            </header>
+
+            <div id="serviceGroups"></div>
+        </div>
+    </main>
+
+    <footer class="status-footer">
+        <div class="container">
+            <p>Powered by <a href="https://samba.energy">SAMBA Energy</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

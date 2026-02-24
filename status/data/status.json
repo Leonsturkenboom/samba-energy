@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-02-24T07:56:53.398Z",
+  "overall_status": "degraded",
+  "services": [
+    {
+      "id": "ha_wz123-1",
+      "name": "WZ123-1",
+      "group": "Home Assistant",
+      "status": "operational",
+      "response_time_ms": 139,
+      "error": null,
+      "uptime_90d": 100,
+      "history": [
+        {
+          "date": "2026-02-24",
+          "status": "operational",
+          "uptime_pct": 100
+        }
+      ],
+      "response_times_24h": [
+        {
+          "time": "2026-02-24 07:56:52",
+          "ms": 139
+        }
+      ]
+    },
+    {
+      "id": "pricing_wz123-1",
+      "name": "WZ123-1",
+      "group": "Pricing Forecast API",
+      "status": "degraded",
+      "response_time_ms": 0,
+      "error": "No HA token configured",
+      "uptime_90d": 0,
+      "history": [
+        {
+          "date": "2026-02-24",
+          "status": "degraded",
+          "uptime_pct": 0
+        }
+      ],
+      "response_times_24h": [
+        {
+          "time": "2026-02-24 07:56:52",
+          "ms": 0
+        }
+      ]
+    },
+    {
+      "id": "energy_wz123-1",
+      "name": "WZ123-1",
+      "group": "Energy Use API",
+      "status": "degraded",
+      "response_time_ms": 0,
+      "error": "No HA token configured",
+      "uptime_90d": 0,
+      "history": [
+        {
+          "date": "2026-02-24",
+          "status": "degraded",
+          "uptime_pct": 0
+        }
+      ],
+      "response_times_24h": [
+        {
+          "time": "2026-02-24 07:56:52",
+          "ms": 0
+        }
+      ]
+    },
+    {
+      "id": "website",
+      "name": "samba.energy",
+      "group": "Website",
+      "status": "operational",
+      "response_time_ms": 428,
+      "error": null,
+      "uptime_90d": 100,
+      "history": [
+        {
+          "date": "2026-02-24",
+          "status": "operational",
+          "uptime_pct": 100
+        }
+      ],
+      "response_times_24h": [
+        {
+          "time": "2026-02-24 07:56:53",
+          "ms": 428
+        }
+      ]
+    }
+  ]
+}
