@@ -828,8 +828,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    will-change: transform;
-    isolation: isolate;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .asset-card.expanded {
