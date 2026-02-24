@@ -843,31 +843,35 @@ body {
     top: 0;
     height: 160px;
     width: auto;
+    max-width: none;
+    display: block;
     opacity: 0.9;
     pointer-events: none;
     z-index: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .asset-card.expanded .asset-card-img {
     opacity: 0.7;
 }
 
-/* Per-card image sizing + right offset for bleed (7n+ for carousel clones) */
-/* All sizes at 80% of previous values */
-/* Card 1: Laadpark */
-.asset-card:nth-child(7n+1) .asset-card-img { height: 128px; right: -12px; }
-/* Card 2: Zonnepanelen */
-.asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; }
-/* Card 3: Flex assets */
-.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -10px; }
+/* Per-card image sizing, top offset, and right bleed (7n+ for carousel clones) */
+/* Card 1: Laadpark (busje) */
+.asset-card:nth-child(7n+1) .asset-card-img { height: 128px; right: -12px; top: 35px; }
+/* Card 2: Zonnepanelen (paneel) */
+.asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; top: 40px; }
+/* Card 3: Flex assets (unit) */
+.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -10px; top: 25px; }
 /* Card 4: Batterij */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 160px; right: -4px; }
-/* Card 5: Back-up */
-.asset-card:nth-child(7n+5) .asset-card-img { height: 128px; right: -12px; }
-/* Card 6: Verlichting */
-.asset-card:nth-child(7n+6) .asset-card-img { height: 144px; right: -6px; }
+.asset-card:nth-child(7n+4) .asset-card-img { height: 160px; right: -4px; top: 30px; }
+/* Card 5: Back-up (85% of 128px = 109px) */
+.asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 35px; }
+/* Card 6: Verlichting (lampje) */
+.asset-card:nth-child(7n+6) .asset-card-img { height: 144px; right: -6px; top: 50px; }
 /* Card 7: Beveiliging */
-.asset-card:nth-child(7n+7) .asset-card-img { height: 136px; right: -6px; }
+/* Card 7: Beveiliging (camera) */
+.asset-card:nth-child(7n+7) .asset-card-img { height: 136px; right: -6px; top: 20px; }
 
 /* Ensure text content sits above image */
 .asset-card .asset-icon,
