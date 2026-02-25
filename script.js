@@ -980,7 +980,7 @@ function initContactForm() {
             formData.append('_subject', clickedBtn + ' - ' + form.querySelector('#companyName').value);
             formData.append('type', clickedBtn);
 
-            fetch('https://formsubmit.co/ajax/leon@smart-homie.nl', {
+            fetch('https://formsubmit.co/ajax/leon@samba.energy', {
                 method: 'POST',
                 body: formData
             }).then(() => {

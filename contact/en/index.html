@@ -151,7 +151,7 @@
             const formData = new FormData(form);
             formData.append('_subject', 'Contact form - ' + (form.querySelector('#bedrijf').value || form.querySelector('#naam').value));
 
-            fetch('https://formsubmit.co/ajax/leon@smart-homie.nl', {
+            fetch('https://formsubmit.co/ajax/leon@samba.energy', {
                 method: 'POST',
                 body: formData
             }).then(() => {
