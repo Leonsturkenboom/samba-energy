@@ -1744,12 +1744,13 @@ body {
     }
 
     .form-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .btn-submit {
-        font-size: 0.95rem;
-        padding: 14px;
+        font-size: 0.85rem;
+        padding: 12px 8px;
+        max-width: none;
     }
 
     .footer-inner {
@@ -1814,6 +1815,16 @@ body {
 
     .hero-line {
         font-size: 1.6rem;
+    }
+
+    .form-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-submit {
+        font-size: 0.95rem;
+        padding: 14px;
+        width: 100%;
     }
 
     .request-form {
