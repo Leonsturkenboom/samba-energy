@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAssetCardHover();
     initCookieBanner();
     initParallaxSlash();
+    initProblemVideo();
 });
 
 /* ----------------------------------------
@@ -401,6 +402,29 @@ function initParallaxSlash() {
 }
 
 /* ----------------------------------------
+   Problem Section Background Video
+   ---------------------------------------- */
+function initProblemVideo() {
+    const video = document.getElementById('problemVideo');
+    if (!video) return;
+
+    const START_TIME = 3;
+    const LOOP_TIME = 4;
+
+    video.playbackRate = 0.25;
+    video.currentTime = START_TIME;
+
+    video.addEventListener('canplay', () => {
+        video.play().catch(() => {});
+    }, { once: true });
+
+    video.addEventListener('ended', () => {
+        video.currentTime = LOOP_TIME;
+        video.play().catch(() => {});
+    });
+}
+
+/* ----------------------------------------
    Scroll-triggered Reveal Animations
    ---------------------------------------- */
 function initScrollAnimations() {
@@ -408,8 +432,7 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-            } else {
-                entry.target.classList.remove('revealed');
+                observer.unobserve(entry.target);
             }
         });
     }, {
