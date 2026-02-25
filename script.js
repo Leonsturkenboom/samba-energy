@@ -139,7 +139,7 @@ const translations = {
         'flexible.grid.with': 'With SAMBA',
         'flexible.grid.with.desc': 'Automatically keeps your consumption below the grid limit. Avoid fines and save significantly on your grid connection costs.',
         'assets.title': 'Your assets, intelligently managed',
-        'assets.subtitle': 'From charging station to lighting: every asset saves under SAMBA\u2019s control',
+        'assets.subtitle': 'From charging station to lighting: every asset saves and simplifies under SAMBA\u2019s control',
         'assets.card1.title': 'Charging park',
         'assets.card1.headline': 'Charge smarter, pay less.',
         'assets.card1.desc': 'Optimises your charging schedule based on energy prices, your own solar generation and grid capacity. Save up to \u20AC700 per charging point per year.',
@@ -170,7 +170,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Discover your savings',
-        'request.subtitle': 'We analyse your situation and show you what SAMBA can do for your business.',
+        'request.subtitle': 'We analyse your situation and show you what SAMBA can do for your business. Or book a demo of our platform on-site or online.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -179,7 +179,7 @@ const translations = {
         'request.optin': 'Sign me up for updates about SAMBA',
         'request.cta.demo': 'Schedule a demo',
         'request.cta.analysis': 'Calculate my savings',
-        'request.note': 'Or book a demo of our platform on-site or online.',
+        'request.note': 'Completely without obligation, we are happy to discuss all options.',
         'request.success.title': 'Thank you!',
         'request.success.text': 'We have received your request and will contact you as soon as possible.',
         'request.placeholder.company': 'Your company name',
@@ -241,7 +241,7 @@ const translations = {
         'flexible.grid.with': 'Met SAMBA',
         'flexible.grid.with.desc': 'Houdt automatisch je verbruik onder de netlimiet. Voorkom daarmee boetes en bespaar significant op je netaansluiting.',
         'assets.title': 'Jouw assets, slim aangestuurd',
-        'assets.subtitle': 'Van laadpaal tot verlichting: Elke asset bespaart onder SAMBA\u2019s regie',
+        'assets.subtitle': 'Van laadpaal tot verlichting: Elke asset bespaart en versimpelt onder SAMBA\u2019s regie',
         'assets.card1.title': 'Laadpark',
         'assets.card1.headline': 'Laad slimmer, betaal minder.',
         'assets.card1.desc': 'Optimaliseert je laadmomenten op basis van energieprijzen, eigen zonne-opwek en aansluit capaciteit. Bespaar zo tot wel \u20AC700 per laadpunt per jaar.',
@@ -272,7 +272,7 @@ const translations = {
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Ontdek jouw besparing',
-        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen.',
+        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Of boek een demo van ons platform op lokatie of online.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -281,7 +281,7 @@ const translations = {
         'request.optin': 'Meld me aan voor updates over SAMBA',
         'request.cta.demo': 'Plan een demo',
         'request.cta.analysis': 'Bereken mijn besparing',
-        'request.note': 'Of boek een demo van ons platform op lokatie of online.',
+        'request.note': 'Geheel vrijblijvend bespreken we graag alle mogelijkheden door.',
         'request.success.title': 'Bedankt!',
         'request.success.text': 'We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.',
         'request.placeholder.company': 'Uw bedrijfsnaam',
@@ -410,13 +410,20 @@ function initProblemVideo() {
 
     const START_TIME = 3;
     const LOOP_TIME = 4;
+    const END_TIME = 9;
 
-    video.playbackRate = 0.25;
+    video.playbackRate = 0.67;
     video.currentTime = START_TIME;
 
     video.addEventListener('canplay', () => {
         video.play().catch(() => {});
     }, { once: true });
+
+    video.addEventListener('timeupdate', () => {
+        if (video.currentTime >= END_TIME) {
+            video.currentTime = LOOP_TIME;
+        }
+    });
 
     video.addEventListener('ended', () => {
         video.currentTime = LOOP_TIME;
@@ -436,8 +443,8 @@ function initScrollAnimations() {
             }
         });
     }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
     });
 
     document.querySelectorAll('.scroll-reveal').forEach(el => {
@@ -528,61 +535,59 @@ function initAssetCardHover() {
     }
     bindCardInteractions();
 
-    // --- Touch swipe for mobile/iPad with momentum ---
-    let touchStartX = 0;
-    let touchCurrentX = 0;
+    // --- Drag/swipe for all devices with momentum ---
+    let startX = 0;
     let isDragging = false;
     let startScrollLeft = 0;
-    let lastTouchX = 0;
-    let lastTouchTime = 0;
+    let lastX = 0;
+    let lastTime = 0;
     let velocityX = 0;
     let momentumRAF = null;
     let currentTranslateX = 0;
+    let animationWasRunning = false;
 
     const wrapper = carousel.parentElement;
 
-    wrapper.addEventListener('touchstart', (e) => {
-        if (!isTouchDevice()) return;
-        // Cancel any ongoing momentum animation
+    function getTranslateX() {
+        const style = window.getComputedStyle(carousel);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.m41;
+    }
+
+    function startDrag(x) {
         if (momentumRAF) {
             cancelAnimationFrame(momentumRAF);
             momentumRAF = null;
         }
-        touchStartX = e.touches[0].clientX;
-        lastTouchX = touchStartX;
-        lastTouchTime = Date.now();
+        startX = x;
+        lastX = x;
+        lastTime = Date.now();
         velocityX = 0;
         isDragging = true;
-        carousel.style.animationPlayState = 'paused';
-        // Get current transform position
-        const style = window.getComputedStyle(carousel);
-        const matrix = new DOMMatrix(style.transform);
-        startScrollLeft = matrix.m41;
+        startScrollLeft = getTranslateX();
         currentTranslateX = startScrollLeft;
+        animationWasRunning = carousel.style.animation !== 'none';
         carousel.style.animation = 'none';
         carousel.style.transition = 'none';
         carousel.style.transform = `translateX(${startScrollLeft}px)`;
-    }, { passive: true });
+    }
 
-    wrapper.addEventListener('touchmove', (e) => {
-        if (!isDragging || !isTouchDevice()) return;
-        touchCurrentX = e.touches[0].clientX;
+    function moveDrag(x) {
+        if (!isDragging) return;
         const now = Date.now();
-        const dt = now - lastTouchTime;
+        const dt = now - lastTime;
         if (dt > 0) {
-            velocityX = (touchCurrentX - lastTouchX) / dt * 16; // velocity per frame
+            velocityX = (x - lastX) / dt * 16;
         }
-        lastTouchX = touchCurrentX;
-        lastTouchTime = now;
-        const diff = touchCurrentX - touchStartX;
-        currentTranslateX = startScrollLeft + diff;
+        lastX = x;
+        lastTime = now;
+        currentTranslateX = startScrollLeft + (x - startX);
         carousel.style.transform = `translateX(${currentTranslateX}px)`;
-    }, { passive: true });
+    }
 
-    wrapper.addEventListener('touchend', () => {
-        if (!isDragging || !isTouchDevice()) return;
+    function endDrag() {
+        if (!isDragging) return;
         isDragging = false;
-        // Apply momentum scrolling
         const friction = 0.95;
         const minVelocity = 0.5;
 
@@ -590,6 +595,12 @@ function initAssetCardHover() {
             velocityX *= friction;
             if (Math.abs(velocityX) < minVelocity) {
                 momentumRAF = null;
+                // On desktop, resume CSS animation after momentum ends
+                if (!isTouchDevice() && animationWasRunning) {
+                    carousel.style.animation = '';
+                    carousel.style.transform = '';
+                    carousel.style.transition = '';
+                }
                 return;
             }
             currentTranslateX += velocityX;
@@ -599,8 +610,44 @@ function initAssetCardHover() {
 
         if (Math.abs(velocityX) > minVelocity) {
             momentumRAF = requestAnimationFrame(momentumStep);
+        } else if (!isTouchDevice() && animationWasRunning) {
+            carousel.style.animation = '';
+            carousel.style.transform = '';
+            carousel.style.transition = '';
         }
+    }
+
+    // Touch events
+    wrapper.addEventListener('touchstart', (e) => {
+        startDrag(e.touches[0].clientX);
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+        moveDrag(e.touches[0].clientX);
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', endDrag);
+
+    // Mouse events (desktop drag)
+    wrapper.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        startDrag(e.clientX);
+        wrapper.style.cursor = 'grabbing';
     });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        moveDrag(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        wrapper.style.cursor = '';
+        endDrag();
+    });
+
+    // Prevent drag on links/images inside carousel
+    wrapper.addEventListener('dragstart', (e) => e.preventDefault());
 
     // On desktop, ensure animation runs
     function checkAnimationState() {

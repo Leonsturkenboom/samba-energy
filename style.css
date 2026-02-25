@@ -695,15 +695,15 @@ body {
 
 @keyframes arrowSnake {
     0% { transform: translate(0, 0); }
-    15% { transform: translate(2px, -2px) skewX(-2deg); }
-    35% { transform: translate(6px, -5px) skewX(2deg); }
-    55% { transform: translate(8px, -7px); }
+    15% { transform: translate(2px, 2px) skewX(2deg); }
+    35% { transform: translate(6px, 5px) skewX(-2deg); }
+    55% { transform: translate(8px, 7px); }
     100% { transform: translate(0, 0); }
 }
 @keyframes arrowHeadSnake {
     0% { transform: translate(0, 0); }
-    35% { transform: translate(5px, -5px); }
-    55% { transform: translate(7px, -6px); }
+    35% { transform: translate(5px, 5px); }
+    55% { transform: translate(7px, 6px); }
     100% { transform: translate(0, 0); }
 }
 @keyframes euroRotate {
@@ -956,8 +956,8 @@ body {
     will-change: transform;
 }
 
-.assets-carousel-wrapper:hover .assets-carousel {
-    animation-play-state: paused;
+.assets-carousel-wrapper {
+    cursor: grab;
 }
 
 /* 7 originals + 3x7 clones = 28 cards total. First 7 = 25% of total. */
@@ -1745,6 +1745,11 @@ body {
 
     .form-buttons {
         grid-template-columns: 1fr;
+    }
+
+    .btn-submit {
+        font-size: 0.95rem;
+        padding: 14px;
     }
 
     .footer-inner {
