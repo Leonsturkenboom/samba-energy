@@ -107,7 +107,7 @@ const translations = {
         'smart.title': 'SMART',
         'smart.subtitle': 'One complete platform for asset management & automation',
         'smart.card1.title': 'Save costs',
-        'smart.card1.desc': 'Save with dynamic energy prices or simply by increasing the use of your own solar panels.',
+        'smart.card1.desc': 'Cut your energy bill in half. Save costs with dynamic energy prices or simply by making better use of your own solar panels.',
         'smart.card2.title': 'AI forecasting',
         'smart.card2.desc': 'To plan the use of your assets per day and per week, we use AI forecasting algorithms.',
         'smart.card3.title': 'Simple',
@@ -115,27 +115,27 @@ const translations = {
         'smart.card4.title': 'Safe',
         'smart.card4.desc': 'Local control and data storage. Fully self-managed, stays operational during internet or power outages and is digitally secured.',
         'flexible.title': 'FLEXIBLE',
-        'flexible.subtitle': 'Synchronises your energy use with solar and dynamic energy prices and maintains your energy use below the maximum of the grid connection',
+        'flexible.subtitle': 'Synchronises your energy use with solar energy and dynamic energy prices and keeps your consumption below the grid connection limit',
         'flexible.tab1': 'Cost savings',
         'flexible.tab2': 'Grid Limit',
         'flexible.cost.title': 'Save costs with smart timing',
         'flexible.cost.without': 'Without SAMBA',
         'flexible.cost.without.desc': 'Consumption is not aligned with solar generation or low dynamic energy prices. A lot of energy is purchased when prices are high.',
         'flexible.cost.with': 'With SAMBA',
-        'flexible.cost.with.desc': 'Consumption follows solar generation or when grid prices are low. This saves you significant costs.',
+        'flexible.cost.with.desc': 'Consumption follows solar generation and low grid prices. This saves you significant costs.',
         'flexible.grid.title': 'Stay within your grid capacity',
         'flexible.grid.without': 'Without SAMBA',
         'flexible.grid.without.desc': 'Consumption regularly exceeds the grid limit. This leads to fines and higher costs for your grid connection.',
         'flexible.grid.with': 'With SAMBA',
-        'flexible.grid.with.desc': 'Automatically keeps your consumption below the grid limit. Thereby avoid fines and save significantly on your grid connection.',
+        'flexible.grid.with.desc': 'Automatically keeps your consumption below the grid limit. Avoid fines and save significantly on your grid connection costs.',
         'assets.title': 'ASSETS',
-        'assets.subtitle': 'Energy & Asset management has never been this affordable and simple',
+        'assets.subtitle': 'Energy & Asset management has never been this affordable and straightforward',
         'assets.card1.title': 'Charging park',
         'assets.card1.headline': 'Charge smarter, pay less.',
-        'assets.card1.desc': 'Optimizes your charging moments based on energy prices, your own solar generation and grid capacity. Save up to \u20AC700 per charging point per year.',
+        'assets.card1.desc': 'Optimises your charging schedule based on energy prices, your own solar generation and grid capacity. Save up to \u20AC700 per charging point per year.',
         'assets.card2.title': 'Solar panels',
         'assets.card2.headline': 'Get more out of every sunny minute.',
-        'assets.card2.desc': 'Automatically controls your assets during solar hours and monitors your grid limit, so your own generation is maximally utilized.',
+        'assets.card2.desc': 'Save up to 50% on your energy bill with dynamic energy prices or simply by making better use of your own solar panels.',
         'assets.card3.title': 'Other flex assets',
         'assets.card3.headline': 'Automatic savings, tailored to your process rhythm.',
         'assets.card3.desc': 'From heat pumps, boilers, cold storage to forklifts: monitors and controls all your flexible assets based on energy prices, your own solar generation and grid capacity. Save up to 50% on your energy costs.',
@@ -150,7 +150,7 @@ const translations = {
         'assets.card6.desc': 'Detects presence and automatically adjusts lighting to occupancy and schedules. So the lights are never on unnecessarily.',
         'assets.card7.title': 'Security',
         'assets.card7.headline': 'Asset, Energy & building management in one.',
-        'assets.card7.desc': 'By combining building security with asset management, you create an efficient ecosystem that is utilized doubly. Offers full flexibility in setting up notifications and alarms, giving you immediate control over every situation.',
+        'assets.card7.desc': 'By combining building security with asset management, you create an efficient ecosystem with dual benefits. Offers full flexibility in setting up notifications and alarms, giving you immediate control over every situation.',
         'success.title': 'SUCCESS',
         'success.subtitle': 'Discover how we helped other companies',
         'success.quote1': '"Since using SAMBA we utilize 85% of our own solar generation. The savings are impressive."',
@@ -160,7 +160,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'REQUEST',
-        'request.subtitle': 'Discover your savings potential. We analyse your situation and provide personal advice. Or book a demo directly.',
+        'request.subtitle': 'Discover your savings potential. We analyse your situation and provide personalised advice. Or book a demo directly.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -201,7 +201,7 @@ const translations = {
         'smart.title': 'SLIM',
         'smart.subtitle': 'Een compleet platform voor asset management & automatisering',
         'smart.card1.title': 'Kosten besparen',
-        'smart.card1.desc': 'Bespaar in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
+        'smart.card1.desc': 'Halveer je energierekening. Bespaar in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
         'smart.card2.title': 'AI forecasting',
         'smart.card2.desc': 'Om per dag en per week het gebruik van je assets te plannen, maken we gebruik van AI forecasting algoritmen.',
         'smart.card3.title': 'Simpel',
@@ -226,10 +226,10 @@ const translations = {
         'assets.subtitle': 'Energie & Asset management was nog nooit zo goedkoop en simpel',
         'assets.card1.title': 'Laadpark',
         'assets.card1.headline': 'Laad slimmer, betaal minder.',
-        'assets.card1.desc': 'Optimaliseert je laadmomenten op basis van energieprijzen, eigen zonne-opwek en aansluit capaciteit. Bespaar tot wel \u20AC700 per laadpunt per jaar.',
+        'assets.card1.desc': 'Optimaliseert je laadmomenten op basis van energieprijzen, eigen zonne-opwek en aansluit capaciteit. Bespaar zo tot wel \u20AC700 per laadpunt per jaar.',
         'assets.card2.title': 'Zonnepanelen',
         'assets.card2.headline': 'Haal meer uit elke zonnige minuut.',
-        'assets.card2.desc': 'Stuurt je assets automatisch aan op zonne-uren en bewaakt je netlimiet, zodat je eigen opwek maximaal benut wordt.',
+        'assets.card2.desc': 'Bespaar tot 50% op je energierekening in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
         'assets.card3.title': 'Andere flex assets',
         'assets.card3.headline': 'Automatisch besparen, afgestemd op jouw procesritme.',
         'assets.card3.desc': 'Van warmtepompen, boilers, koelcellen tot vorkheftrucks: bewaakt en stuurt al je flexibele assets aan op basis van energieprijzen, eigen zonne-opwek en aansluit capaciteit. Bespaar hiermee tot wel 50% op je energiekosten.',
@@ -254,7 +254,7 @@ const translations = {
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'VRAAG AAN',
-        'request.subtitle': 'Ontdek je besparingspotentieel met SAMBA. Wij analyseren jouw situatie en geven persoonlijk advies. Of plan direct een demo.',
+        'request.subtitle': 'Ontdek je besparingspotentieel. Wij analyseren jouw situatie en geven persoonlijk advies. Of plan direct een demo.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -322,6 +322,15 @@ function applyTranslations() {
             span.textContent = marqueeText;
         });
     }
+
+    // Update footer subpage links based on language
+    const langSuffix = currentLang === 'en' ? '/en/' : '';
+    const footerStatus = document.getElementById('footerStatus');
+    const footerPrivacy = document.getElementById('footerPrivacy');
+    const footerContact = document.getElementById('footerContact');
+    if (footerStatus) footerStatus.href = '/status' + langSuffix;
+    if (footerPrivacy) footerPrivacy.href = '/privacy' + langSuffix;
+    if (footerContact) footerContact.href = '/contact' + langSuffix;
 
     // Update chart labels
     updateChartLanguage();

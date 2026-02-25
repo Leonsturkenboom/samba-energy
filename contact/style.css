@@ -195,22 +195,23 @@ body {
 }
 
 .submit-btn {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--bg);
-    background: var(--accent);
-    border: none;
-    border-radius: 8px;
-    padding: 14px 32px;
+    padding: 16px 32px;
+    color: var(--white);
+    background: transparent;
+    border: 2px solid var(--white);
+    border-radius: 0;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    transition: all 0.3s ease;
     align-self: flex-start;
 }
 
 .submit-btn:hover {
-    opacity: 0.9;
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--bg);
 }
 
 .submit-btn:active {
