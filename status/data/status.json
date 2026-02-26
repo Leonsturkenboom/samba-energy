@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T15:40:01.142Z",
+  "generated_at": "2026-02-26T15:45:00.226Z",
   "overall_status": "down",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 113,
+      "response_time_ms": 101,
       "error": null,
       "uptime_90d": 99.4,
       "history": [
@@ -1179,6 +1179,10 @@
         {
           "time": "2026-02-26 15:40:01",
           "ms": 113
+        },
+        {
+          "time": "2026-02-26 15:45:00",
+          "ms": 101
         }
       ]
     },
@@ -1187,7 +1191,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 112,
+      "response_time_ms": 114,
       "error": null,
       "uptime_90d": 99.4,
       "history": [
@@ -2359,6 +2363,10 @@
         {
           "time": "2026-02-26 15:40:01",
           "ms": 112
+        },
+        {
+          "time": "2026-02-26 15:45:00",
+          "ms": 114
         }
       ]
     },
@@ -2367,9 +2375,9 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "down",
-      "response_time_ms": 165,
+      "response_time_ms": 120,
       "error": "HTTP 404",
-      "uptime_90d": 87.8,
+      "uptime_90d": 87.7,
       "history": [
         {
           "date": "2026-02-24",
@@ -2384,7 +2392,7 @@
         {
           "date": "2026-02-26",
           "status": "down",
-          "uptime_pct": 85.7
+          "uptime_pct": 85.3
         }
       ],
       "response_times_24h": [
@@ -3539,6 +3547,10 @@
         {
           "time": "2026-02-26 15:40:01",
           "ms": 165
+        },
+        {
+          "time": "2026-02-26 15:45:00",
+          "ms": 120
         }
       ]
     },
@@ -3547,7 +3559,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 149,
+      "response_time_ms": 139,
       "error": null,
       "uptime_90d": 95.5,
       "history": [
@@ -4719,6 +4731,10 @@
         {
           "time": "2026-02-26 15:40:01",
           "ms": 149
+        },
+        {
+          "time": "2026-02-26 15:45:00",
+          "ms": 139
         }
       ]
     },
@@ -4727,7 +4743,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 182,
+      "response_time_ms": 138,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -5899,6 +5915,10 @@
         {
           "time": "2026-02-26 15:40:01",
           "ms": 182
+        },
+        {
+          "time": "2026-02-26 15:45:00",
+          "ms": 138
         }
       ]
     }
