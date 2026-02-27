@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-02-27T10:05:01.216Z",
-  "overall_status": "operational",
+  "generated_at": "2026-02-27T10:10:01.259Z",
+  "overall_status": "down",
   "services": [
     {
       "id": "ha_wz123-1",
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 138,
+      "response_time_ms": 136,
       "error": null,
       "uptime_90d": 99.5,
       "history": [
@@ -33,10 +33,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 10:10:00",
-          "ms": 135
-        },
         {
           "time": "2026-02-26 10:15:00",
           "ms": 120
@@ -1184,6 +1180,10 @@
         {
           "time": "2026-02-27 10:05:01",
           "ms": 138
+        },
+        {
+          "time": "2026-02-27 10:10:01",
+          "ms": 136
         }
       ]
     },
@@ -1191,10 +1191,10 @@
       "id": "pricing_wz123-1",
       "name": "pricing forecast API",
       "group": "APIs",
-      "status": "operational",
-      "response_time_ms": 136,
-      "error": null,
-      "uptime_90d": 99.5,
+      "status": "down",
+      "response_time_ms": 132,
+      "error": "HTTP 404",
+      "uptime_90d": 99.4,
       "history": [
         {
           "date": "2026-02-24",
@@ -1213,15 +1213,11 @@
         },
         {
           "date": "2026-02-27",
-          "status": "operational",
-          "uptime_pct": 100
+          "status": "down",
+          "uptime_pct": 99.2
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 10:10:00",
-          "ms": 134
-        },
         {
           "time": "2026-02-26 10:15:00",
           "ms": 112
@@ -2369,6 +2365,10 @@
         {
           "time": "2026-02-27 10:05:01",
           "ms": 136
+        },
+        {
+          "time": "2026-02-27 10:10:01",
+          "ms": 132
         }
       ]
     },
@@ -2376,10 +2376,10 @@
       "id": "energy_wz123-1",
       "name": "energy forecast API",
       "group": "APIs",
-      "status": "operational",
-      "response_time_ms": 175,
-      "error": null,
-      "uptime_90d": 87.7,
+      "status": "down",
+      "response_time_ms": 152,
+      "error": "HTTP 404",
+      "uptime_90d": 87.6,
       "history": [
         {
           "date": "2026-02-24",
@@ -2398,15 +2398,11 @@
         },
         {
           "date": "2026-02-27",
-          "status": "operational",
-          "uptime_pct": 100
+          "status": "down",
+          "uptime_pct": 99.2
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 10:10:00",
-          "ms": 174
-        },
         {
           "time": "2026-02-26 10:15:00",
           "ms": 154
@@ -3554,6 +3550,10 @@
         {
           "time": "2026-02-27 10:05:01",
           "ms": 175
+        },
+        {
+          "time": "2026-02-27 10:10:01",
+          "ms": 152
         }
       ]
     },
@@ -3561,10 +3561,10 @@
       "id": "battery_wz123-1",
       "name": "battery optimizer API",
       "group": "APIs",
-      "status": "operational",
-      "response_time_ms": 168,
-      "error": null,
-      "uptime_90d": 95.9,
+      "status": "down",
+      "response_time_ms": 153,
+      "error": "HTTP 404",
+      "uptime_90d": 95.8,
       "history": [
         {
           "date": "2026-02-24",
@@ -3583,15 +3583,11 @@
         },
         {
           "date": "2026-02-27",
-          "status": "operational",
-          "uptime_pct": 100
+          "status": "down",
+          "uptime_pct": 99.2
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 10:10:00",
-          "ms": 173
-        },
         {
           "time": "2026-02-26 10:15:00",
           "ms": 145
@@ -4739,6 +4735,10 @@
         {
           "time": "2026-02-27 10:05:01",
           "ms": 168
+        },
+        {
+          "time": "2026-02-27 10:10:01",
+          "ms": 153
         }
       ]
     },
@@ -4747,7 +4747,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 328,
+      "response_time_ms": 267,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -4773,10 +4773,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 10:10:00",
-          "ms": 193
-        },
         {
           "time": "2026-02-26 10:15:01",
           "ms": 298
@@ -5924,6 +5920,10 @@
         {
           "time": "2026-02-27 10:05:01",
           "ms": 328
+        },
+        {
+          "time": "2026-02-27 10:10:01",
+          "ms": 267
         }
       ]
     }
