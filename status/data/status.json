@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-27T13:30:01.027Z",
+  "generated_at": "2026-02-27T13:35:01.139Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 129,
+      "response_time_ms": 142,
       "error": null,
       "uptime_90d": 99.6,
       "history": [
@@ -33,10 +33,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 13:35:00",
-          "ms": 109
-        },
         {
           "time": "2026-02-26 13:40:00",
           "ms": 108
@@ -1184,6 +1180,10 @@
         {
           "time": "2026-02-27 13:30:00",
           "ms": 129
+        },
+        {
+          "time": "2026-02-27 13:35:01",
+          "ms": 142
         }
       ]
     },
@@ -1192,7 +1192,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 127,
+      "response_time_ms": 158,
       "error": null,
       "uptime_90d": 99.5,
       "history": [
@@ -1218,10 +1218,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 13:35:00",
-          "ms": 107
-        },
         {
           "time": "2026-02-26 13:40:00",
           "ms": 102
@@ -2369,6 +2365,10 @@
         {
           "time": "2026-02-27 13:30:00",
           "ms": 127
+        },
+        {
+          "time": "2026-02-27 13:35:01",
+          "ms": 158
         }
       ]
     },
@@ -2377,9 +2377,9 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 144,
+      "response_time_ms": 157,
       "error": null,
-      "uptime_90d": 85.7,
+      "uptime_90d": 85.8,
       "history": [
         {
           "date": "2026-02-24",
@@ -2399,18 +2399,10 @@
         {
           "date": "2026-02-27",
           "status": "down",
-          "uptime_pct": 85.9
+          "uptime_pct": 86
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 13:30:01",
-          "ms": 135
-        },
-        {
-          "time": "2026-02-26 13:35:00",
-          "ms": 125
-        },
         {
           "time": "2026-02-26 13:40:00",
           "ms": 138
@@ -3558,6 +3550,10 @@
         {
           "time": "2026-02-27 13:30:00",
           "ms": 144
+        },
+        {
+          "time": "2026-02-27 13:35:01",
+          "ms": 157
         }
       ]
     },
@@ -3566,7 +3562,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 153,
+      "response_time_ms": 177,
       "error": null,
       "uptime_90d": 95.9,
       "history": [
@@ -3592,14 +3588,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 13:30:01",
-          "ms": 139
-        },
-        {
-          "time": "2026-02-26 13:35:00",
-          "ms": 132
-        },
         {
           "time": "2026-02-26 13:40:00",
           "ms": 138
@@ -4747,6 +4735,10 @@
         {
           "time": "2026-02-27 13:30:00",
           "ms": 153
+        },
+        {
+          "time": "2026-02-27 13:35:01",
+          "ms": 177
         }
       ]
     },
@@ -4755,7 +4747,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 189,
+      "response_time_ms": 187,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -4781,14 +4773,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-26 13:30:01",
-          "ms": 172
-        },
-        {
-          "time": "2026-02-26 13:35:00",
-          "ms": 151
-        },
         {
           "time": "2026-02-26 13:40:00",
           "ms": 294
@@ -5936,6 +5920,10 @@
         {
           "time": "2026-02-27 13:30:01",
           "ms": 189
+        },
+        {
+          "time": "2026-02-27 13:35:01",
+          "ms": 187
         }
       ]
     }
