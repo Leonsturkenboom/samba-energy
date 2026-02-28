@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-27T23:55:01.215Z",
+  "generated_at": "2026-02-28T00:00:01.276Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 131,
+      "response_time_ms": 110,
       "error": null,
       "uptime_90d": 99.6,
       "history": [
@@ -30,13 +30,14 @@
           "date": "2026-02-27",
           "status": "operational",
           "uptime_pct": 100
+        },
+        {
+          "date": "2026-02-28",
+          "status": "operational",
+          "uptime_pct": 100
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 00:00:00",
-          "ms": 106
-        },
         {
           "time": "2026-02-27 00:05:00",
           "ms": 105
@@ -1184,6 +1185,10 @@
         {
           "time": "2026-02-27 23:55:00",
           "ms": 131
+        },
+        {
+          "time": "2026-02-28 00:00:01",
+          "ms": 110
         }
       ]
     },
@@ -1192,7 +1197,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 128,
+      "response_time_ms": 109,
       "error": null,
       "uptime_90d": 99.5,
       "history": [
@@ -1215,13 +1220,14 @@
           "date": "2026-02-27",
           "status": "down",
           "uptime_pct": 99.7
+        },
+        {
+          "date": "2026-02-28",
+          "status": "operational",
+          "uptime_pct": 100
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 00:00:00",
-          "ms": 104
-        },
         {
           "time": "2026-02-27 00:05:00",
           "ms": 101
@@ -2369,6 +2375,10 @@
         {
           "time": "2026-02-27 23:55:00",
           "ms": 128
+        },
+        {
+          "time": "2026-02-28 00:00:01",
+          "ms": 109
         }
       ]
     },
@@ -2377,9 +2387,9 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 150,
+      "response_time_ms": 139,
       "error": null,
-      "uptime_90d": 87.4,
+      "uptime_90d": 87.5,
       "history": [
         {
           "date": "2026-02-24",
@@ -2400,13 +2410,14 @@
           "date": "2026-02-27",
           "status": "down",
           "uptime_pct": 92
+        },
+        {
+          "date": "2026-02-28",
+          "status": "operational",
+          "uptime_pct": 100
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 00:00:00",
-          "ms": 125
-        },
         {
           "time": "2026-02-27 00:05:00",
           "ms": 125
@@ -3554,6 +3565,10 @@
         {
           "time": "2026-02-27 23:55:00",
           "ms": 150
+        },
+        {
+          "time": "2026-02-28 00:00:01",
+          "ms": 139
         }
       ]
     },
@@ -3562,7 +3577,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 137,
+      "response_time_ms": 156,
       "error": null,
       "uptime_90d": 96.4,
       "history": [
@@ -3585,13 +3600,14 @@
           "date": "2026-02-27",
           "status": "down",
           "uptime_pct": 99.3
+        },
+        {
+          "date": "2026-02-28",
+          "status": "operational",
+          "uptime_pct": 100
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 00:00:00",
-          "ms": 137
-        },
         {
           "time": "2026-02-27 00:05:00",
           "ms": 127
@@ -4739,6 +4755,10 @@
         {
           "time": "2026-02-27 23:55:00",
           "ms": 137
+        },
+        {
+          "time": "2026-02-28 00:00:01",
+          "ms": 156
         }
       ]
     },
@@ -4747,7 +4767,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 423,
+      "response_time_ms": 310,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -4770,13 +4790,14 @@
           "date": "2026-02-27",
           "status": "operational",
           "uptime_pct": 100
+        },
+        {
+          "date": "2026-02-28",
+          "status": "operational",
+          "uptime_pct": 100
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 00:00:00",
-          "ms": 303
-        },
         {
           "time": "2026-02-27 00:05:00",
           "ms": 154
@@ -5924,6 +5945,10 @@
         {
           "time": "2026-02-27 23:55:01",
           "ms": 423
+        },
+        {
+          "time": "2026-02-28 00:00:01",
+          "ms": 310
         }
       ]
     }
