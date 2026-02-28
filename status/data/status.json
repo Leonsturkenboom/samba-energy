@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-28T22:55:01.065Z",
+  "generated_at": "2026-02-28T23:00:01.138Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 248,
+      "response_time_ms": 121,
       "error": null,
       "uptime_90d": 99.7,
       "history": [
@@ -1189,6 +1189,10 @@
         {
           "time": "2026-02-28 22:55:00",
           "ms": 248
+        },
+        {
+          "time": "2026-02-28 23:00:01",
+          "ms": 121
         }
       ]
     },
@@ -2379,6 +2383,10 @@
         {
           "time": "2026-02-28 22:55:00",
           "ms": 111
+        },
+        {
+          "time": "2026-02-28 23:00:01",
+          "ms": 111
         }
       ]
     },
@@ -2387,7 +2395,7 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 296,
+      "response_time_ms": 139,
       "error": null,
       "uptime_90d": 90.1,
       "history": [
@@ -3569,6 +3577,10 @@
         {
           "time": "2026-02-28 22:55:01",
           "ms": 296
+        },
+        {
+          "time": "2026-02-28 23:00:01",
+          "ms": 139
         }
       ]
     },
@@ -3577,7 +3589,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 269,
+      "response_time_ms": 147,
       "error": null,
       "uptime_90d": 97.1,
       "history": [
@@ -3608,10 +3620,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 22:55:01",
-          "ms": 312
-        },
         {
           "time": "2026-02-27 23:00:01",
           "ms": 291
@@ -4763,6 +4771,10 @@
         {
           "time": "2026-02-28 22:55:01",
           "ms": 269
+        },
+        {
+          "time": "2026-02-28 23:00:01",
+          "ms": 147
         }
       ]
     },
@@ -4771,7 +4783,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 284,
+      "response_time_ms": 184,
       "error": null,
       "uptime_90d": 100,
       "history": [
@@ -4802,10 +4814,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-02-27 22:55:01",
-          "ms": 337
-        },
         {
           "time": "2026-02-27 23:00:01",
           "ms": 308
@@ -5957,6 +5965,10 @@
         {
           "time": "2026-02-28 22:55:01",
           "ms": 284
+        },
+        {
+          "time": "2026-02-28 23:00:01",
+          "ms": 184
         }
       ]
     }
