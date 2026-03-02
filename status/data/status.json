@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-02T15:15:00.854Z",
+  "generated_at": "2026-03-02T15:20:01.035Z",
   "overall_status": "down",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 111,
+      "response_time_ms": 116,
       "error": null,
       "uptime_90d": 99.7,
       "history": [
@@ -48,14 +48,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-01 15:15:00",
-          "ms": 112
-        },
-        {
-          "time": "2026-03-01 15:20:00",
-          "ms": 107
-        },
         {
           "time": "2026-03-01 15:25:00",
           "ms": 113
@@ -1203,6 +1195,10 @@
         {
           "time": "2026-03-02 15:15:00",
           "ms": 111
+        },
+        {
+          "time": "2026-03-02 15:20:00",
+          "ms": 116
         }
       ]
     },
@@ -1211,7 +1207,7 @@
       "name": "pricing forecast API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 110,
+      "response_time_ms": 116,
       "error": null,
       "uptime_90d": 99.6,
       "history": [
@@ -1252,14 +1248,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-01 15:15:00",
-          "ms": 102
-        },
-        {
-          "time": "2026-03-01 15:20:00",
-          "ms": 105
-        },
         {
           "time": "2026-03-01 15:25:00",
           "ms": 114
@@ -2407,6 +2395,10 @@
         {
           "time": "2026-03-02 15:15:00",
           "ms": 110
+        },
+        {
+          "time": "2026-03-02 15:20:00",
+          "ms": 116
         }
       ]
     },
@@ -2415,9 +2407,9 @@
       "name": "energy forecast API",
       "group": "APIs",
       "status": "down",
-      "response_time_ms": 132,
+      "response_time_ms": 133,
       "error": "HTTP 404",
-      "uptime_90d": 88.2,
+      "uptime_90d": 88.1,
       "history": [
         {
           "date": "2026-02-24",
@@ -2452,18 +2444,10 @@
         {
           "date": "2026-03-02",
           "status": "down",
-          "uptime_pct": 55.4
+          "uptime_pct": 55.1
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-01 15:15:00",
-          "ms": 142
-        },
-        {
-          "time": "2026-03-01 15:20:00",
-          "ms": 128
-        },
         {
           "time": "2026-03-01 15:25:00",
           "ms": 150
@@ -3611,6 +3595,10 @@
         {
           "time": "2026-03-02 15:15:00",
           "ms": 132
+        },
+        {
+          "time": "2026-03-02 15:20:00",
+          "ms": 133
         }
       ]
     },
@@ -3619,7 +3607,7 @@
       "name": "battery optimizer API",
       "group": "APIs",
       "status": "operational",
-      "response_time_ms": 131,
+      "response_time_ms": 133,
       "error": null,
       "uptime_90d": 96.6,
       "history": [
@@ -3656,18 +3644,10 @@
         {
           "date": "2026-03-02",
           "status": "down",
-          "uptime_pct": 87.5
+          "uptime_pct": 87.6
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-01 15:15:00",
-          "ms": 127
-        },
-        {
-          "time": "2026-03-01 15:20:00",
-          "ms": 129
-        },
         {
           "time": "2026-03-01 15:25:00",
           "ms": 144
@@ -4815,6 +4795,10 @@
         {
           "time": "2026-03-02 15:15:00",
           "ms": 131
+        },
+        {
+          "time": "2026-03-02 15:20:00",
+          "ms": 133
         }
       ]
     },
@@ -4864,14 +4848,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-01 15:15:00",
-          "ms": 166
-        },
-        {
-          "time": "2026-03-01 15:20:00",
-          "ms": 159
-        },
         {
           "time": "2026-03-01 15:25:00",
           "ms": 159
@@ -6018,6 +5994,10 @@
         },
         {
           "time": "2026-03-02 15:15:00",
+          "ms": 167
+        },
+        {
+          "time": "2026-03-02 15:20:01",
           "ms": 167
         }
       ]
