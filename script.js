@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCookieBanner();
     initParallaxSlash();
     initProblemVideo();
+    initSectionVideos();
 });
 
 /* ----------------------------------------
@@ -104,7 +105,7 @@ const translations = {
         'nav.success': 'Success',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
-        'hero.subtitle': 'AI-powered platform that monitors your assets, optimises intelligently, simplifies, reduces costs and keeps you within grid limits.',
+        'hero.subtitle': 'One platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
         'hero.cta1': 'Watch a live demo',
         'hero.cta2': 'Calculate your savings',
         'problem.title': 'Sound familiar?',
@@ -142,25 +143,25 @@ const translations = {
         'assets.subtitle': 'From charging station to lighting: every asset saves and simplifies under SAMBA\u2019s control',
         'assets.card1.title': 'Charging park',
         'assets.card1.headline': 'Charge smarter, pay less.',
-        'assets.card1.desc': 'Optimises your charging schedule based on energy prices, your own solar generation and grid capacity. Save up to \u20AC700 per charging point per year.',
+        'assets.card1.desc': 'Save up to \u20AC700 per charging point per year. Optimises your charging schedule based on energy prices, your own solar generation and grid capacity.',
         'assets.card2.title': 'Solar panels',
         'assets.card2.headline': 'Get more out of every sunny minute.',
         'assets.card2.desc': 'Save up to 50% on your energy bill with dynamic energy prices or simply by making better use of your own solar panels.',
-        'assets.card3.title': 'Other flex assets',
-        'assets.card3.headline': 'Automatic savings, tailored to your process rhythm.',
-        'assets.card3.desc': 'From heat pumps and boilers to cold storage and forklifts: controls all your flexible assets based on energy prices and solar generation. Save up to 50%.',
-        'assets.card4.title': 'Battery',
-        'assets.card4.headline': 'Less battery, more return.',
-        'assets.card4.desc': 'Thanks to smart control of your flexible assets, you need 50\u201370% less battery capacity. Through our control, your battery pays back significantly faster.',
-        'assets.card5.title': 'Back-up power',
-        'assets.card5.headline': 'Grip on continuity, prevent downtime',
-        'assets.card5.desc': 'Seamlessly switches over during power outages or grid congestion and prioritises your critical processes. Non-essential assets are intelligently shut down.',
+        'assets.card3.title': 'Battery',
+        'assets.card3.headline': 'Less battery, more return.',
+        'assets.card3.desc': 'Thanks to smart control of your flexible assets, you need 50\u201370% less battery capacity. Through our holistic control, your battery pays back faster.',
+        'assets.card4.title': 'Back-up power',
+        'assets.card4.headline': 'Ensure continuity, don\u2019t stand still.',
+        'assets.card4.desc': 'Seamlessly switches over during power outages or grid congestion. Our platform prioritises your critical processes and non-essential devices are shut down.',
+        'assets.card5.title': 'Other flex assets',
+        'assets.card5.headline': 'Automatic savings, tailored to your process.',
+        'assets.card5.desc': 'Save up to 50% on your energy bill. From heat pumps, boilers to cold storage and forklifts: controls all your flexible assets based on energy prices and solar generation.',
         'assets.card6.title': 'Lighting',
         'assets.card6.headline': 'Always light where needed, never where not.',
-        'assets.card6.desc': 'Detects presence and automatically adjusts lighting to occupancy and schedules. So the lights are never on unnecessarily.',
+        'assets.card6.desc': 'Automate your lighting. Our platform detects presence and automatically adjusts lighting to occupancy and schedules. So the lights are never on unnecessarily.',
         'assets.card7.title': 'Security',
         'assets.card7.headline': 'Asset, Energy & building management in one.',
-        'assets.card7.desc': 'Combine building security with asset management in one ecosystem. Full flexibility in notifications and alarms.',
+        'assets.card7.desc': 'Combine building security with asset management in one ecosystem. Our platform offers full flexibility in notifications and alarms.',
         'success.title': 'SUCCESS',
         'success.subtitle': 'Discover how we helped other companies',
         'success.quote1': '"Since using SAMBA we utilize 85% of our own solar generation. The savings are impressive."',
@@ -206,7 +207,7 @@ const translations = {
         'nav.success': 'SUCCES',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
-        'hero.subtitle': 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, versimpelt, kosten verlaagt en je binnen de netlimiet houdt.',
+        'hero.subtitle': 'E\u00e9n platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
         'hero.cta1': 'Bekijk een live demo',
         'hero.cta2': 'Bereken je besparing',
         'problem.title': 'Herkenbaar?',
@@ -225,7 +226,7 @@ const translations = {
         'smart.card3.title': 'Simpel',
         'smart.card3.desc': 'Al je asset-beheer vanuit \u00e9\u00e9n app. Implementatie volledig verzorgd en met doorlopende ondersteuning.',
         'smart.card4.title': 'Veilig',
-        'smart.card4.desc': 'Lokale aansturing en dataopslag. Werkt volledig in eigen beheer, blijft operationeel bij internet of stroom uitval en is digitaal veilig afgeschermd.',
+        'smart.card4.desc': 'Lokale aansturing en dataopslag. Werkt volledig in eigen beheer, blijft operationeel bij internet- of stroomuitval en is digitaal veilig afgeschermd.',
         'flexible.title': 'Automatisch besparen, altijd binnen de limiet',
         'flexible.subtitle': 'Verbruik meer als energie goedkoop is, minder als het duur is en blijf altijd onder je netlimiet',
         'flexible.tab1': 'Kostenbesparing',
@@ -244,35 +245,35 @@ const translations = {
         'assets.subtitle': 'Van laadpaal tot verlichting: Elke asset bespaart en versimpelt onder SAMBA\u2019s regie',
         'assets.card1.title': 'Laadpark',
         'assets.card1.headline': 'Laad slimmer, betaal minder.',
-        'assets.card1.desc': 'Optimaliseert je laadmomenten op basis van energieprijzen, eigen zonne-opwek en aansluit capaciteit. Bespaar zo tot wel \u20AC700 per laadpunt per jaar.',
+        'assets.card1.desc': 'Bespaar tot wel \u20AC700 per laadpunt per jaar. Optimaliseert je laadmomenten op basis van energieprijzen, eigen zonne-opwek en aansluitcapaciteit.',
         'assets.card2.title': 'Zonnepanelen',
         'assets.card2.headline': 'Haal meer uit elke zonnige minuut.',
-        'assets.card2.desc': 'Bespaar tot 50% op je energierekening in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
-        'assets.card3.title': 'Andere flex assets',
-        'assets.card3.headline': 'Automatisch besparen, afgestemd op jouw procesritme.',
-        'assets.card3.desc': 'Van warmtepompen en boilers tot koelcellen en heftrucks: stuurt al je flexibele assets aan op energieprijzen en zonne-opwek. Bespaar tot 50%.',
-        'assets.card4.title': 'Batterij',
-        'assets.card4.headline': 'Minder batterij, meer rendement.',
-        'assets.card4.desc': 'Dankzij slimme aansturing van je flexibele assets heb je 50\u201370% minder batterijcapaciteit nodig. Door onze aansturing verdient je batterij zich aanzienlijk sneller terug.',
-        'assets.card5.title': 'Back-up power',
-        'assets.card5.headline': 'Grip op continu\u00EFteit, voorkom stilstand',
-        'assets.card5.desc': 'Schakelt naadloos over bij stroomuitval of netcongestie en prioriteert je kritieke processen. Niet-essenti\u00EBle assets worden slim afgeschakeld.',
+        'assets.card2.desc': 'Bespaar tot wel 50% op je energierekening in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
+        'assets.card3.title': 'Batterij',
+        'assets.card3.headline': 'Minder batterij, meer rendement.',
+        'assets.card3.desc': 'Dankzij slimme aansturing van je flexibele assets heb je 50\u201370% minder batterijcapaciteit nodig. Door onze holistische aansturing verdient de batterij zich sneller terug.',
+        'assets.card4.title': 'Back-up power',
+        'assets.card4.headline': 'Verzeker continu\u00EFteit, sta niet stil.',
+        'assets.card4.desc': 'Schakelt naadloos over bij stroomuitval of netcongestie. Ons platform prioriteert je kritieke processen en niet-essenti\u00EBle apparaten worden uitgeschakeld.',
+        'assets.card5.title': 'Andere flex assets',
+        'assets.card5.headline': 'Automatisch besparen, afgestemd op jouw proces.',
+        'assets.card5.desc': 'Bespaar tot wel 50% op je energierekening. Van warmtepompen, boilers tot koelcellen en heftrucks: stuurt al je flexibele assets aan op energieprijzen en zonne-opwek.',
         'assets.card6.title': 'Verlichting',
         'assets.card6.headline': 'Altijd licht waar nodig, nooit waar niet.',
-        'assets.card6.desc': 'Detecteert aanwezigheid en stemt verlichting automatisch af op bezetting en tijdschema\'s. Zo staat de verlichting nooit onnodig aan.',
+        'assets.card6.desc': 'Automatiseer je verlichting. Ons platform detecteert aanwezigheid en stemt verlichting automatisch af op bezetting en tijdschema\'s. Zo staat de verlichting nooit onnodig aan.',
         'assets.card7.title': 'Beveiliging',
         'assets.card7.headline': 'Asset, Energie \u00E9n gebouw management in \u00E9\u00E9n.',
-        'assets.card7.desc': 'Combineer gebouwbeveiliging met asset management in \u00e9\u00e9n ecosysteem. Volledige flexibiliteit in notificaties en alarmen.',
+        'assets.card7.desc': 'Combineer gebouwbeveiliging met asset management in \u00e9\u00e9n ecosysteem. Ons platform biedt volledige flexibiliteit in notificaties en alarmen.',
         'success.title': 'SUCCES',
         'success.subtitle': 'Ontdek hoe we andere bedrijven hebben geholpen',
         'success.quote1': '"Sinds SAMBA benutten we 85% van onze eigen zonneopwek. De besparingen zijn indrukwekkend."',
         'success.role1': 'Directeur, GreenBuildings BV',
-        'success.quote2': '"Het systeem werkt volledig autonoom. Zelfs bij internet uitval blijft alles draaien. Precies wat we zochten."',
+        'success.quote2': '"Het systeem werkt volledig autonoom. Zelfs bij internetuitval blijft alles draaien. Precies wat we zochten."',
         'success.role2': 'Facility Manager, TechnoFlex Industries',
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Ontdek jouw besparing',
-        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Of boek een demo van ons platform op lokatie of online.',
+        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Of boek een demo van ons platform op locatie of online.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -298,7 +299,7 @@ const translations = {
         'footer.success': 'SUCCES',
         'footer.request': 'AANVRAAG',
         'footer.contact': 'CONTACT',
-        'marquee': 'SLIMME ASSET MANAGEMENT & BEDRIJFS AUTOMATISERING'
+        'marquee': 'SLIMME ASSET MANAGEMENT & BEDRIJFSAUTOMATISERING'
     }
 };
 
@@ -381,7 +382,7 @@ function initSlashBackground() {
         slash.style.fontSize = (16 + Math.random() * 40) + 'px';
         slash.style.animationDuration = (15 + Math.random() * 20) + 's';
         slash.style.animationDelay = (Math.random() * 8) + 's';
-        slash.style.opacity = (0.02 + Math.random() * 0.06);
+        slash.style.opacity = (0.04 + Math.random() * 0.12);
         container.appendChild(slash);
     }
 }
@@ -428,6 +429,22 @@ function initProblemVideo() {
     video.addEventListener('ended', () => {
         video.currentTime = LOOP_TIME;
         video.play().catch(() => {});
+    });
+}
+
+/* ----------------------------------------
+   Section Background Videos
+   ---------------------------------------- */
+function initSectionVideos() {
+    const videos = document.querySelectorAll('.section-video');
+    videos.forEach(video => {
+        const section = video.closest('section');
+        // Assets section plays at 5x slower (0.2), others at 2x slower (0.5)
+        const rate = section && section.classList.contains('assets-section') ? 0.2 : 0.5;
+        video.playbackRate = rate;
+        video.addEventListener('canplay', () => {
+            video.play().catch(() => {});
+        }, { once: true });
     });
 }
 
@@ -485,8 +502,8 @@ function initSmartCardHover() {
 
 /* ----------------------------------------
    Asset Card Hover / Tap + Seamless Carousel
-   Desktop: hover to expand, auto-scroll
-   Mobile: tap to toggle, swipe to scroll, no auto-scroll
+   Desktop: JS-driven auto-scroll, hover to expand & pause
+   Mobile: tap to toggle, swipe to scroll
    ---------------------------------------- */
 function initAssetCardHover() {
     const carousel = document.getElementById('assetsCarousel');
@@ -494,7 +511,7 @@ function initAssetCardHover() {
 
     const isTouchDevice = () => window.matchMedia('(max-width: 1024px)').matches || 'ontouchstart' in window;
 
-    // Ensure we have enough clones for seamless scrolling (3x original set)
+    // Ensure we have enough clones for seamless scrolling
     const cardCount = 7;
     const originals = Array.from(carousel.querySelectorAll('.asset-card')).slice(0, cardCount);
     const allCards = Array.from(carousel.querySelectorAll('.asset-card'));
@@ -507,15 +524,57 @@ function initAssetCardHover() {
         });
     }
 
+    // --- JS-driven continuous scroll ---
+    let scrollPos = 0;
+    let scrollPaused = false;
+    let isDragging = false;
+    const scrollSpeed = 0.5; // px per frame
+    let scrollRAF = null;
+
+    // Calculate width of one set of cards (7 cards + gaps)
+    function getOneSetWidth() {
+        const cards = carousel.querySelectorAll('.asset-card');
+        if (cards.length < cardCount) return 0;
+        const first = cards[0].getBoundingClientRect();
+        const seventh = cards[cardCount - 1].getBoundingClientRect();
+        const gap = 24;
+        return seventh.right - first.left + gap;
+    }
+
+    function updateScroll() {
+        if (!isDragging && !scrollPaused && !isTouchDevice()) {
+            scrollPos -= scrollSpeed;
+            const oneSet = getOneSetWidth();
+            // Loop: when we've scrolled past one full set, jump back
+            if (oneSet > 0 && Math.abs(scrollPos) >= oneSet) {
+                scrollPos += oneSet;
+            }
+            // Prevent scrolling too far right (past 0)
+            if (scrollPos > 0) {
+                scrollPos = 0;
+            }
+            carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
+        }
+        scrollRAF = requestAnimationFrame(updateScroll);
+    }
+    scrollRAF = requestAnimationFrame(updateScroll);
+
+    // --- Card interactions ---
     function bindCardInteractions() {
         const cards = carousel.querySelectorAll('.asset-card');
         cards.forEach(card => {
-            // Desktop hover
+            // Desktop hover: expand card + pause carousel
             card.addEventListener('mouseenter', () => {
-                if (!isTouchDevice()) card.classList.add('expanded');
+                if (!isTouchDevice()) {
+                    card.classList.add('expanded');
+                    scrollPaused = true;
+                }
             });
             card.addEventListener('mouseleave', () => {
-                if (!isTouchDevice()) card.classList.remove('expanded');
+                if (!isTouchDevice()) {
+                    card.classList.remove('expanded');
+                    scrollPaused = false;
+                }
             });
             // Mobile tap to toggle
             card.addEventListener('click', (e) => {
@@ -523,13 +582,9 @@ function initAssetCardHover() {
                 e.preventDefault();
                 e.stopPropagation();
                 const wasExpanded = card.classList.contains('expanded');
-                // Close all expanded cards
                 cards.forEach(c => c.classList.remove('expanded'));
-                // Toggle clicked card
                 if (!wasExpanded) {
                     card.classList.add('expanded');
-                    // Stop carousel animation when card is open
-                    carousel.style.animationPlayState = 'paused';
                 }
             });
         });
@@ -538,22 +593,13 @@ function initAssetCardHover() {
 
     // --- Drag/swipe for all devices with momentum ---
     let startX = 0;
-    let isDragging = false;
-    let startScrollLeft = 0;
+    let startScrollPos = 0;
     let lastX = 0;
     let lastTime = 0;
     let velocityX = 0;
     let momentumRAF = null;
-    let currentTranslateX = 0;
-    let animationWasRunning = false;
 
     const wrapper = carousel.parentElement;
-
-    function getTranslateX() {
-        const style = window.getComputedStyle(carousel);
-        const matrix = new DOMMatrix(style.transform);
-        return matrix.m41;
-    }
 
     function startDrag(x) {
         if (momentumRAF) {
@@ -565,12 +611,7 @@ function initAssetCardHover() {
         lastTime = Date.now();
         velocityX = 0;
         isDragging = true;
-        startScrollLeft = getTranslateX();
-        currentTranslateX = startScrollLeft;
-        animationWasRunning = carousel.style.animation !== 'none';
-        carousel.style.animation = 'none';
-        carousel.style.transition = 'none';
-        carousel.style.transform = `translateX(${startScrollLeft}px)`;
+        startScrollPos = scrollPos;
     }
 
     function moveDrag(x) {
@@ -582,8 +623,8 @@ function initAssetCardHover() {
         }
         lastX = x;
         lastTime = now;
-        currentTranslateX = startScrollLeft + (x - startX);
-        carousel.style.transform = `translateX(${currentTranslateX}px)`;
+        scrollPos = startScrollPos + (x - startX);
+        carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
     }
 
     function endDrag() {
@@ -596,25 +637,28 @@ function initAssetCardHover() {
             velocityX *= friction;
             if (Math.abs(velocityX) < minVelocity) {
                 momentumRAF = null;
-                // On desktop, resume CSS animation after momentum ends
-                if (!isTouchDevice() && animationWasRunning) {
-                    carousel.style.animation = '';
-                    carousel.style.transform = '';
-                    carousel.style.transition = '';
-                }
+                // Wrap position after momentum ends
+                wrapPosition();
                 return;
             }
-            currentTranslateX += velocityX;
-            carousel.style.transform = `translateX(${currentTranslateX}px)`;
+            scrollPos += velocityX;
+            carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
             momentumRAF = requestAnimationFrame(momentumStep);
         }
 
         if (Math.abs(velocityX) > minVelocity) {
             momentumRAF = requestAnimationFrame(momentumStep);
-        } else if (!isTouchDevice() && animationWasRunning) {
-            carousel.style.animation = '';
-            carousel.style.transform = '';
-            carousel.style.transition = '';
+        } else {
+            wrapPosition();
+        }
+    }
+
+    function wrapPosition() {
+        const oneSet = getOneSetWidth();
+        if (oneSet > 0) {
+            while (scrollPos < -oneSet) scrollPos += oneSet;
+            while (scrollPos > 0) scrollPos -= oneSet;
+            carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
         }
     }
 
@@ -649,16 +693,6 @@ function initAssetCardHover() {
 
     // Prevent drag on links/images inside carousel
     wrapper.addEventListener('dragstart', (e) => e.preventDefault());
-
-    // On desktop, ensure animation runs
-    function checkAnimationState() {
-        if (!isTouchDevice()) {
-            carousel.style.animation = '';
-            carousel.style.transform = '';
-            carousel.style.animationPlayState = '';
-        }
-    }
-    window.addEventListener('resize', checkAnimationState);
 }
 
 /* ----------------------------------------
@@ -980,6 +1014,7 @@ function initContactForm() {
             const formData = new FormData(form);
             formData.append('_subject', clickedBtn + ' - ' + form.querySelector('#companyName').value);
             formData.append('type', clickedBtn);
+            formData.append('_cc', 'andy@samba.energy');
 
             fetch('https://formsubmit.co/ajax/leon@samba.energy', {
                 method: 'POST',

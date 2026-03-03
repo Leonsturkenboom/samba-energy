@@ -217,7 +217,7 @@ body {
     position: absolute;
     font-family: var(--font-mono);
     color: var(--accent-yellow);
-    opacity: 0.10;
+    opacity: 0.20;
     animation: floatSlash linear infinite;
     user-select: none;
 }
@@ -465,12 +465,45 @@ body {
     position: absolute;
     inset: 0;
     background: var(--bg-dark);
-    opacity: 0.88;
+    opacity: 0.78;
     z-index: 1;
     pointer-events: none;
 }
 
 .problem-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Section background videos (smart, flexible, assets, request) */
+.section-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.section-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.smart-section > .section-overlay { background: var(--green-dark); opacity: 0.78; }
+.flexible-section > .section-overlay { background: var(--white); opacity: 0.78; }
+.assets-section > .section-overlay { background: var(--blue-accent); opacity: 0.78; }
+.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.78; }
+
+.smart-section > .container,
+.flexible-section > .container,
+.assets-section > .assets-header,
+.assets-section > .assets-carousel-wrapper,
+.request-section > .container {
     position: relative;
     z-index: 2;
 }
@@ -570,6 +603,8 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .section-header {
@@ -793,6 +828,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .flexible-tabs {
@@ -931,6 +967,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 .assets-header {
@@ -948,7 +985,6 @@ body {
 .assets-carousel {
     display: flex;
     gap: 24px;
-    animation: assetsScroll 51s linear infinite;
     width: max-content;
     padding: 10px 0;
     flex-wrap: nowrap;
@@ -960,15 +996,8 @@ body {
     cursor: grab;
 }
 
-/* 7 originals + 3x7 clones = 28 cards total. First 7 = 25% of total. */
-@keyframes assetsScroll {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-25%, 0, 0); }
-}
-
 @media (max-width: 1024px) {
     .assets-carousel {
-        animation: none;
         gap: 16px;
     }
 }
@@ -1265,6 +1294,8 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .request-form {
