@@ -217,7 +217,7 @@ body {
     position: absolute;
     font-family: var(--font-mono);
     color: var(--accent-yellow);
-    opacity: 0.20;
+    opacity: 0.15;
     animation: floatSlash linear infinite;
     user-select: none;
 }
@@ -494,10 +494,10 @@ body {
     pointer-events: none;
 }
 
-.smart-section > .section-overlay { background: var(--green-dark); opacity: 0.78; }
-.flexible-section > .section-overlay { background: var(--white); opacity: 0.78; }
-.assets-section > .section-overlay { background: var(--blue-accent); opacity: 0.78; }
-.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.78; }
+.smart-section > .section-overlay { background: var(--green-dark); opacity: 0.83; }
+.flexible-section > .section-overlay { background: var(--white); opacity: 0.83; }
+.assets-section > .section-overlay { background: var(--blue-accent); opacity: 0.83; }
+.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.83; }
 
 .smart-section > .container,
 .flexible-section > .container,

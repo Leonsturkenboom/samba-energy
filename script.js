@@ -382,7 +382,7 @@ function initSlashBackground() {
         slash.style.fontSize = (16 + Math.random() * 40) + 'px';
         slash.style.animationDuration = (15 + Math.random() * 20) + 's';
         slash.style.animationDelay = (Math.random() * 8) + 's';
-        slash.style.opacity = (0.04 + Math.random() * 0.12);
+        slash.style.opacity = (0.03 + Math.random() * 0.09);
         container.appendChild(slash);
     }
 }
