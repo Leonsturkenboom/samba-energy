@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initHeartbeatRepeat();
     initDashesStop();
+    initActiveNav();
     initGlobe();
     initSmartCardHover();
     initAssetCardHover();
@@ -98,6 +99,7 @@ function initCookieBanner() {
    ---------------------------------------- */
 const translations = {
     en: {
+        'nav.problem': 'WHY',
         'nav.smart': 'Smart',
         'nav.flexible': 'Flexible',
         'nav.assets': 'Assets',
@@ -191,6 +193,7 @@ const translations = {
         'cookie.text': 'This website uses cookies to improve your experience. By continuing you agree to our cookie policy.',
         'cookie.accept': 'Accept',
         'cookie.decline': 'Decline',
+        'footer.problem': 'WHY',
         'footer.smart': 'SMART',
         'footer.flexible': 'FLEXIBLE',
         'footer.assets': 'ASSETS',
@@ -200,6 +203,7 @@ const translations = {
         'marquee': 'SMART ASSET MANAGEMENT & BUSINESS AUTOMATION'
     },
     nl: {
+        'nav.problem': 'WAAROM',
         'nav.smart': 'SLIM',
         'nav.flexible': 'FLEXIBEL',
         'nav.assets': 'ASSETS',
@@ -293,6 +297,7 @@ const translations = {
         'cookie.text': 'Deze website gebruikt cookies om je ervaring te verbeteren. Door verder te gaan ga je akkoord met ons cookiebeleid.',
         'cookie.accept': 'Accepteren',
         'cookie.decline': 'Weigeren',
+        'footer.problem': 'WAAROM',
         'footer.smart': 'SLIM',
         'footer.flexible': 'FLEXIBEL',
         'footer.assets': 'ASSETS',
@@ -1075,6 +1080,90 @@ function initDashesStop() {
 }
 
 /* ----------------------------------------
+   Active Navigation Highlight
+   Highlights current section in nav (desktop: yellow text, mobile: label in dashes)
+   ---------------------------------------- */
+function initActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const dashesInner = document.querySelector('.nav-dashes-inner');
+    if (!sections.length || !navLinks.length) return;
+
+    // Create label element inside dashes for mobile
+    const dashesLabel = document.createElement('span');
+    dashesLabel.className = 'nav-dashes-label';
+    dashesLabel.textContent = '';
+    if (dashesInner) {
+        // Insert label roughly in the middle of the dashes text
+        const text = dashesInner.textContent;
+        const mid = Math.floor(text.length / 2);
+        dashesInner.textContent = '';
+        dashesInner.appendChild(document.createTextNode(text.substring(0, mid)));
+        dashesInner.appendChild(dashesLabel);
+        dashesInner.appendChild(document.createTextNode(text.substring(mid)));
+    }
+
+    // Map section ids to nav label text (uses current language)
+    function getSectionLabel(sectionId) {
+        const lang = document.documentElement.lang || 'nl';
+        const key = 'nav.' + (sectionId === 'smart' ? 'smart' :
+                               sectionId === 'flexible' ? 'flexible' :
+                               sectionId === 'assets' ? 'assets' :
+                               sectionId === 'request' ? 'request' :
+                               sectionId === 'problem' ? 'problem' : '');
+        return (translations[lang] && translations[lang][key]) || '';
+    }
+
+    let currentSection = '';
+
+    const observer = new IntersectionObserver((entries) => {
+        let topEntry = null;
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
+                    topEntry = entry;
+                }
+            }
+        });
+        if (topEntry) {
+            const id = topEntry.target.id;
+            if (id === currentSection) return;
+            currentSection = id;
+
+            // Update desktop nav links
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                link.classList.toggle('active', href === id);
+            });
+
+            // Update mobile dashes label
+            const label = getSectionLabel(id);
+            if (dashesLabel) {
+                dashesLabel.textContent = label ? ' ' + label + ' ' : '';
+            }
+        }
+    }, {
+        threshold: 0.3,
+        rootMargin: '-10% 0px -60% 0px'
+    });
+
+    sections.forEach(section => {
+        if (['problem', 'smart', 'flexible', 'assets', 'request'].includes(section.id)) {
+            observer.observe(section);
+        }
+    });
+
+    // Clear active state when at top (hero)
+    window.addEventListener('scroll', () => {
+        if (window.scrollY < 200) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (dashesLabel) dashesLabel.textContent = '';
+            currentSection = '';
+        }
+    });
+}
+
+/* ----------------------------------------
    Sankey Power Flow Visualization (Canvas)
    Storytelling animation: Grid first, then Solar
    takes over, then Battery enables even more solar.
@@ -1168,19 +1257,72 @@ function initGlobe() {
         });
     }
 
-    // --- Node position drift (every 30 min = 1800s, but we do subtle drift continuously) ---
+    // --- Node position drift over 1 hour ---
+    // Nodes drift to new random positions every ~6 minutes (10 steps in an hour)
+    // Movement is bounded within the canvas, hub stays central
+    const DRIFT_INTERVAL = 360; // 6 minutes in seconds
     let lastDriftUpdate = 0;
-    const DRIFT_INTERVAL = 1800; // 30 minutes
+    const MARGIN = 30; // min distance from canvas edge
+
+    // Store original positions and initialize targets
+    nodes.forEach(n => {
+        n.origX = n.baseX;
+        n.origY = n.baseY;
+        n.targetX = n.baseX;
+        n.targetY = n.baseY;
+        n.driftX = n.baseX;
+        n.driftY = n.baseY;
+    });
+
+    function getNodeBounds(n) {
+        if (n.id === 'business') {
+            // Hub stays in central area
+            return { minX: W * 0.30, maxX: W * 0.70, minY: H * 0.30, maxY: H * 0.60 };
+        }
+        if (n.id === 'grid' || n.id === 'battery') {
+            // Left-side nodes stay on left half
+            return { minX: MARGIN, maxX: W * 0.45, minY: MARGIN, maxY: H - MARGIN };
+        }
+        if (n.id === 'solar') {
+            // Solar stays in upper area
+            return { minX: W * 0.20, maxX: W * 0.70, minY: MARGIN, maxY: H * 0.25 };
+        }
+        // Peripheral asset nodes: right side
+        return { minX: W * 0.50, maxX: W - MARGIN, minY: MARGIN + 80, maxY: H - MARGIN };
+    }
+
+    function setNewDriftTargets() {
+        nodes.forEach(n => {
+            const bounds = getNodeBounds(n);
+            // Random target within bounds, biased toward original position
+            const randX = bounds.minX + Math.random() * (bounds.maxX - bounds.minX);
+            const randY = bounds.minY + Math.random() * (bounds.maxY - bounds.minY);
+            // Blend 30% original + 70% random for organic but bounded movement
+            n.targetX = n.origX * 0.3 + randX * 0.7;
+            n.targetY = n.origY * 0.3 + randY * 0.7;
+            // Clamp to bounds
+            n.targetX = Math.max(bounds.minX, Math.min(bounds.maxX, n.targetX));
+            n.targetY = Math.max(bounds.minY, Math.min(bounds.maxY, n.targetY));
+        });
+    }
 
     function updateNodeDrift(now) {
-        if (now - lastDriftUpdate < DRIFT_INTERVAL) return;
-        lastDriftUpdate = now;
+        // Only start drifting after the story completes
+        if (now < STORY_DURATION) return;
 
+        // Set new targets every DRIFT_INTERVAL
+        if (now - lastDriftUpdate >= DRIFT_INTERVAL) {
+            lastDriftUpdate = now;
+            setNewDriftTargets();
+        }
+
+        // Lerp baseX/baseY toward targets (slow, smooth movement)
+        const lerpSpeed = 0.002; // very slow interpolation per frame
         nodes.forEach(n => {
-            if (n.id !== 'business') {
-                n.baseX += (Math.random() - 0.5) * 20;
-                n.baseY += (Math.random() - 0.5) * 20;
-            }
+            n.driftX += (n.targetX - n.driftX) * lerpSpeed;
+            n.driftY += (n.targetY - n.driftY) * lerpSpeed;
+            n.baseX = n.driftX;
+            n.baseY = n.driftY;
         });
     }
 
