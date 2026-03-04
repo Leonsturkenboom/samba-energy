@@ -143,7 +143,11 @@
       var dateStr = d.toISOString().split('T')[0];
       var day = dateMap[dateStr];
 
-      var cls = day ? day.status : '';
+      var cls = '';
+      if (day) {
+        var pct = parseFloat(day.uptime_pct);
+        cls = pct >= 99 ? 'operational' : pct >= 90 ? 'degraded' : pct >= 80 ? 'warning' : 'down';
+      }
       var tooltipText = formatDate(dateStr);
       if (day) {
         tooltipText += ' — ' + day.uptime_pct + '% uptime';

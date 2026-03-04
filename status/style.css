@@ -314,6 +314,7 @@ body {
 
 .timeline-bar.operational { background: var(--green); }
 .timeline-bar.degraded { background: var(--yellow); }
+.timeline-bar.warning { background: #f97316; }
 .timeline-bar.down { background: var(--red); }
 
 .timeline-bar .tooltip {
