@@ -551,15 +551,7 @@ function initAssetCardHover() {
     function updateScroll() {
         if (!isDragging && !scrollPaused && !isTouchDevice()) {
             scrollPos -= scrollSpeed;
-            const oneSet = getOneSetWidth();
-            // Loop: when we've scrolled past one full set, jump back
-            if (oneSet > 0 && Math.abs(scrollPos) >= oneSet) {
-                scrollPos += oneSet;
-            }
-            // Prevent scrolling too far right (past 0)
-            if (scrollPos > 0) {
-                scrollPos = 0;
-            }
+            wrapPosition();
             carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
         }
         scrollRAF = requestAnimationFrame(updateScroll);
@@ -662,11 +654,11 @@ function initAssetCardHover() {
 
     function wrapPosition() {
         const oneSet = getOneSetWidth();
-        if (oneSet > 0) {
-            while (scrollPos < -oneSet) scrollPos += oneSet;
-            while (scrollPos > 0) scrollPos -= oneSet;
-            carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
-        }
+        if (oneSet <= 0) return;
+        // Normalize scrollPos to be within [-oneSet, 0]
+        scrollPos = scrollPos % oneSet;
+        if (scrollPos > 0) scrollPos -= oneSet;
+        carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
     }
 
     // Touch events
