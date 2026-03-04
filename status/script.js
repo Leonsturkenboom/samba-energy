@@ -101,9 +101,10 @@
     // Top row: name + badge
     html += '<div class="service-top">';
     var nameHtml = escapeHtml(svc.name);
-    if (svc.version) {
-      nameHtml += ' <span class="service-version">v' + escapeHtml(svc.version) + '</span>';
-    }
+    // TODO: re-enable version display once HA version fetching is verified
+    // if (svc.version) {
+    //   nameHtml += ' <span class="service-version">v' + escapeHtml(svc.version) + '</span>';
+    // }
     html += '<span class="service-name">' + nameHtml + '</span>';
     html += '<div class="service-meta">';
     html += '<span class="service-uptime ' + uptimeClass + '">' + uptime + '</span>';
