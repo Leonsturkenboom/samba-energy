@@ -16,7 +16,7 @@
       STATUS_LABELS: { operational: 'Operational', degraded: 'Degraded', down: 'Down', unknown: 'Unknown' },
       OVERALL_MESSAGES: { operational: 'All systems operational', degraded: 'Some systems experiencing issues', down: 'Major outage detected', unknown: 'Checking services...' },
       lastUpdated: 'Last updated',
-      days90: '90 days ago',
+      days30: '30 days ago',
       today: 'Today',
       responseTime: 'Response time',
       uptime: 'uptime',
@@ -25,7 +25,7 @@
       STATUS_LABELS: { operational: 'Operationeel', degraded: 'Verstoord', down: 'Uitgevallen', unknown: 'Onbekend' },
       OVERALL_MESSAGES: { operational: 'Alle systemen operationeel', degraded: 'Sommige systemen ondervinden problemen', down: 'Grote storing gedetecteerd', unknown: 'Services controleren...' },
       lastUpdated: 'Laatst bijgewerkt',
-      days90: '90 dagen geleden',
+      days30: '30 dagen geleden',
       today: 'Vandaag',
       responseTime: 'Responstijd',
       uptime: 'uptime',
@@ -89,7 +89,9 @@
   }
 
   function renderService(svc) {
-    var uptime = svc.uptime_90d !== null ? svc.uptime_90d + '%' : '—';
+    var uptimeVal = svc.uptime_30d !== null ? svc.uptime_30d : (svc.uptime_90d !== null ? svc.uptime_90d : null);
+    var uptime = uptimeVal !== null ? uptimeVal + '%' : '—';
+    var uptimeClass = uptimeVal === null ? '' : uptimeVal >= 99 ? 'uptime-green' : uptimeVal >= 90 ? 'uptime-yellow' : uptimeVal >= 80 ? 'uptime-orange' : 'uptime-red';
     var responseTime = svc.response_time_ms !== null ? svc.response_time_ms + 'ms' : '—';
     var statusLabel = STATUS_LABELS[svc.status] || 'Unknown';
     var statusClass = svc.status || 'unknown';
@@ -100,7 +102,7 @@
     html += '<div class="service-top">';
     html += '<span class="service-name">' + escapeHtml(svc.name) + '</span>';
     html += '<div class="service-meta">';
-    html += '<span class="service-uptime">' + uptime + '</span>';
+    html += '<span class="service-uptime ' + uptimeClass + '">' + uptime + '</span>';
     html += '<span class="service-badge ' + statusClass + '">' + statusLabel + '</span>';
     html += '</div></div>';
 
@@ -119,7 +121,7 @@
   function renderTimeline(history) {
     if (!history || history.length === 0) {
       return '<div class="timeline">' +
-        Array(90).fill('<div class="timeline-bar"></div>').join('') +
+        Array(30).fill('<div class="timeline-bar"></div>').join('') +
         '</div>';
     }
 
@@ -127,10 +129,10 @@
     var dateMap = {};
     history.forEach(function (h) { dateMap[h.date] = h; });
 
-    // Generate 90 days
+    // Generate 30 days
     var bars = '';
     var today = new Date();
-    for (var i = 89; i >= 0; i--) {
+    for (var i = 29; i >= 0; i--) {
       var d = new Date(today);
       d.setDate(d.getDate() - i);
       var dateStr = d.toISOString().split('T')[0];
@@ -150,12 +152,12 @@
     }
 
     // Labels
-    var ninetyAgo = new Date(today);
-    ninetyAgo.setDate(ninetyAgo.getDate() - 89);
+    var thirtyAgo = new Date(today);
+    thirtyAgo.setDate(thirtyAgo.getDate() - 29);
 
     var html = '<div class="timeline">' + bars + '</div>';
     html += '<div class="timeline-labels">';
-    html += '<span class="timeline-label">' + formatDate(ninetyAgo.toISOString().split('T')[0]) + '</span>';
+    html += '<span class="timeline-label">' + formatDate(thirtyAgo.toISOString().split('T')[0]) + '</span>';
     html += '<span class="timeline-label">' + t.today + '</span>';
     html += '</div>';
 

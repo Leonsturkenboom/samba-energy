@@ -107,7 +107,8 @@ const translations = {
         'nav.success': 'Success',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
-        'hero.subtitle': 'One platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
+        'hero.subtitle': 'One AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
+        'hero.scroll': 'Scroll for more',
         'hero.cta1': 'Watch a live demo',
         'hero.cta2': 'Calculate your savings',
         'problem.title': 'Sound familiar?',
@@ -211,7 +212,8 @@ const translations = {
         'nav.success': 'SUCCES',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
-        'hero.subtitle': 'E\u00e9n platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
+        'hero.subtitle': 'E\u00e9n AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
+        'hero.scroll': 'Scroll voor meer',
         'hero.cta1': 'Bekijk een live demo',
         'hero.cta2': 'Bereken je besparing',
         'problem.title': 'Herkenbaar?',
@@ -1081,86 +1083,92 @@ function initDashesStop() {
 
 /* ----------------------------------------
    Active Navigation Highlight
-   Highlights current section in nav (desktop: yellow text, mobile: label in dashes)
+   Desktop: yellow text on active nav link
+   Mobile: section label slides through dashes from right to left as you scroll through a section
    ---------------------------------------- */
 function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
+    const sectionIds = ['problem', 'smart', 'flexible', 'assets', 'request'];
+    const sectionEls = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const dashesInner = document.querySelector('.nav-dashes-inner');
-    if (!sections.length || !navLinks.length) return;
+    if (!sectionEls.length || !navLinks.length) return;
 
-    // Create label element inside dashes for mobile
+    // Create mobile label element overlaid on dashes
     const dashesLabel = document.createElement('span');
     dashesLabel.className = 'nav-dashes-label';
-    dashesLabel.textContent = '';
-    if (dashesInner) {
-        // Insert label roughly in the middle of the dashes text
-        const text = dashesInner.textContent;
-        const mid = Math.floor(text.length / 2);
-        dashesInner.textContent = '';
-        dashesInner.appendChild(document.createTextNode(text.substring(0, mid)));
-        dashesInner.appendChild(dashesLabel);
-        dashesInner.appendChild(document.createTextNode(text.substring(mid)));
-    }
+    if (dashesInner) dashesInner.appendChild(dashesLabel);
 
-    // Map section ids to nav label text (uses current language)
     function getSectionLabel(sectionId) {
         const lang = document.documentElement.lang || 'nl';
-        const key = 'nav.' + (sectionId === 'smart' ? 'smart' :
-                               sectionId === 'flexible' ? 'flexible' :
-                               sectionId === 'assets' ? 'assets' :
-                               sectionId === 'request' ? 'request' :
-                               sectionId === 'problem' ? 'problem' : '');
+        const key = 'nav.' + sectionId;
         return (translations[lang] && translations[lang][key]) || '';
     }
 
     let currentSection = '';
 
-    const observer = new IntersectionObserver((entries) => {
-        let topEntry = null;
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
-                    topEntry = entry;
-                }
+    function updateActiveSection() {
+        const navHeight = document.getElementById('navbar')?.offsetHeight || 60;
+        const scrollY = window.scrollY + navHeight + window.innerHeight * 0.3;
+        let activeId = '';
+
+        // Find the section whose top we've passed but bottom we haven't
+        for (let i = sectionEls.length - 1; i >= 0; i--) {
+            const el = sectionEls[i];
+            const rect = el.getBoundingClientRect();
+            const sectionTop = rect.top + window.scrollY;
+            if (window.scrollY + navHeight + 10 >= sectionTop) {
+                activeId = el.id;
+                break;
             }
+        }
+
+        // Clear if at top
+        if (window.scrollY < 200) activeId = '';
+
+        if (activeId === currentSection) return;
+        currentSection = activeId;
+
+        // Update desktop nav links
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href').substring(1);
+            link.classList.toggle('active', href === activeId);
         });
-        if (topEntry) {
-            const id = topEntry.target.id;
-            if (id === currentSection) return;
-            currentSection = id;
 
-            // Update desktop nav links
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href').substring(1);
-                link.classList.toggle('active', href === id);
-            });
+        // Update mobile label
+        dashesLabel.textContent = activeId ? getSectionLabel(activeId) : '';
+    }
 
-            // Update mobile dashes label
-            const label = getSectionLabel(id);
-            if (dashesLabel) {
-                dashesLabel.textContent = label ? ' ' + label + ' ' : '';
-            }
+    // Compute label position within dashes based on scroll progress through section
+    function updateLabelPosition() {
+        if (!currentSection) {
+            dashesLabel.style.opacity = '0';
+            return;
         }
-    }, {
-        threshold: 0.3,
-        rootMargin: '-10% 0px -60% 0px'
-    });
+        const el = document.getElementById(currentSection);
+        if (!el) return;
 
-    sections.forEach(section => {
-        if (['problem', 'smart', 'flexible', 'assets', 'request'].includes(section.id)) {
-            observer.observe(section);
-        }
-    });
+        const rect = el.getBoundingClientRect();
+        const navHeight = document.getElementById('navbar')?.offsetHeight || 60;
+        const viewH = window.innerHeight - navHeight;
+        // Progress: 0 = section top at viewport top, 1 = section bottom at viewport bottom
+        const progress = Math.max(0, Math.min(1, (navHeight - rect.top) / (rect.height - viewH + navHeight)));
 
-    // Clear active state when at top (hero)
+        // Label moves from right (100%) to left (0%) as you scroll through
+        const dashesWidth = dashesInner ? dashesInner.offsetWidth : 200;
+        const labelWidth = dashesLabel.offsetWidth || 60;
+        const maxOffset = dashesWidth - labelWidth;
+        const offset = maxOffset * (1 - progress);
+
+        dashesLabel.style.transform = `translateX(${offset}px)`;
+        dashesLabel.style.opacity = '1';
+    }
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY < 200) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (dashesLabel) dashesLabel.textContent = '';
-            currentSection = '';
-        }
-    });
+        updateActiveSection();
+        updateLabelPosition();
+    }, { passive: true });
+
+    updateActiveSection();
 }
 
 /* ----------------------------------------
@@ -1424,22 +1432,17 @@ function initGlobe() {
         ctx.setTransform(dpr * scaleX, 0, 0, dpr * scaleY, 0, 0);
         ctx.clearRect(0, 0, W, H);
 
-        // Global breathing offset
-        const breatheY = Math.sin(rawNow * 0.8) * 1.2;
-
         ctx.save();
-        ctx.translate(0, breatheY);
 
         updateNodeDrift(now);
         updateStoryFlows(now);
         lerpFlows();
         flowOffset += 0.015;
 
-        // Subtle node position animation
+        // Update node positions from drift (no wobble — smooth movement only)
         nodes.forEach(n => {
-            const wobble = Math.sin(rawNow * 0.3 + n.baseX) * 3;
-            n.x = n.baseX + wobble;
-            n.y = n.baseY + Math.cos(rawNow * 0.25 + n.baseY) * 2;
+            n.x = n.baseX;
+            n.y = n.baseY;
         });
 
         // === 1. Mesh lines ===

@@ -243,6 +243,10 @@ body {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
+.service-uptime.uptime-green { color: var(--green); }
+.service-uptime.uptime-yellow { color: var(--yellow); }
+.service-uptime.uptime-orange { color: #f97316; }
+.service-uptime.uptime-red { color: var(--red); }
 
 .service-badge {
     font-family: var(--font-mono);
