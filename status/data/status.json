@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-04T14:25:00.560Z",
+  "generated_at": "2026-03-04T14:30:00.869Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 121,
+      "response_time_ms": 118,
       "error": null,
       "uptime_30d": 99.7,
       "history": [
@@ -58,10 +58,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-03 14:25:00",
-          "ms": 148
-        },
         {
           "time": "2026-03-03 14:30:00",
           "ms": 279
@@ -1233,6 +1229,14 @@
         {
           "time": "2026-03-04 14:25:00",
           "ms": 121
+        },
+        {
+          "time": "2026-03-04 14:30:00",
+          "ms": 116
+        },
+        {
+          "time": "2026-03-04 14:30:00",
+          "ms": 118
         }
       ]
     },
@@ -1241,7 +1245,7 @@
       "name": "versie platform",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 100,
+      "response_time_ms": 116,
       "error": null,
       "uptime_30d": 100,
       "history": [
@@ -1271,6 +1275,10 @@
         {
           "time": "2026-03-04 14:25:00",
           "ms": 100
+        },
+        {
+          "time": "2026-03-04 14:30:00",
+          "ms": 116
         }
       ]
     },
@@ -1279,7 +1287,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 143,
+      "response_time_ms": 118,
       "error": null,
       "uptime_30d": 100,
       "history": [
@@ -1330,10 +1338,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-03 14:25:00",
-          "ms": 219
-        },
         {
           "time": "2026-03-03 14:30:00",
           "ms": 358
@@ -2501,6 +2505,18 @@
         {
           "time": "2026-03-04 14:25:00",
           "ms": 143
+        },
+        {
+          "time": "2026-03-04 14:25:00",
+          "ms": 315
+        },
+        {
+          "time": "2026-03-04 14:30:00",
+          "ms": 311
+        },
+        {
+          "time": "2026-03-04 14:30:00",
+          "ms": 118
         }
       ]
     }
