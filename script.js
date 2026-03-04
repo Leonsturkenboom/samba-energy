@@ -107,7 +107,7 @@ const translations = {
         'nav.success': 'Success',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
-        'hero.subtitle': 'One AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
+        'hero.subtitle': 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
         'hero.scroll': 'Scroll for more',
         'hero.cta1': 'Watch a live demo',
         'hero.cta2': 'Calculate your savings',
@@ -212,7 +212,7 @@ const translations = {
         'nav.success': 'SUCCES',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
-        'hero.subtitle': 'E\u00e9n AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
+        'hero.subtitle': 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
         'hero.scroll': 'Scroll voor meer',
         'hero.cta1': 'Bekijk een live demo',
         'hero.cta2': 'Bereken je besparing',
@@ -336,6 +336,29 @@ function applyTranslations() {
             nl: 'Ritme in je assets,<br>Grip op de zaak'
         };
         sloganEl.innerHTML = sloganTexts[currentLang];
+    }
+
+    // Update browser tab title
+    document.title = currentLang === 'en' ? 'Find your rhythm' : 'Vind je ritme';
+
+    // Update meta tags for SEO
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (currentLang === 'en') {
+        if (metaDesc) metaDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+        if (ogTitle) ogTitle.content = 'SAMBA | Reduce your energy costs with smart asset management & business automation';
+        if (ogDesc) ogDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+        if (twTitle) twTitle.content = 'SAMBA | Reduce your energy costs with smart asset management & business automation';
+        if (twDesc) twDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+    } else {
+        if (metaDesc) metaDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
+        if (ogTitle) ogTitle.content = 'SAMBA | Verlaag je energiekosten met slimme asset management & bedrijfsautomatisering';
+        if (ogDesc) ogDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
+        if (twTitle) twTitle.content = 'SAMBA | Verlaag je energiekosten met slimme asset management & bedrijfsautomatisering';
+        if (twDesc) twDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
     }
 
     // Update marquee text
