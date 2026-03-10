@@ -150,7 +150,6 @@ body {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--accent-yellow);
-    transform: translateY(-1px);
 }
 
 /* Section label in dashes (mobile only) */
@@ -158,18 +157,22 @@ body {
     display: none;
     position: absolute;
     top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--accent-yellow);
     font-family: var(--font-mono);
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
+    background: rgba(33, 33, 33, 0.9);
+    padding: 2px 8px;
+    border-radius: 3px;
+    z-index: 2;
 }
 
 .lang-toggle {
@@ -1094,7 +1097,7 @@ body {
 /* Card 3: Batterij */
 .asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -30px; top: 20px; }
 /* Card 4: Back-up power */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 64px; right: -4px; top: 40px; }
+.asset-card:nth-child(7n+4) .asset-card-img { height: 83px; right: -4px; top: 30px; }
 /* Card 5: Andere flex assets */
 .asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 38px; }
 /* Card 6: Verlichting (lampje) */
@@ -1533,7 +1536,6 @@ body {
 
 .footer-link:hover {
     color: var(--accent-yellow);
-    transform: translateX(3px);
 }
 
 .footer-brand {

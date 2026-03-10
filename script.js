@@ -107,7 +107,7 @@ const translations = {
         'nav.success': 'Success',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
-        'hero.subtitle': 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.',
+        'hero.subtitle': 'Intelligently driven platform that monitors your assets, optimises usage, reduces costs and keeps you within grid limits.',
         'hero.scroll': 'Scroll for more',
         'hero.cta1': 'Watch a live demo',
         'hero.cta2': 'Calculate your savings',
@@ -118,12 +118,12 @@ const translations = {
         'problem.item4': 'No overview, no control',
         'problem.philosophy': 'First align your energy consumption, then invest in a battery.',
         'problem.cta': 'SAMBA solves this. In one platform.',
-        'smart.title': 'One platform, total control',
-        'smart.subtitle': 'Cut your energy bill in half as an SME with AI-driven optimisation of all your assets from a single dashboard',
+        'smart.title': 'One app, total control',
+        'smart.subtitle': 'Reduce your energy costs as an SME with smart optimisation of all your assets from a single dashboard',
         'smart.card1.title': 'Save costs',
         'smart.card1.desc': 'Save up to 50% with dynamic energy prices or simply by making better use of your own solar panels.',
-        'smart.card2.title': 'AI forecasting',
-        'smart.card2.desc': 'To plan the use of your assets per day and per week, we use AI forecasting algorithms.',
+        'smart.card2.title': 'Smart forecasting',
+        'smart.card2.desc': 'To plan the use of your assets per day and per week, we use multi-data driven forecasting algorithms.',
         'smart.card3.title': 'Simple',
         'smart.card3.desc': 'All your asset management from one app. Implementation fully taken care of with ongoing support.',
         'smart.card4.title': 'Safe',
@@ -158,7 +158,7 @@ const translations = {
         'assets.card4.desc': 'Seamlessly switches over during power outages or grid congestion. Our platform prioritises your critical processes and non-essential devices are shut down.',
         'assets.card5.title': 'Other flex assets',
         'assets.card5.headline': 'Automatic savings, tailored to your process.',
-        'assets.card5.desc': 'Save up to 50% on your energy bill. From heat pumps, boilers to cold storage and forklifts: controls all your flexible assets based on energy prices and solar generation.',
+        'assets.card5.desc': 'Save up to 50% on your energy bill per asset. From heat pumps, boilers to cold storage and forklifts: controls all your flexible assets based on energy prices and solar generation.',
         'assets.card6.title': 'Lighting',
         'assets.card6.headline': 'Always light where needed, never where not.',
         'assets.card6.desc': 'Automate your lighting. Our platform detects presence and automatically adjusts lighting to occupancy and schedules. So the lights are never on unnecessarily.',
@@ -212,7 +212,7 @@ const translations = {
         'nav.success': 'SUCCES',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
-        'hero.subtitle': 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
+        'hero.subtitle': 'Intelligent gestuurd platform dat je assets monitort, gebruik optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
         'hero.scroll': 'Scroll voor meer',
         'hero.cta1': 'Bekijk een live demo',
         'hero.cta2': 'Bereken je besparing',
@@ -223,12 +223,12 @@ const translations = {
         'problem.item4': 'Geen overzicht, geen controle',
         'problem.philosophy': 'Eerst je energieverbruik slim afstemmen, dan pas investeren in een batterij.',
         'problem.cta': 'SAMBA lost dit op. In \u00e9\u00e9n platform.',
-        'smart.title': 'E\u00e9n platform, volledige controle',
-        'smart.subtitle': 'Halveer als MKBer je energierekening met AI-gestuurde optimalisatie van al je assets vanuit \u00e9\u00e9n dashboard',
+        'smart.title': 'E\u00e9n app, volledige controle',
+        'smart.subtitle': 'Verlaag als MKBer je energiekosten met slimme optimalisatie van al je assets vanuit \u00e9\u00e9n dashboard',
         'smart.card1.title': 'Kosten besparen',
         'smart.card1.desc': 'Bespaar tot wel 50% in combinatie met dynamische energieprijzen of gewoon door hoger gebruik van je eigen zonnepanelen.',
-        'smart.card2.title': 'AI forecasting',
-        'smart.card2.desc': 'Om per dag en per week het gebruik van je assets te plannen, maken we gebruik van AI forecasting algoritmen.',
+        'smart.card2.title': 'Slimme forecasting',
+        'smart.card2.desc': 'Om per dag en per week het gebruik van je assets te plannen, maken we gebruik van AI multi-data gedreven forecasting algoritmen.',
         'smart.card3.title': 'Simpel',
         'smart.card3.desc': 'Al je asset-beheer vanuit \u00e9\u00e9n app. Implementatie volledig verzorgd en met doorlopende ondersteuning.',
         'smart.card4.title': 'Veilig',
@@ -263,7 +263,7 @@ const translations = {
         'assets.card4.desc': 'Schakelt naadloos over bij stroomuitval of netcongestie. Ons platform prioriteert je kritieke processen en niet-essenti\u00EBle apparaten worden uitgeschakeld.',
         'assets.card5.title': 'Andere flex assets',
         'assets.card5.headline': 'Automatisch besparen, afgestemd op jouw proces.',
-        'assets.card5.desc': 'Bespaar tot wel 50% op je energierekening. Van warmtepompen, boilers tot koelcellen en heftrucks: stuurt al je flexibele assets aan op energieprijzen en zonne-opwek.',
+        'assets.card5.desc': 'Bespaar tot wel 50% op je energierekening per asset. Van warmtepompen, boilers tot koelcellen en heftrucks: stuurt al je flexibele assets aan op energieprijzen en zonne-opwek.',
         'assets.card6.title': 'Verlichting',
         'assets.card6.headline': 'Altijd licht waar nodig, nooit waar niet.',
         'assets.card6.desc': 'Automatiseer je verlichting. Ons platform detecteert aanwezigheid en stemt verlichting automatisch af op bezetting en tijdschema\'s. Zo staat de verlichting nooit onnodig aan.',
@@ -348,17 +348,17 @@ function applyTranslations() {
     const twTitle = document.querySelector('meta[name="twitter:title"]');
     const twDesc = document.querySelector('meta[name="twitter:description"]');
     if (currentLang === 'en') {
-        if (metaDesc) metaDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+        if (metaDesc) metaDesc.content = 'Intelligently driven platform that monitors your assets, optimises usage, reduces costs and keeps you within grid limits.';
         if (ogTitle) ogTitle.content = 'SAMBA | Reduce your energy costs with smart asset management & business automation';
-        if (ogDesc) ogDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+        if (ogDesc) ogDesc.content = 'Intelligently driven platform that monitors your assets, optimises usage, reduces costs and keeps you within grid limits.';
         if (twTitle) twTitle.content = 'SAMBA | Reduce your energy costs with smart asset management & business automation';
-        if (twDesc) twDesc.content = 'AI-powered platform that monitors your assets, optimises intelligently, reduces costs and keeps you within grid limits.';
+        if (twDesc) twDesc.content = 'Intelligently driven platform that monitors your assets, optimises usage, reduces costs and keeps you within grid limits.';
     } else {
-        if (metaDesc) metaDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
+        if (metaDesc) metaDesc.content = 'Intelligent gestuurd platform dat je assets monitort, gebruik optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
         if (ogTitle) ogTitle.content = 'SAMBA | Verlaag je energiekosten met slimme asset management & bedrijfsautomatisering';
-        if (ogDesc) ogDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
+        if (ogDesc) ogDesc.content = 'Intelligent gestuurd platform dat je assets monitort, gebruik optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
         if (twTitle) twTitle.content = 'SAMBA | Verlaag je energiekosten met slimme asset management & bedrijfsautomatisering';
-        if (twDesc) twDesc.content = 'AI-gestuurd platform dat je assets monitort, slim optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
+        if (twDesc) twDesc.content = 'Intelligent gestuurd platform dat je assets monitort, gebruik optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.';
     }
 
     // Update marquee text
@@ -572,7 +572,7 @@ function initAssetCardHover() {
     }
 
     function updateScroll() {
-        if (!isDragging && !scrollPaused && !isTouchDevice()) {
+        if (!isDragging && !scrollPaused) {
             scrollPos -= scrollSpeed;
             wrapPosition();
             carousel.style.transform = `translate3d(${scrollPos}px, 0, 0)`;
@@ -598,7 +598,7 @@ function initAssetCardHover() {
                     scrollPaused = false;
                 }
             });
-            // Mobile tap to toggle
+            // Mobile tap to toggle + pause/resume carousel
             card.addEventListener('click', (e) => {
                 if (!isTouchDevice()) return;
                 e.preventDefault();
@@ -607,8 +607,20 @@ function initAssetCardHover() {
                 cards.forEach(c => c.classList.remove('expanded'));
                 if (!wasExpanded) {
                     card.classList.add('expanded');
+                    scrollPaused = true;
+                } else {
+                    scrollPaused = false;
                 }
             });
+        });
+
+        // Tap outside cards on mobile collapses all and resumes scroll
+        document.addEventListener('click', (e) => {
+            if (!isTouchDevice()) return;
+            if (!e.target.closest('.asset-card')) {
+                cards.forEach(c => c.classList.remove('expanded'));
+                scrollPaused = false;
+            }
         });
     }
     bindCardInteractions();
@@ -1153,29 +1165,9 @@ function initActiveNav() {
         dashesLabel.textContent = activeId ? getSectionLabel(activeId) : '';
     }
 
-    // Compute label position within dashes based on scroll progress through section
+    // Show/hide label centered in dashes area
     function updateLabelPosition() {
-        if (!currentSection) {
-            dashesLabel.style.opacity = '0';
-            return;
-        }
-        const el = document.getElementById(currentSection);
-        if (!el) return;
-
-        const rect = el.getBoundingClientRect();
-        const navHeight = document.getElementById('navbar')?.offsetHeight || 60;
-        const viewH = window.innerHeight - navHeight;
-        // Progress: 0 = section top at viewport top, 1 = section bottom at viewport bottom
-        const progress = Math.max(0, Math.min(1, (navHeight - rect.top) / (rect.height - viewH + navHeight)));
-
-        // Label moves from right (100%) to left (0%) as you scroll through
-        const dashesWidth = dashesInner ? dashesInner.offsetWidth : 200;
-        const labelWidth = dashesLabel.offsetWidth || 60;
-        const maxOffset = dashesWidth - labelWidth;
-        const offset = maxOffset * (1 - progress);
-
-        dashesLabel.style.transform = `translateX(${offset}px)`;
-        dashesLabel.style.opacity = '1';
+        dashesLabel.style.opacity = currentSection ? '1' : '0';
     }
 
     window.addEventListener('scroll', () => {
