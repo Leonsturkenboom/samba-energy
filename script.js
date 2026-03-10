@@ -470,7 +470,9 @@ function initSectionVideos() {
     videos.forEach(video => {
         const section = video.closest('section');
         // Assets section plays at 5x slower (0.2), others at 2x slower (0.5)
-        const rate = section && section.classList.contains('assets-section') ? 0.2 : 0.5;
+        const isAssets = section && section.classList.contains('assets-section');
+        const isRequest = section && section.classList.contains('request-section');
+        const rate = isAssets ? 0.2 : isRequest ? 0.333 : 0.5;
         video.playbackRate = rate;
         video.addEventListener('canplay', () => {
             video.play().catch(() => {});
@@ -1100,12 +1102,6 @@ function initDashesStop() {
     setTimeout(() => {
         dashes.classList.add('stopped');
     }, 2000);
-
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const offset = -(scrollY * 0.3) % 200;
-        dashes.style.transform = `translateX(${offset}px)`;
-    });
 }
 
 /* ----------------------------------------
