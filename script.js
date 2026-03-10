@@ -472,7 +472,7 @@ function initSectionVideos() {
         // Assets section plays at 5x slower (0.2), others at 2x slower (0.5)
         const isAssets = section && section.classList.contains('assets-section');
         const isRequest = section && section.classList.contains('request-section');
-        const rate = isAssets ? 0.2 : isRequest ? 0.1 : 0.5;
+        const rate = isAssets ? 0.2 : isRequest ? 0.05 : 0.5;
         video.playbackRate = rate;
         video.addEventListener('canplay', () => {
             video.play().catch(() => {});
