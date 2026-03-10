@@ -543,7 +543,7 @@ body {
 }
 
 .flexible-section > .section-overlay { background: var(--white); opacity: 0.83; }
-.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.97; }
+.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.99; }
 
 .flexible-section > .container,
 .request-section > .container {
@@ -1095,9 +1095,9 @@ body {
 /* Card 2: Zonnepanelen (paneel) */
 .asset-card:nth-child(7n+2) .asset-card-img { height: 152px; right: -6px; top: 30px; }
 /* Card 3: Batterij */
-.asset-card:nth-child(7n+3) .asset-card-img { height: 128px; right: -30px; top: 20px; }
+.asset-card:nth-child(7n+3) .asset-card-img { height: 160px; right: 0px; top: 10px; }
 /* Card 4: Back-up power */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 100px; right: -4px; top: 30px; }
+.asset-card:nth-child(7n+4) .asset-card-img { height: 120px; right: -4px; top: 25px; }
 /* Card 5: Andere flex assets */
 .asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 38px; }
 /* Card 6: Verlichting (lampje) */
