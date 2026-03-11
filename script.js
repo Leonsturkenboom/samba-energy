@@ -466,15 +466,37 @@ function initProblemVideo() {
    Section Background Videos
    ---------------------------------------- */
 function initSectionVideos() {
-    const videos = document.querySelectorAll('.section-video');
-    videos.forEach(video => {
+    // Lazy load all videos with data-src
+    const lazyVideos = document.querySelectorAll('.lazy-video');
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const src = video.dataset.src;
+                if (src) {
+                    const source = document.createElement('source');
+                    source.src = src;
+                    source.type = 'video/mp4';
+                    video.appendChild(source);
+                    video.load();
+                    delete video.dataset.src;
+                }
+                videoObserver.unobserve(video);
+            }
+        });
+    }, { rootMargin: '300px' });
+
+    lazyVideos.forEach(video => videoObserver.observe(video));
+
+    // Set playback rates and autoplay on canplay
+    const allVideos = document.querySelectorAll('.section-video, .problem-video');
+    allVideos.forEach(video => {
         const section = video.closest('section');
-        // Assets section plays at 5x slower (0.2), others at 2x slower (0.5)
         const isAssets = section && section.classList.contains('assets-section');
         const isRequest = section && section.classList.contains('request-section');
-        const rate = isAssets ? 0.2 : isRequest ? 0.5 : 0.5;
-        video.playbackRate = rate;
+        const rate = isAssets ? 0.2 : isRequest ? 1 : 0.5;
         video.addEventListener('canplay', () => {
+            video.playbackRate = rate;
             video.play().catch(() => {});
         }, { once: true });
     });
