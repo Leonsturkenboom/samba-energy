@@ -543,7 +543,7 @@ body {
 }
 
 .flexible-section > .section-overlay { background: var(--white); opacity: 0.83; }
-.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.9; }
+.request-section > .section-overlay { background: var(--bg-dark); opacity: 0.95; }
 
 .flexible-section > .container,
 .request-section > .container {
@@ -1097,7 +1097,7 @@ body {
 /* Card 3: Batterij */
 .asset-card:nth-child(7n+3) .asset-card-img { height: 160px; right: 0px; top: 10px; }
 /* Card 4: Back-up power */
-.asset-card:nth-child(7n+4) .asset-card-img { height: 86px; right: -4px; top: 45px; }
+.asset-card:nth-child(7n+4) .asset-card-img { height: 90px; right: -4px; top: 43px; }
 /* Card 5: Andere flex assets */
 .asset-card:nth-child(7n+5) .asset-card-img { height: 109px; right: -10px; top: 38px; }
 /* Card 6: Verlichting (lampje) */
