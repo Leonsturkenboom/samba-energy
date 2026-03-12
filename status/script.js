@@ -98,14 +98,13 @@
 
     var html = '<div class="service-card">';
 
-    // Top row: name + badge
+    // Top row: name (with version if available) + badge
+    var displayName = svc.name;
+    if (svc.version) {
+      displayName += ' <span class="service-version">v' + escapeHtml(svc.version) + '</span>';
+    }
     html += '<div class="service-top">';
-    var nameHtml = escapeHtml(svc.name);
-    // TODO: re-enable version display once HA version fetching is verified
-    // if (svc.version) {
-    //   nameHtml += ' <span class="service-version">v' + escapeHtml(svc.version) + '</span>';
-    // }
-    html += '<span class="service-name">' + nameHtml + '</span>';
+    html += '<span class="service-name">' + displayName + '</span>';
     html += '<div class="service-meta">';
     html += '<span class="service-uptime ' + uptimeClass + '">' + uptime + '</span>';
     html += '<span class="service-badge ' + statusClass + '">' + statusLabel + '</span>';
