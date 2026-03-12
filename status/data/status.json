@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-12T18:35:00.927Z",
+  "generated_at": "2026-03-12T18:40:01.080Z",
   "overall_status": "down",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 117,
+      "response_time_ms": 116,
       "error": null,
       "version": null,
       "uptime_30d": 99.7,
@@ -567,6 +567,10 @@
         {
           "time": "2026-03-12 18:35:00",
           "ms": 117
+        },
+        {
+          "time": "2026-03-12 18:40:01",
+          "ms": 116
         }
       ]
     },
@@ -575,7 +579,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 115,
+      "response_time_ms": 113,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -1135,6 +1139,10 @@
         {
           "time": "2026-03-12 18:35:00",
           "ms": 115
+        },
+        {
+          "time": "2026-03-12 18:40:01",
+          "ms": 113
         }
       ]
     },
@@ -1143,7 +1151,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "down",
-      "response_time_ms": 137,
+      "response_time_ms": 155,
       "error": "HTTP 404",
       "version": "0.1.25",
       "uptime_30d": 83.5,
@@ -1196,7 +1204,7 @@
         {
           "date": "2026-03-12",
           "status": "down",
-          "uptime_pct": 56.3
+          "uptime_pct": 55.9
         }
       ],
       "response_times_24h": [
@@ -1703,6 +1711,10 @@
         {
           "time": "2026-03-12 18:35:00",
           "ms": 137
+        },
+        {
+          "time": "2026-03-12 18:40:01",
+          "ms": 155
         }
       ]
     },
@@ -1711,7 +1723,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 143,
+      "response_time_ms": 135,
       "error": null,
       "version": "1.0.6-dev.1773326799",
       "uptime_30d": 96.6,
@@ -1764,7 +1776,7 @@
         {
           "date": "2026-03-12",
           "status": "down",
-          "uptime_pct": 94.4
+          "uptime_pct": 94.5
         }
       ],
       "response_times_24h": [
@@ -2271,6 +2283,10 @@
         {
           "time": "2026-03-12 18:35:00",
           "ms": 143
+        },
+        {
+          "time": "2026-03-12 18:40:01",
+          "ms": 135
         }
       ]
     },
@@ -2838,6 +2854,10 @@
         },
         {
           "time": "2026-03-12 18:35:00",
+          "ms": 174
+        },
+        {
+          "time": "2026-03-12 18:40:01",
           "ms": 174
         }
       ]
