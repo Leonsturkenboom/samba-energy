@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T01:45:00.473Z",
+  "generated_at": "2026-03-13T01:50:00.590Z",
   "overall_status": "down",
   "services": [
     {
@@ -916,6 +916,10 @@
         {
           "time": "2026-03-13 01:45:00",
           "ms": 244
+        },
+        {
+          "time": "2026-03-13 01:50:00",
+          "ms": 244
         }
       ]
     },
@@ -924,7 +928,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 242,
+      "response_time_ms": 104,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -1833,6 +1837,10 @@
         {
           "time": "2026-03-13 01:45:00",
           "ms": 242
+        },
+        {
+          "time": "2026-03-13 01:50:00",
+          "ms": 104
         }
       ]
     },
@@ -1841,10 +1849,10 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "down",
-      "response_time_ms": 268,
+      "response_time_ms": 142,
       "error": "HTTP 404",
       "version": "0.1.25",
-      "uptime_30d": 80.8,
+      "uptime_30d": 80.7,
       "history": [
         {
           "date": "2026-02-24",
@@ -2750,6 +2758,10 @@
         {
           "time": "2026-03-13 01:45:00",
           "ms": 268
+        },
+        {
+          "time": "2026-03-13 01:50:00",
+          "ms": 142
         }
       ]
     },
@@ -2758,7 +2770,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 267,
+      "response_time_ms": 184,
       "error": null,
       "version": "1.0.6-dev.1773326799",
       "uptime_30d": 96.4,
@@ -3667,6 +3679,10 @@
         {
           "time": "2026-03-13 01:45:00",
           "ms": 267
+        },
+        {
+          "time": "2026-03-13 01:50:00",
+          "ms": 184
         }
       ]
     },
@@ -3675,7 +3691,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 292,
+      "response_time_ms": 222,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -4584,6 +4600,10 @@
         {
           "time": "2026-03-13 01:45:00",
           "ms": 292
+        },
+        {
+          "time": "2026-03-13 01:50:00",
+          "ms": 222
         }
       ]
     }
