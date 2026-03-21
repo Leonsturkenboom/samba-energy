@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21T00:50:01.078Z",
+  "generated_at": "2026-03-21T00:55:01.221Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 116,
+      "response_time_ms": 132,
       "error": null,
       "version": null,
       "uptime_30d": 99.7,
@@ -109,10 +109,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-20 00:55:00",
-          "ms": 112
-        },
         {
           "time": "2026-03-20 01:00:01",
           "ms": 114
@@ -1256,6 +1252,10 @@
         {
           "time": "2026-03-21 00:50:00",
           "ms": 116
+        },
+        {
+          "time": "2026-03-21 00:55:00",
+          "ms": 132
         }
       ]
     },
@@ -1264,7 +1264,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 258,
+      "response_time_ms": 352,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -1366,10 +1366,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-20 00:55:00",
-          "ms": 127
-        },
         {
           "time": "2026-03-20 01:00:01",
           "ms": 118
@@ -2513,6 +2509,10 @@
         {
           "time": "2026-03-21 00:50:00",
           "ms": 258
+        },
+        {
+          "time": "2026-03-21 00:55:01",
+          "ms": 352
         }
       ]
     },
@@ -2521,7 +2521,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 149,
+      "response_time_ms": 151,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 56,
@@ -2623,10 +2623,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-20 00:55:00",
-          "ms": 133
-        },
         {
           "time": "2026-03-20 01:00:02",
           "ms": 1649
@@ -3770,6 +3766,10 @@
         {
           "time": "2026-03-21 00:50:00",
           "ms": 149
+        },
+        {
+          "time": "2026-03-21 00:55:01",
+          "ms": 151
         }
       ]
     },
@@ -3778,7 +3778,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 351,
+      "response_time_ms": 172,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 94.4,
@@ -5027,6 +5027,10 @@
         {
           "time": "2026-03-21 00:50:01",
           "ms": 351
+        },
+        {
+          "time": "2026-03-21 00:55:01",
+          "ms": 172
         }
       ]
     },
@@ -5035,7 +5039,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 277,
+      "response_time_ms": 292,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -5137,10 +5141,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-20 00:55:00",
-          "ms": 182
-        },
         {
           "time": "2026-03-20 01:00:01",
           "ms": 166
@@ -6284,6 +6284,10 @@
         {
           "time": "2026-03-21 00:50:00",
           "ms": 277
+        },
+        {
+          "time": "2026-03-21 00:55:01",
+          "ms": 292
         }
       ]
     }
