@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-22T05:15:00.734Z",
+  "generated_at": "2026-03-22T05:20:01.039Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 114,
+      "response_time_ms": 109,
       "error": null,
       "version": null,
       "uptime_30d": 99.7,
@@ -114,14 +114,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 05:15:01",
-          "ms": 235
-        },
-        {
-          "time": "2026-03-21 05:20:00",
-          "ms": 178
-        },
         {
           "time": "2026-03-21 05:25:00",
           "ms": 108
@@ -1269,6 +1261,10 @@
         {
           "time": "2026-03-22 05:15:00",
           "ms": 114
+        },
+        {
+          "time": "2026-03-22 05:20:00",
+          "ms": 109
         }
       ]
     },
@@ -1277,7 +1273,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 114,
+      "response_time_ms": 259,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -1384,14 +1380,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 05:15:01",
-          "ms": 233
-        },
-        {
-          "time": "2026-03-21 05:20:00",
-          "ms": 109
-        },
         {
           "time": "2026-03-21 05:25:00",
           "ms": 200
@@ -2539,6 +2527,10 @@
         {
           "time": "2026-03-22 05:15:00",
           "ms": 114
+        },
+        {
+          "time": "2026-03-22 05:20:00",
+          "ms": 259
         }
       ]
     },
@@ -2547,7 +2539,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 144,
+      "response_time_ms": 135,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 57,
@@ -2654,14 +2646,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 05:15:01",
-          "ms": 276
-        },
-        {
-          "time": "2026-03-21 05:20:00",
-          "ms": 169
-        },
         {
           "time": "2026-03-21 05:25:00",
           "ms": 219
@@ -3809,6 +3793,10 @@
         {
           "time": "2026-03-22 05:15:00",
           "ms": 144
+        },
+        {
+          "time": "2026-03-22 05:20:00",
+          "ms": 135
         }
       ]
     },
@@ -3817,7 +3805,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 145,
+      "response_time_ms": 199,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 94.5,
@@ -3924,14 +3912,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 05:15:01",
-          "ms": 232
-        },
-        {
-          "time": "2026-03-21 05:20:00",
-          "ms": 174
-        },
         {
           "time": "2026-03-21 05:25:00",
           "ms": 223
@@ -5079,6 +5059,10 @@
         {
           "time": "2026-03-22 05:15:00",
           "ms": 145
+        },
+        {
+          "time": "2026-03-22 05:20:00",
+          "ms": 199
         }
       ]
     },
@@ -5087,7 +5071,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 164,
+      "response_time_ms": 314,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -5194,14 +5178,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 05:15:01",
-          "ms": 317
-        },
-        {
-          "time": "2026-03-21 05:20:00",
-          "ms": 161
-        },
         {
           "time": "2026-03-21 05:25:00",
           "ms": 243
@@ -6349,6 +6325,10 @@
         {
           "time": "2026-03-22 05:15:00",
           "ms": 164
+        },
+        {
+          "time": "2026-03-22 05:20:01",
+          "ms": 314
         }
       ]
     }
