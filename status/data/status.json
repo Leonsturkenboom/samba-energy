@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-22T18:35:00.931Z",
+  "generated_at": "2026-03-22T18:40:01.139Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 115,
+      "response_time_ms": 208,
       "error": null,
       "version": null,
       "uptime_30d": 99.7,
@@ -114,14 +114,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 18:35:00",
-          "ms": 116
-        },
-        {
-          "time": "2026-03-21 18:40:00",
-          "ms": 106
-        },
         {
           "time": "2026-03-21 18:45:00",
           "ms": 247
@@ -1269,6 +1261,10 @@
         {
           "time": "2026-03-22 18:35:00",
           "ms": 115
+        },
+        {
+          "time": "2026-03-22 18:40:00",
+          "ms": 208
         }
       ]
     },
@@ -1277,7 +1273,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 248,
+      "response_time_ms": 127,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -1384,14 +1380,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 18:35:00",
-          "ms": 109
-        },
-        {
-          "time": "2026-03-21 18:40:00",
-          "ms": 117
-        },
         {
           "time": "2026-03-21 18:45:00",
           "ms": 117
@@ -2539,6 +2527,10 @@
         {
           "time": "2026-03-22 18:35:00",
           "ms": 248
+        },
+        {
+          "time": "2026-03-22 18:40:00",
+          "ms": 127
         }
       ]
     },
@@ -2547,7 +2539,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 157,
+      "response_time_ms": 252,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 57,
@@ -2650,18 +2642,10 @@
         {
           "date": "2026-03-22",
           "status": "down",
-          "uptime_pct": 70.1
+          "uptime_pct": 70.2
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 18:35:00",
-          "ms": 132
-        },
-        {
-          "time": "2026-03-21 18:40:00",
-          "ms": 143
-        },
         {
           "time": "2026-03-21 18:45:01",
           "ms": 411
@@ -3809,6 +3793,10 @@
         {
           "time": "2026-03-22 18:35:00",
           "ms": 157
+        },
+        {
+          "time": "2026-03-22 18:40:01",
+          "ms": 252
         }
       ]
     },
@@ -3817,7 +3805,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 314,
+      "response_time_ms": 250,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 94.6,
@@ -3924,14 +3912,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 18:35:00",
-          "ms": 152
-        },
-        {
-          "time": "2026-03-21 18:40:00",
-          "ms": 149
-        },
         {
           "time": "2026-03-21 18:45:00",
           "ms": 307
@@ -5079,6 +5059,10 @@
         {
           "time": "2026-03-22 18:35:00",
           "ms": 314
+        },
+        {
+          "time": "2026-03-22 18:40:01",
+          "ms": 250
         }
       ]
     },
@@ -5087,7 +5071,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 262,
+      "response_time_ms": 367,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -5194,14 +5178,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 18:35:00",
-          "ms": 170
-        },
-        {
-          "time": "2026-03-21 18:40:00",
-          "ms": 166
-        },
         {
           "time": "2026-03-21 18:45:01",
           "ms": 415
@@ -6349,6 +6325,10 @@
         {
           "time": "2026-03-22 18:35:00",
           "ms": 262
+        },
+        {
+          "time": "2026-03-22 18:40:01",
+          "ms": 367
         }
       ]
     }
