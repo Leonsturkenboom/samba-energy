@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-22T22:20:01.081Z",
+  "generated_at": "2026-03-22T22:25:01.206Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 140,
+      "response_time_ms": 112,
       "error": null,
       "version": null,
       "uptime_30d": 99.7,
@@ -1265,6 +1265,10 @@
         {
           "time": "2026-03-22 22:20:00",
           "ms": 140
+        },
+        {
+          "time": "2026-03-22 22:25:01",
+          "ms": 112
         }
       ]
     },
@@ -1273,7 +1277,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 265,
+      "response_time_ms": 117,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.6,
@@ -2531,6 +2535,10 @@
         {
           "time": "2026-03-22 22:20:01",
           "ms": 265
+        },
+        {
+          "time": "2026-03-22 22:25:01",
+          "ms": 117
         }
       ]
     },
@@ -2539,7 +2547,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 154,
+      "response_time_ms": 129,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 57.4,
@@ -2642,7 +2650,7 @@
         {
           "date": "2026-03-22",
           "status": "down",
-          "uptime_pct": 75.1
+          "uptime_pct": 75.2
         }
       ],
       "response_times_24h": [
@@ -3797,6 +3805,10 @@
         {
           "time": "2026-03-22 22:20:00",
           "ms": 154
+        },
+        {
+          "time": "2026-03-22 22:25:01",
+          "ms": 129
         }
       ]
     },
@@ -3805,7 +3817,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 218,
+      "response_time_ms": 151,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 94.6,
@@ -5063,6 +5075,10 @@
         {
           "time": "2026-03-22 22:20:00",
           "ms": 218
+        },
+        {
+          "time": "2026-03-22 22:25:01",
+          "ms": 151
         }
       ]
     },
@@ -5178,10 +5194,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-21 22:20:01",
-          "ms": 310
-        },
         {
           "time": "2026-03-21 22:25:01",
           "ms": 185
@@ -6332,6 +6344,10 @@
         },
         {
           "time": "2026-03-22 22:20:01",
+          "ms": 257
+        },
+        {
+          "time": "2026-03-22 22:25:01",
           "ms": 257
         }
       ]
