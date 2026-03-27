@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T13:40:01.170Z",
+  "generated_at": "2026-03-27T13:45:00.410Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 119,
+      "response_time_ms": 114,
       "error": null,
       "version": null,
       "uptime_30d": 99.5,
@@ -1285,6 +1285,10 @@
         {
           "time": "2026-03-27 13:40:01",
           "ms": 119
+        },
+        {
+          "time": "2026-03-27 13:45:00",
+          "ms": 114
         }
       ]
     },
@@ -2571,6 +2575,10 @@
         {
           "time": "2026-03-27 13:40:01",
           "ms": 135
+        },
+        {
+          "time": "2026-03-27 13:45:00",
+          "ms": 135
         }
       ]
     },
@@ -2579,7 +2587,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 134,
+      "response_time_ms": 163,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 55.8,
@@ -3857,6 +3865,10 @@
         {
           "time": "2026-03-27 13:40:01",
           "ms": 134
+        },
+        {
+          "time": "2026-03-27 13:45:00",
+          "ms": 163
         }
       ]
     },
@@ -3865,7 +3877,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 154,
+      "response_time_ms": 155,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 93.6,
@@ -5143,6 +5155,10 @@
         {
           "time": "2026-03-27 13:40:01",
           "ms": 154
+        },
+        {
+          "time": "2026-03-27 13:45:00",
+          "ms": 155
         }
       ]
     },
@@ -5151,7 +5167,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 182,
+      "response_time_ms": 198,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -6429,6 +6445,10 @@
         {
           "time": "2026-03-27 13:40:01",
           "ms": 182
+        },
+        {
+          "time": "2026-03-27 13:45:00",
+          "ms": 198
         }
       ]
     }
