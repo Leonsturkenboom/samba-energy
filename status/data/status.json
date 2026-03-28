@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-27T23:55:01.148Z",
+  "generated_at": "2026-03-28T00:00:00.536Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 102,
+      "response_time_ms": 104,
       "error": null,
       "version": null,
       "uptime_30d": 99.5,
@@ -124,6 +124,11 @@
         },
         {
           "date": "2026-03-27",
+          "status": "operational",
+          "uptime_pct": 100
+        },
+        {
+          "date": "2026-03-28",
           "status": "operational",
           "uptime_pct": 100
         }
@@ -1280,6 +1285,10 @@
         {
           "time": "2026-03-27 23:55:01",
           "ms": 102
+        },
+        {
+          "time": "2026-03-28 00:00:00",
+          "ms": 104
         }
       ]
     },
@@ -1288,7 +1297,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 108,
+      "response_time_ms": 105,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.4,
@@ -1405,6 +1414,11 @@
         },
         {
           "date": "2026-03-27",
+          "status": "operational",
+          "uptime_pct": 100
+        },
+        {
+          "date": "2026-03-28",
           "status": "operational",
           "uptime_pct": 100
         }
@@ -2561,6 +2575,10 @@
         {
           "time": "2026-03-27 23:55:01",
           "ms": 108
+        },
+        {
+          "time": "2026-03-28 00:00:00",
+          "ms": 105
         }
       ]
     },
@@ -2574,11 +2592,6 @@
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 56.3,
       "history": [
-        {
-          "date": "2026-02-25",
-          "status": "operational",
-          "uptime_pct": 100
-        },
         {
           "date": "2026-02-26",
           "status": "down",
@@ -2691,6 +2704,11 @@
         },
         {
           "date": "2026-03-27",
+          "status": "operational",
+          "uptime_pct": 100
+        },
+        {
+          "date": "2026-03-28",
           "status": "operational",
           "uptime_pct": 100
         }
@@ -3847,6 +3865,10 @@
         {
           "time": "2026-03-27 23:55:01",
           "ms": 119
+        },
+        {
+          "time": "2026-03-28 00:00:00",
+          "ms": 119
         }
       ]
     },
@@ -3860,11 +3882,6 @@
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 93.7,
       "history": [
-        {
-          "date": "2026-02-25",
-          "status": "operational",
-          "uptime_pct": 100
-        },
         {
           "date": "2026-02-26",
           "status": "down",
@@ -3977,6 +3994,11 @@
         },
         {
           "date": "2026-03-27",
+          "status": "operational",
+          "uptime_pct": 100
+        },
+        {
+          "date": "2026-03-28",
           "status": "operational",
           "uptime_pct": 100
         }
@@ -5133,6 +5155,10 @@
         {
           "time": "2026-03-27 23:55:01",
           "ms": 132
+        },
+        {
+          "time": "2026-03-28 00:00:00",
+          "ms": 132
         }
       ]
     },
@@ -5141,16 +5167,11 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 148,
+      "response_time_ms": 388,
       "error": null,
       "version": null,
       "uptime_30d": 100,
       "history": [
-        {
-          "date": "2026-02-25",
-          "status": "operational",
-          "uptime_pct": 100
-        },
         {
           "date": "2026-02-26",
           "status": "operational",
@@ -5263,6 +5284,11 @@
         },
         {
           "date": "2026-03-27",
+          "status": "operational",
+          "uptime_pct": 100
+        },
+        {
+          "date": "2026-03-28",
           "status": "operational",
           "uptime_pct": 100
         }
@@ -6419,6 +6445,10 @@
         {
           "time": "2026-03-27 23:55:01",
           "ms": 148
+        },
+        {
+          "time": "2026-03-28 00:00:00",
+          "ms": 388
         }
       ]
     }
