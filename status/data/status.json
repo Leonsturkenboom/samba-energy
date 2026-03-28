@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T14:25:00.922Z",
+  "generated_at": "2026-03-28T14:30:00.996Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,7 +7,7 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 202,
+      "response_time_ms": 122,
       "error": null,
       "version": null,
       "uptime_30d": 99.5,
@@ -134,10 +134,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-27 14:25:00",
-          "ms": 132
-        },
         {
           "time": "2026-03-27 14:30:00",
           "ms": 127
@@ -1289,6 +1285,10 @@
         {
           "time": "2026-03-28 14:25:00",
           "ms": 202
+        },
+        {
+          "time": "2026-03-28 14:30:00",
+          "ms": 122
         }
       ]
     },
@@ -1297,7 +1297,7 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 207,
+      "response_time_ms": 120,
       "error": null,
       "version": "4.1.0",
       "uptime_30d": 99.4,
@@ -1424,10 +1424,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-27 14:25:00",
-          "ms": 136
-        },
         {
           "time": "2026-03-27 14:30:00",
           "ms": 124
@@ -2579,6 +2575,10 @@
         {
           "time": "2026-03-28 14:25:00",
           "ms": 207
+        },
+        {
+          "time": "2026-03-28 14:30:00",
+          "ms": 120
         }
       ]
     },
@@ -2587,7 +2587,7 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 245,
+      "response_time_ms": 162,
       "error": null,
       "version": "0.1.28-dev.1773843613",
       "uptime_30d": 56.5,
@@ -2595,7 +2595,7 @@
         {
           "date": "2026-02-26",
           "status": "down",
-          "uptime_pct": 62.6
+          "uptime_pct": 63.2
         },
         {
           "date": "2026-02-27",
@@ -2714,10 +2714,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-27 14:25:00",
-          "ms": 245
-        },
         {
           "time": "2026-03-27 14:30:00",
           "ms": 149
@@ -3869,6 +3865,10 @@
         {
           "time": "2026-03-28 14:25:00",
           "ms": 245
+        },
+        {
+          "time": "2026-03-28 14:30:00",
+          "ms": 162
         }
       ]
     },
@@ -3877,7 +3877,7 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 246,
+      "response_time_ms": 160,
       "error": null,
       "version": "1.0.6-dev.1773401104",
       "uptime_30d": 93.8,
@@ -3885,7 +3885,7 @@
         {
           "date": "2026-02-26",
           "status": "down",
-          "uptime_pct": 85.2
+          "uptime_pct": 85.1
         },
         {
           "date": "2026-02-27",
@@ -4004,10 +4004,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-27 14:25:00",
-          "ms": 163
-        },
         {
           "time": "2026-03-27 14:30:00",
           "ms": 229
@@ -5159,6 +5155,10 @@
         {
           "time": "2026-03-28 14:25:00",
           "ms": 246
+        },
+        {
+          "time": "2026-03-28 14:30:00",
+          "ms": 160
         }
       ]
     },
@@ -5167,7 +5167,7 @@
       "name": "website samba.energy",
       "group": "Website",
       "status": "operational",
-      "response_time_ms": 268,
+      "response_time_ms": 188,
       "error": null,
       "version": null,
       "uptime_30d": 100,
@@ -5294,10 +5294,6 @@
         }
       ],
       "response_times_24h": [
-        {
-          "time": "2026-03-27 14:25:00",
-          "ms": 285
-        },
         {
           "time": "2026-03-27 14:30:00",
           "ms": 303
@@ -6449,6 +6445,10 @@
         {
           "time": "2026-03-28 14:25:00",
           "ms": 268
+        },
+        {
+          "time": "2026-03-28 14:30:00",
+          "ms": 188
         }
       ]
     }
