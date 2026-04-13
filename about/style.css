@@ -134,6 +134,19 @@ body {
     padding: 36px 32px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.founder-photo-link {
+    display: block;
+    margin-bottom: 24px;
+    border-radius: 50%;
+    transition: opacity 0.2s;
+}
+
+.founder-photo-link:hover {
+    opacity: 0.8;
 }
 
 .founder-photo {
@@ -141,7 +154,7 @@ body {
     height: 112px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 24px;
+    display: block;
 }
 
 .founder-name {
@@ -149,7 +162,13 @@ body {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--white);
+    text-decoration: none;
     margin-bottom: 4px;
+    transition: color 0.2s;
+}
+
+.founder-name:hover {
+    color: var(--accent);
 }
 
 .founder-role {
@@ -166,29 +185,7 @@ body {
     line-height: 1.72;
     color: var(--text-muted);
     flex: 1;
-    margin-bottom: 28px;
-}
-
-.founder-linkedin {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    border: 1px solid #444;
-    padding: 10px 16px;
-    border-radius: 6px;
-    align-self: flex-start;
-    transition: border-color 0.2s, color 0.2s;
-}
-
-.founder-linkedin:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    text-align: left;
 }
 
 /* ========================================
