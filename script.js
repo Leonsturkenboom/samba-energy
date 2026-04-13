@@ -22,45 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxSlash();
     initProblemVideo();
     initSectionVideos();
-    initRapportBadge();
 });
-
-/* ----------------------------------------
-   Rapport floating badge — show when #request is in view
-   ---------------------------------------- */
-function initRapportBadge() {
-    const badge = document.getElementById('rapportBadge');
-    const trigger = document.getElementById('rapportBadgeTrigger');
-    const requestSection = document.getElementById('request');
-    if (!badge || !requestSection) return;
-
-    // Show/hide badge based on #request visibility
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            badge.classList.toggle('rapport-badge--visible', entry.isIntersecting);
-            if (!entry.isIntersecting) {
-                badge.classList.remove('rapport-badge--open');
-                trigger.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }, { threshold: 0.1 });
-    observer.observe(requestSection);
-
-    // Toggle tooltip on click/tap
-    trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = badge.classList.toggle('rapport-badge--open');
-        trigger.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!badge.contains(e.target)) {
-            badge.classList.remove('rapport-badge--open');
-            trigger.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
 
 /* ----------------------------------------
    Navbar Scroll Effect
