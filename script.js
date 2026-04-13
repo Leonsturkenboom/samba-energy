@@ -1170,12 +1170,13 @@ function initActiveNav() {
         const scrollY = window.scrollY + navHeight + window.innerHeight * 0.3;
         let activeId = '';
 
-        // Find the section whose top we've passed but bottom we haven't
+        // Show label when viewport centre has reached the section
+        const viewportMid = window.scrollY + navHeight + window.innerHeight * 0.5;
         for (let i = sectionEls.length - 1; i >= 0; i--) {
             const el = sectionEls[i];
             const rect = el.getBoundingClientRect();
             const sectionTop = rect.top + window.scrollY;
-            if (window.scrollY + navHeight + 10 >= sectionTop) {
+            if (viewportMid >= sectionTop) {
                 activeId = el.id;
                 break;
             }
