@@ -47,7 +47,8 @@ function initRapportBadge() {
     observer.observe(requestSection);
 
     // Toggle tooltip on click/tap
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isOpen = badge.classList.toggle('rapport-badge--open');
         trigger.setAttribute('aria-expanded', String(isOpen));
     });
