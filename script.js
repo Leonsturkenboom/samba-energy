@@ -22,7 +22,44 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallaxSlash();
     initProblemVideo();
     initSectionVideos();
+    initRapportBadge();
 });
+
+/* ----------------------------------------
+   Rapport floating badge — show when #request is in view
+   ---------------------------------------- */
+function initRapportBadge() {
+    const badge = document.getElementById('rapportBadge');
+    const trigger = document.getElementById('rapportBadgeTrigger');
+    const requestSection = document.getElementById('request');
+    if (!badge || !requestSection) return;
+
+    // Show/hide badge based on #request visibility
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            badge.classList.toggle('rapport-badge--visible', entry.isIntersecting);
+            if (!entry.isIntersecting) {
+                badge.classList.remove('rapport-badge--open');
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(requestSection);
+
+    // Toggle tooltip on click/tap
+    trigger.addEventListener('click', () => {
+        const isOpen = badge.classList.toggle('rapport-badge--open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!badge.contains(e.target)) {
+            badge.classList.remove('rapport-badge--open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
 /* ----------------------------------------
    Navbar Scroll Effect
@@ -202,6 +239,11 @@ const translations = {
         'footer.request': 'REQUEST',
         'footer.contact': 'CONTACT',
         'footer.about': 'ABOUT',
+        'rapport.label': 'Sample report',
+        'rapport.desc': 'The analysis provides insight into your energy consumption, your position relative to the grid limit and phase balance, and the cost and energy savings potential of solar panels, charging poles, battery storage and other flex assets combined with SAMBA, tailored to your specific situation.',
+        'rapport.download': 'Download sample report',
+        'rapport.badge': 'Sample report',
+        'rapport.tooltip': 'Insight into your consumption, grid limit, phase balance and savings potential with smart management of PV, charging poles, battery and other possible flex assets.',
         'marquee': 'SMART ASSET MANAGEMENT & BUSINESS AUTOMATION'
     },
     nl: {
@@ -308,6 +350,11 @@ const translations = {
         'footer.request': 'AANVRAAG',
         'footer.contact': 'CONTACT',
         'footer.about': 'OVER ONS',
+        'rapport.label': 'Voorbeeldrapport',
+        'rapport.desc': 'De analyse geeft inzicht in je energieverbruik, je positie t.o.v. de netlimiet en fasebalans en het kosten en energiebesparingspotentieel van zonnepanelen, laadpalen, batterij en andere flex assets in combinatie met SAMBA, aangepast op jouw specifieke wensen.',
+        'rapport.download': 'Download voorbeeldrapport',
+        'rapport.badge': 'Voorbeeldrapport',
+        'rapport.tooltip': 'Inzicht in je verbruik, netlimiet, fasebalans en besparingspotentieel met slim beheer van PV, laadpalen, batterij en andere mogelijke flex assets.',
         'marquee': 'SLIMME ASSET MANAGEMENT & BEDRIJFSAUTOMATISERING'
     }
 };
