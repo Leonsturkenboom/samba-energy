@@ -201,6 +201,7 @@ const translations = {
         'footer.success': 'SUCCESS',
         'footer.request': 'REQUEST',
         'footer.contact': 'CONTACT',
+        'footer.about': 'ABOUT',
         'marquee': 'SMART ASSET MANAGEMENT & BUSINESS AUTOMATION'
     },
     nl: {
@@ -306,6 +307,7 @@ const translations = {
         'footer.success': 'SUCCES',
         'footer.request': 'AANVRAAG',
         'footer.contact': 'CONTACT',
+        'footer.about': 'OVER ONS',
         'marquee': 'SLIMME ASSET MANAGEMENT & BEDRIJFSAUTOMATISERING'
     }
 };
