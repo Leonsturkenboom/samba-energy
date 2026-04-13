@@ -1167,18 +1167,19 @@ function initActiveNav() {
 
     function updateActiveSection() {
         const navHeight = document.getElementById('navbar')?.offsetHeight || 60;
-        const scrollY = window.scrollY + navHeight + window.innerHeight * 0.3;
-        let activeId = '';
-
-        // Show label when viewport centre has reached the section
         const viewportMid = window.scrollY + navHeight + window.innerHeight * 0.5;
-        for (let i = sectionEls.length - 1; i >= 0; i--) {
+        let activeId = '';
+        let closestDist = Infinity;
+
+        // Show label of the section whose midpoint is closest to viewport centre
+        for (let i = 0; i < sectionEls.length; i++) {
             const el = sectionEls[i];
             const rect = el.getBoundingClientRect();
-            const sectionTop = rect.top + window.scrollY;
-            if (viewportMid >= sectionTop) {
+            const sectionMid = rect.top + window.scrollY + rect.height / 2;
+            const dist = Math.abs(sectionMid - viewportMid);
+            if (dist < closestDist) {
+                closestDist = dist;
                 activeId = el.id;
-                break;
             }
         }
 
