@@ -1132,7 +1132,10 @@ function initDashesStop() {
 
     window.addEventListener('scroll', () => {
         if (!animationDone) return;
-        const offset = window.scrollY * 0.25;
+        const containerWidth = dashes.parentElement.offsetWidth;
+        const totalWidth = dashes.scrollWidth;
+        const scrollable = Math.max(totalWidth - containerWidth, 1);
+        const offset = (window.scrollY * 0.25) % scrollable;
         dashes.style.transform = `translateX(-${offset}px)`;
     }, { passive: true });
 }
