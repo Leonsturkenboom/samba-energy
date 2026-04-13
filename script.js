@@ -1121,9 +1121,18 @@ function initDashesStop() {
     const dashes = document.querySelector('.nav-dashes-inner');
     if (!dashes) return;
 
+    let animationDone = false;
+
     setTimeout(() => {
         dashes.classList.add('stopped');
+        animationDone = true;
     }, 2000);
+
+    window.addEventListener('scroll', () => {
+        if (!animationDone) return;
+        const offset = window.scrollY * 0.25;
+        dashes.style.transform = `translateX(-${offset}px)`;
+    }, { passive: true });
 }
 
 /* ----------------------------------------
