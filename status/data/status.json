@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T23:35:00.628Z",
+  "generated_at": "2026-04-14T23:40:00.648Z",
   "overall_status": "operational",
   "services": [
     {
@@ -7,10 +7,10 @@
       "name": "platform.samba.energy",
       "group": "Platform",
       "status": "operational",
-      "response_time_ms": 110,
+      "response_time_ms": 112,
       "error": null,
       "version": null,
-      "uptime_30d": 93.1,
+      "uptime_30d": 93.2,
       "history": [
         {
           "date": "2026-03-16",
@@ -803,6 +803,10 @@
         {
           "time": "2026-04-14 23:35:00",
           "ms": 110
+        },
+        {
+          "time": "2026-04-14 23:40:00",
+          "ms": 112
         }
       ]
     },
@@ -811,10 +815,10 @@
       "name": "pricing forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 122,
+      "response_time_ms": 118,
       "error": null,
       "version": "4.1.0",
-      "uptime_30d": 93.1,
+      "uptime_30d": 93.2,
       "history": [
         {
           "date": "2026-03-16",
@@ -1607,6 +1611,10 @@
         {
           "time": "2026-04-14 23:35:00",
           "ms": 122
+        },
+        {
+          "time": "2026-04-14 23:40:00",
+          "ms": 118
         }
       ]
     },
@@ -1615,10 +1623,10 @@
       "name": "energy forecast",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 158,
+      "response_time_ms": 141,
       "error": null,
       "version": "0.1.31",
-      "uptime_30d": 93.1,
+      "uptime_30d": 93.2,
       "history": [
         {
           "date": "2026-03-16",
@@ -2411,6 +2419,10 @@
         {
           "time": "2026-04-14 23:35:00",
           "ms": 158
+        },
+        {
+          "time": "2026-04-14 23:40:00",
+          "ms": 141
         }
       ]
     },
@@ -2419,10 +2431,10 @@
       "name": "battery optimizer",
       "group": "Integrations",
       "status": "operational",
-      "response_time_ms": 296,
+      "response_time_ms": 158,
       "error": null,
       "version": "1.0.7",
-      "uptime_30d": 93.1,
+      "uptime_30d": 93.2,
       "history": [
         {
           "date": "2026-03-16",
@@ -3215,6 +3227,10 @@
         {
           "time": "2026-04-14 23:35:00",
           "ms": 296
+        },
+        {
+          "time": "2026-04-14 23:40:00",
+          "ms": 158
         }
       ]
     },
@@ -4023,6 +4039,10 @@
         },
         {
           "time": "2026-04-14 23:35:00",
+          "ms": 175
+        },
+        {
+          "time": "2026-04-14 23:40:00",
           "ms": 175
         }
       ]
