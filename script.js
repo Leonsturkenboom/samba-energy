@@ -603,7 +603,7 @@ function initAssetCardHover() {
         if (cards.length < cardCount) return 0;
         const first = cards[0].getBoundingClientRect();
         const seventh = cards[cardCount - 1].getBoundingClientRect();
-        const gap = 24;
+        const gap = parseFloat(getComputedStyle(carousel).gap) || 24;
         return seventh.right - first.left + gap;
     }
 
