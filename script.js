@@ -385,7 +385,7 @@ function applyTranslations() {
     }
 
     // Update footer subpage links based on language
-    const langSuffix = currentLang === 'en' ? '/en/' : '';
+    const langSuffix = currentLang === 'en' ? '/en/' : '/';
     const footerStatus = document.getElementById('footerStatus');
     const footerPrivacy = document.getElementById('footerPrivacy');
     const footerContact = document.getElementById('footerContact');
