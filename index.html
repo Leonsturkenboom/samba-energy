@@ -110,7 +110,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260522b">
+    <link rel="stylesheet" href="style.css?v=20260522c">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -690,13 +690,19 @@
             <button class="energyscan-popup-cta" id="energyscanCta">Vraag energiescan aan</button>
         </div>
         <button class="energyscan-btn" id="energyscanBtn" aria-label="Start nu een energiescan">
-            <span class="scan-tl"></span>
-            <span class="scan-tr"></span>
-            <span class="scan-bl"></span>
-            <span class="scan-br"></span>
-            <span class="scan-label">SCAN</span>
-            <span class="scan-line"></span>
-            <span class="scan-label">NU</span>
+            <span class="scan-frame-icon">
+                <span class="scan-tl"></span>
+                <span class="scan-tr"></span>
+                <span class="scan-bl"></span>
+                <span class="scan-br"></span>
+                <span class="scan-label">SCAN</span>
+                <span class="scan-line"></span>
+                <span class="scan-label" data-i18n="scan.sub">NU</span>
+                <span class="scan-beam"></span>
+            </span>
+            <svg class="scan-bolt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
+                <path d="M13 2L4.09 12.97H11L10 22L20.91 11.03H14L13 2Z"/>
+            </svg>
         </button>
     </div>
 
