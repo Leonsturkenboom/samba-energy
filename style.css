@@ -179,20 +179,20 @@ body {
 .cta-cycling {
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: var(--bg-dark);
-    background: var(--white);
-    border: none;
-    padding: 8px 16px;
+    color: var(--white);
+    background: transparent;
+    border: 1.5px solid var(--white);
+    padding: 6px 14px;
     cursor: pointer;
     letter-spacing: 1px;
-    transition: background 0.3s ease, color 0.3s ease;
-    margin-left: 20px;
+    transition: all 0.3s ease;
+    margin-left: 40px;
     min-width: 148px;
     text-align: center;
 }
 
 .cta-cycling:hover {
-    background: var(--yellow);
+    background: var(--white);
     color: var(--bg-dark);
 }
 
@@ -206,15 +206,17 @@ body {
 }
 
 .lang-globe {
-    font-size: 1.1rem;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 4px 8px;
-    margin-left: 8px;
+    margin-left: 12px;
     opacity: 0.7;
     transition: opacity 0.2s ease;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    color: var(--white);
 }
 
 .lang-globe:hover {
@@ -1807,7 +1809,7 @@ body {
     }
 
     .lang-globe {
-        margin-left: 0;
+        margin-left: 4px;
         margin-right: 8px;
     }
 
