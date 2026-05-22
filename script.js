@@ -474,13 +474,9 @@ function initEnergyscanWidget() {
             ? Math.max(0, vh - footer.getBoundingClientRect().top)
             : 0;
 
-        let carouselOffset = 0;
-        if (carousel) {
-            const r = carousel.getBoundingClientRect();
-            if (r.top < vh && r.bottom > 0) {
-                carouselOffset = Math.max(0, vh - Math.max(0, r.top));
-            }
-        }
+        const carouselOffset = carousel
+            ? Math.max(0, vh - carousel.getBoundingClientRect().top)
+            : 0;
 
         const total = Math.max(footerOffset, carouselOffset);
         widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
@@ -1199,7 +1195,7 @@ function initContactForm() {
                 optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee'
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbzFXPE9C2OwreH4ztk1NXgCjjDh9Yat9b_VDDWNhDSitmrSvVwm-0mvNAPbK-d3epb7/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyF76fh4IYIZMBSKxAIwr8Ha5h_BlQvQO_iYZomSqWPlGyBm2ouJLxxciK9sb4c9aOZ/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
