@@ -464,16 +464,30 @@ function initEnergyscanWidget() {
         if (!widget.contains(e.target)) popup.classList.remove('open');
     });
 
-    // Keep widget above footer
-    if (footer) {
-        function updateWidgetBottom() {
-            const footerTop = footer.getBoundingClientRect().top;
-            const overlap = window.innerHeight - footerTop;
-            widget.style.bottom = overlap > 0 ? (overlap + 16) + 'px' : '';
+    // Keep widget above footer and carousel
+    const carousel = document.getElementById('assetsCarousel');
+
+    function updateWidgetBottom() {
+        const vh = window.innerHeight;
+
+        const footerOffset = footer
+            ? Math.max(0, vh - footer.getBoundingClientRect().top)
+            : 0;
+
+        let carouselOffset = 0;
+        if (carousel) {
+            const r = carousel.getBoundingClientRect();
+            if (r.top < vh && r.bottom > 0) {
+                carouselOffset = Math.max(0, vh - Math.max(0, r.top));
+            }
         }
-        window.addEventListener('scroll', updateWidgetBottom, { passive: true });
-        updateWidgetBottom();
+
+        const total = Math.max(footerOffset, carouselOffset);
+        widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
     }
+
+    window.addEventListener('scroll', updateWidgetBottom, { passive: true });
+    updateWidgetBottom();
 
     // Show widget only after #problem section has been scrolled past (one-way)
     const trigger = document.getElementById('problem');
