@@ -1195,7 +1195,7 @@ function initContactForm() {
                 optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee'
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbyF76fh4IYIZMBSKxAIwr8Ha5h_BlQvQO_iYZomSqWPlGyBm2ouJLxxciK9sb4c9aOZ/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyebLk155QdkBHVQZCEMsRvSF_QZ71RClbiybKh-j32TYoKTfPcaArI4fbir1RMQiIrjw/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
