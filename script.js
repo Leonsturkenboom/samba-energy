@@ -222,7 +222,7 @@ const translations = {
         'nav.request': 'AANVRAAG',
         'nav.success': 'SUCCES',
         'scan.sub': 'NU',
-        'widget.text': 'We helpen je graag weer inzicht te krijgen op je energierekening en mogelijke kostenbesparingen',
+        'widget.text': 'We helpen je graag direct inzicht te krijgen hoeveel ruimte er nog is op uw netaansluiting én hoe u slim kosten kunt besparen op uw energierekening.',
         'widget.cta': 'Vraag energiescan aan',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
@@ -473,6 +473,22 @@ function initEnergyscanWidget() {
         }
         window.addEventListener('scroll', updateWidgetBottom, { passive: true });
         updateWidgetBottom();
+    }
+
+    // Show widget only after #problem section has been scrolled past (one-way)
+    const trigger = document.getElementById('problem');
+    if (trigger) {
+        let revealed = false;
+        function checkWidgetReveal() {
+            if (revealed) return;
+            if (trigger.getBoundingClientRect().bottom < window.innerHeight * 0.6) {
+                revealed = true;
+                widget.classList.add('visible');
+                window.removeEventListener('scroll', checkWidgetReveal);
+            }
+        }
+        window.addEventListener('scroll', checkWidgetReveal, { passive: true });
+        checkWidgetReveal();
     }
 }
 
