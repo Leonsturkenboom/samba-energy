@@ -475,42 +475,41 @@ function initEnergyscanWidget() {
         updateWidgetBottom();
     }
 
-    // Visibility logic: show after #problem, hide during #assets
-    let revealed = false;
-    let assetsInView = false;
+    // Combined bottom positioning: stays above footer AND assets section
+    const assetsSection = document.getElementById('assets');
 
-    function updateWidgetVisibility() {
-        widget.classList.toggle('visible', revealed && !assetsInView);
+    function updateWidgetBottom() {
+        const vh = window.innerHeight;
+
+        const footerOffset = footer
+            ? Math.max(0, vh - footer.getBoundingClientRect().top)
+            : 0;
+
+        const assetsOffset = assetsSection
+            ? Math.max(0, vh - Math.max(0, assetsSection.getBoundingClientRect().top))
+            : 0;
+
+        const total = Math.max(footerOffset, assetsOffset);
+        widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
     }
+
+    window.addEventListener('scroll', updateWidgetBottom, { passive: true });
+    updateWidgetBottom();
 
     // One-way reveal after #problem
     const trigger = document.getElementById('problem');
     if (trigger) {
+        let revealed = false;
         function checkReveal() {
             if (revealed) return;
             if (trigger.getBoundingClientRect().bottom < window.innerHeight * 0.6) {
                 revealed = true;
+                widget.classList.add('visible');
                 window.removeEventListener('scroll', checkReveal);
-                updateWidgetVisibility();
             }
         }
         window.addEventListener('scroll', checkReveal, { passive: true });
         checkReveal();
-    }
-
-    // Hide while #assets carousel is in view (both scroll directions)
-    const assetsSection = document.getElementById('assets');
-    if (assetsSection) {
-        function checkAssetsVisibility() {
-            const rect = assetsSection.getBoundingClientRect();
-            const nowInView = rect.top < window.innerHeight && rect.bottom > 0;
-            if (nowInView !== assetsInView) {
-                assetsInView = nowInView;
-                updateWidgetVisibility();
-            }
-        }
-        window.addEventListener('scroll', checkAssetsVisibility, { passive: true });
-        checkAssetsVisibility();
     }
 }
 
