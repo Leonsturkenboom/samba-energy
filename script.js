@@ -464,17 +464,6 @@ function initEnergyscanWidget() {
         if (!widget.contains(e.target)) popup.classList.remove('open');
     });
 
-    // Keep widget above footer
-    if (footer) {
-        function updateWidgetBottom() {
-            const footerTop = footer.getBoundingClientRect().top;
-            const overlap = window.innerHeight - footerTop;
-            widget.style.bottom = overlap > 0 ? (overlap + 16) + 'px' : '';
-        }
-        window.addEventListener('scroll', updateWidgetBottom, { passive: true });
-        updateWidgetBottom();
-    }
-
     // Combined bottom positioning: stays above footer AND assets section
     const assetsSection = document.getElementById('assets');
 
@@ -485,9 +474,13 @@ function initEnergyscanWidget() {
             ? Math.max(0, vh - footer.getBoundingClientRect().top)
             : 0;
 
-        const assetsOffset = assetsSection
-            ? Math.max(0, vh - Math.max(0, assetsSection.getBoundingClientRect().top))
-            : 0;
+        let assetsOffset = 0;
+        if (assetsSection) {
+            const r = assetsSection.getBoundingClientRect();
+            if (r.top < vh && r.bottom > 0) {
+                assetsOffset = Math.max(0, vh - Math.max(0, r.top));
+            }
+        }
 
         const total = Math.max(footerOffset, assetsOffset);
         widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
