@@ -475,20 +475,36 @@ function initEnergyscanWidget() {
         updateWidgetBottom();
     }
 
-    // Show widget only after #problem section has been scrolled past (one-way)
+    // Visibility logic: show after #problem, hide during #assets
+    let revealed = false;
+    let assetsInView = false;
+
+    function updateWidgetVisibility() {
+        widget.classList.toggle('visible', revealed && !assetsInView);
+    }
+
+    // One-way reveal after #problem
     const trigger = document.getElementById('problem');
     if (trigger) {
-        let revealed = false;
-        function checkWidgetReveal() {
+        function checkReveal() {
             if (revealed) return;
             if (trigger.getBoundingClientRect().bottom < window.innerHeight * 0.6) {
                 revealed = true;
-                widget.classList.add('visible');
-                window.removeEventListener('scroll', checkWidgetReveal);
+                window.removeEventListener('scroll', checkReveal);
+                updateWidgetVisibility();
             }
         }
-        window.addEventListener('scroll', checkWidgetReveal, { passive: true });
-        checkWidgetReveal();
+        window.addEventListener('scroll', checkReveal, { passive: true });
+        checkReveal();
+    }
+
+    // Hide while #assets carousel is in view (both scroll directions)
+    const assetsSection = document.getElementById('assets');
+    if (assetsSection) {
+        new IntersectionObserver((entries) => {
+            assetsInView = entries[0].isIntersecting;
+            updateWidgetVisibility();
+        }, { threshold: 0.05 }).observe(assetsSection);
     }
 }
 
