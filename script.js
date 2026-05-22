@@ -501,10 +501,16 @@ function initEnergyscanWidget() {
     // Hide while #assets carousel is in view (both scroll directions)
     const assetsSection = document.getElementById('assets');
     if (assetsSection) {
-        new IntersectionObserver((entries) => {
-            assetsInView = entries[0].isIntersecting;
-            updateWidgetVisibility();
-        }, { threshold: 0.05 }).observe(assetsSection);
+        function checkAssetsVisibility() {
+            const rect = assetsSection.getBoundingClientRect();
+            const nowInView = rect.top < window.innerHeight && rect.bottom > 0;
+            if (nowInView !== assetsInView) {
+                assetsInView = nowInView;
+                updateWidgetVisibility();
+            }
+        }
+        window.addEventListener('scroll', checkAssetsVisibility, { passive: true });
+        checkAssetsVisibility();
     }
 }
 
