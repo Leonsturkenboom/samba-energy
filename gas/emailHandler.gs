@@ -5,7 +5,7 @@ var PDF_URL = 'https://samba.energy/rapport-voorbeeld.pdf';
 
 var SIGNATURE_HTML =
   '<div style="margin-top:32px;padding-top:20px;border-top:1px solid #e8e8e8;">' +
-  '<p style="margin:0 0 2px;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:13px;color:#555;">Met vriendelijke groet,</p>' +
+  '<p style="margin:0 0 2px;font-family:\'Courier New\',Courier,monospace;font-size:13px;color:#555;">Met vriendelijke groet,</p>' +
   '<p style="margin:0 0 0;line-height:10px;font-size:10px;">&nbsp;</p>' +
   '<p style="margin:0 0 18px;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;color:#111111;">Leon Sturkenboom</p>' +
   '<a href="https://samba.energy" style="display:inline-block;margin-bottom:14px;">' +
@@ -149,8 +149,8 @@ function serviceBlocks(block1Title, block1Body, block2Title, block2Body) {
 function buildAnalysisEmailNL(name, company) {
   return emailWrapper(
     '<h1 style="font-family:\'Courier New\',Courier,monospace;font-size:20px;font-weight:700;color:#111111;margin:0 0 16px;letter-spacing:0.02em;">Bedankt voor je aanvraag' + (name ? ', ' + name : '') + '.</h1>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We hebben je aanvraag voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen. Wij nemen zo snel mogelijk contact met je op om de situatie en de gewenste aanpak te bespreken.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Twee opties om over na te denken:</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">We hebben je aanvraag voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen. Wij nemen zo snel mogelijk contact met je op om de situatie en de gewenste aanpak te bespreken.</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 14px;">Twee opties om over na te denken:</p>' +
     serviceBlocks(
       'Slimme Energie Check',
       'Snelle analyse op basis van je slimme meter of aangeleverde data. Je krijgt direct inzicht in besparingspotentieel en beschikbare netcapaciteit. Resultaat binnen 5 werkdagen.',
@@ -164,8 +164,8 @@ function buildAnalysisEmailNL(name, company) {
 
 function buildDemoEmailNL(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Beste' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in SAMBA.Energy. We hebben je demoaanvraag voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen.</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">Beste' + (name ? ' ' + name : '') + ',</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in SAMBA.Energy. We hebben je demoaanvraag voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Wij nemen zo snel mogelijk contact met je op om een datum en tijdstip in te plannen. Dan kijken we samen hoe SAMBA.Energy je energie-assets optimaal kan benutten.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 10px;">De demo duurt ongeveer 30&ndash;45 minuten en kan op twee manieren:</p>' +
     '<ul style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.9;margin:0 0 28px;padding-left:20px;">' +
@@ -179,8 +179,8 @@ function buildDemoEmailNL(name, company) {
 function buildAnalysisEmailEN(name, company) {
   return emailWrapper(
     '<h1 style="font-family:\'Courier New\',Courier,monospace;font-size:20px;font-weight:700;color:#111111;margin:0 0 16px;letter-spacing:0.02em;">Thanks for your request' + (name ? ', ' + name : '') + '.</h1>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We have received your request for <strong>' + (company || 'your company') + '</strong>. We will get in touch as soon as possible to discuss your situation and the best approach.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Two options to consider:</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">We have received your request for <strong>' + (company || 'your company') + '</strong>. We will get in touch as soon as possible to discuss your situation and the best approach.</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 14px;">Two options to consider:</p>' +
     serviceBlocks(
       'Smart Energy Check',
       'Quick analysis based on your smart meter or shared data. Immediate insight into savings potential and available grid capacity. Result within 5 working days.',
@@ -194,8 +194,8 @@ function buildAnalysisEmailEN(name, company) {
 
 function buildDemoEmailEN(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Dear' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in SAMBA.Energy. We have received your demo request for <strong>' + (company || 'your company') + '</strong>.</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">Dear' + (name ? ' ' + name : '') + ',</p>' +
+    '<p style="font-family:\'Courier New\',Courier,monospace;font-size:14px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in SAMBA.Energy. We have received your demo request for <strong>' + (company || 'your company') + '</strong>.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We will contact you as soon as possible to schedule a date and time. Together we will explore how SAMBA.Energy can optimally utilise your energy assets.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 10px;">The demo takes approximately 30&ndash;45 minutes and can take place in two ways:</p>' +
     '<ul style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.9;margin:0 0 28px;padding-left:20px;">' +
