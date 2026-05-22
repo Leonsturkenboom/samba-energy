@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initLanguageToggle();
     initCtaCycling();
+    initEnergyscanWidget();
     initSlashBackground();
     initScrollAnimations();
     initFlexibleTabs();
@@ -434,6 +435,27 @@ function initCtaCycling() {
             textEl.classList.remove('fade-out');
         }, 400);
     }, 8000);
+}
+
+function initEnergyscanWidget() {
+    const widget = document.getElementById('energyscanWidget');
+    const btn    = document.getElementById('energyscanBtn');
+    const popup  = document.getElementById('energyscanPopup');
+    const close  = document.getElementById('energyscanClose');
+    const cta    = document.getElementById('energyscanCta');
+
+    btn.addEventListener('click', () => popup.classList.toggle('open'));
+    close.addEventListener('click', () => popup.classList.remove('open'));
+
+    cta.addEventListener('click', () => {
+        popup.classList.remove('open');
+        const target = document.getElementById('request');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!widget.contains(e.target)) popup.classList.remove('open');
+    });
 }
 
 function updateCtaActiveState(activeId) {
