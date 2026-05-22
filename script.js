@@ -412,8 +412,13 @@ function initLanguageToggle() {
 function initCtaCycling() {
     const btn = document.getElementById('ctaCycling');
     const textEl = document.getElementById('ctaCyclingText');
-    const labels = ['PLAN DEMO', 'ENERGIESCAN'];
     let index = 0;
+
+    function getLabels() {
+        return currentLang === 'en'
+            ? ['PLAN DEMO', 'ENERGYSCAN']
+            : ['PLAN DEMO', 'ENERGIESCAN'];
+    }
 
     btn.addEventListener('click', () => {
         const target = document.getElementById('request');
@@ -423,11 +428,18 @@ function initCtaCycling() {
     setInterval(() => {
         textEl.classList.add('fade-out');
         setTimeout(() => {
+            const labels = getLabels();
             index = (index + 1) % labels.length;
             textEl.textContent = labels[index];
             textEl.classList.remove('fade-out');
         }, 400);
-    }, 5000);
+    }, 8000);
+}
+
+function updateCtaActiveState(activeId) {
+    const btn = document.getElementById('ctaCycling');
+    if (!btn) return;
+    btn.classList.toggle('cta-cycling--active', activeId === 'request');
 }
 
 /* ----------------------------------------
@@ -1230,6 +1242,8 @@ function initActiveNav() {
             const href = link.getAttribute('href').substring(1);
             link.classList.toggle('active', href === activeId);
         });
+
+        updateCtaActiveState(activeId);
 
         // Update mobile label
         dashesLabel.textContent = activeId ? getSectionLabel(activeId) : '';

@@ -179,9 +179,9 @@ body {
 .cta-cycling {
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: var(--white);
-    background: transparent;
-    border: 1.5px solid var(--white);
+    color: var(--bg-dark);
+    background: var(--white);
+    border: none;
     padding: 6px 14px;
     cursor: pointer;
     letter-spacing: 1px;
@@ -191,8 +191,9 @@ body {
     text-align: center;
 }
 
-.cta-cycling:hover {
-    background: var(--white);
+.cta-cycling:hover,
+.cta-cycling--active {
+    background: var(--accent-yellow);
     color: var(--bg-dark);
 }
 
@@ -221,6 +222,7 @@ body {
 
 .lang-globe:hover {
     opacity: 1;
+    color: var(--accent-yellow);
 }
 
 .mobile-menu-btn {
