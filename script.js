@@ -174,7 +174,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Discover your savings',
-        'request.subtitle': 'We analyse your situation and show you what SAMBA can do for your business. Or book a demo of our platform on-site or online.',
+        'request.subtitle': 'We analyse your situation and show you what SAMBA can do for your business. Leave your details and receive our sample Energy &amp; Cost Savings report in your inbox. Or book a demo of our platform on-site or online.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -285,7 +285,7 @@ const translations = {
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Ontdek jouw besparing',
-        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Of boek een demo van ons platform op locatie of online.',
+        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Laat je gegevens achter en ontvang direct ons voorbeeld Energy &amp; Cost Savings rapport in je mailbox. Of boek een demo van ons platform op locatie of online.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -1079,16 +1079,22 @@ function initContactForm() {
         }
 
         if (valid) {
-            // Send form data via FormSubmit (no mail popup)
-            const clickedBtn = e.submitter ? e.submitter.textContent : 'Aanvraag';
-            const formData = new FormData(form);
-            formData.append('_subject', clickedBtn + ' - ' + form.querySelector('#companyName').value);
-            formData.append('type', clickedBtn);
-            formData.append('_cc', 'andy@samba.energy');
+            const clickedBtn = e.submitter ? e.submitter.textContent.trim() : 'Aanvraag';
+            const payload = {
+                type: clickedBtn,
+                lang: currentLang,
+                companyName: form.querySelector('#companyName').value,
+                contactPerson: form.querySelector('#contactPerson').value,
+                email: form.querySelector('#email').value,
+                phone: form.querySelector('#phone').value || '',
+                situation: form.querySelector('#situation').value || '',
+                optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee'
+            };
 
-            fetch('https://formsubmit.co/ajax/leon@samba.energy', {
+            fetch('https://script.google.com/macros/s/AKfycbyXeJpWktB-SqbVR4CRidt5calWNtxw_B6ri1hb0pqyrbWXFtoMKc2IZC8wcuhtGNC6iQ/exec', {
                 method: 'POST',
-                body: formData
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(payload)
             }).then(() => {
                 form.style.display = 'none';
                 formSuccess.style.display = 'block';
