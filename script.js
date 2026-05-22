@@ -108,6 +108,8 @@ const translations = {
         'nav.request': 'Request',
         'nav.success': 'Success',
         'scan.sub': 'NOW',
+        'widget.text': 'We\'re happy to help you gain insight into your energy bill and potential cost savings',
+        'widget.cta': 'Request energy scan',
         'hero.line1': 'Rhythm in your assets,',
         'hero.line2': 'Grip on your business',
         'hero.subtitle': 'Intelligently driven platform that monitors your assets, optimises usage, reduces costs and keeps you within grid limits.',
@@ -220,6 +222,8 @@ const translations = {
         'nav.request': 'AANVRAAG',
         'nav.success': 'SUCCES',
         'scan.sub': 'NU',
+        'widget.text': 'We helpen je graag weer inzicht te krijgen op je energierekening en mogelijke kostenbesparingen',
+        'widget.cta': 'Vraag energiescan aan',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
         'hero.subtitle': 'Intelligent gestuurd platform dat je assets monitort, gebruik optimaliseert, kosten verlaagt en je binnen de netlimiet houdt.',
@@ -464,6 +468,12 @@ function updateCtaActiveState(activeId) {
     const btn = document.getElementById('ctaCycling');
     if (!btn) return;
     btn.classList.toggle('cta-cycling--active', activeId === 'request');
+}
+
+function updateWidgetLightMode(activeId) {
+    const widget = document.getElementById('energyscanWidget');
+    if (!widget) return;
+    widget.classList.toggle('on-light', activeId === 'flexible');
 }
 
 /* ----------------------------------------
@@ -1268,6 +1278,7 @@ function initActiveNav() {
         });
 
         updateCtaActiveState(activeId);
+        updateWidgetLightMode(activeId);
 
         // Update mobile label
         dashesLabel.textContent = activeId ? getSectionLabel(activeId) : '';

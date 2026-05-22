@@ -2088,17 +2088,17 @@ body {
     gap: 10px;
 }
 
-/* Scan button: frame + bolt side by side */
+/* Scan button: bolt behind frame */
 .energyscan-btn {
+    position: relative;
     background: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
     color: var(--white);
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     transition: color 0.25s ease;
     filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
 }
@@ -2107,7 +2107,22 @@ body {
     color: var(--accent-yellow);
 }
 
-/* Scan frame wrapper */
+/* Lightning bolt — behind scan frame */
+@keyframes bolt-breathe {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 0.4; }
+}
+
+.scan-bolt {
+    position: absolute;
+    left: -4px;
+    color: var(--accent-yellow);
+    z-index: 0;
+    animation: bolt-breathe 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Scan frame wrapper — on top of bolt */
 .scan-frame-icon {
     position: relative;
     width: 64px;
@@ -2117,6 +2132,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    z-index: 1;
 }
 
 /* Corner brackets */
@@ -2164,7 +2180,6 @@ body {
     z-index: 1;
 }
 
-/* Static divider line */
 .scan-line {
     width: 100%;
     height: 2px;
@@ -2175,37 +2190,10 @@ body {
     z-index: 1;
 }
 
-/* Animated scan beam */
-@keyframes scan-sweep {
-    0%   { top: 18%; opacity: 0.8; }
-    50%  { top: 72%; opacity: 0.5; }
-    100% { top: 18%; opacity: 0.8; }
-}
-
-.scan-beam {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.6;
-    pointer-events: none;
-    animation: scan-sweep 2.4s ease-in-out infinite;
-}
-
-/* Lightning bolt */
-@keyframes bolt-flicker {
-    0%, 82%, 100% { opacity: 0.85; }
-    84%  { opacity: 0.1; }
-    86%  { opacity: 1;   }
-    88%  { opacity: 0.15; }
-    90%  { opacity: 1;   }
-}
-
-.scan-bolt {
-    flex-shrink: 0;
-    color: inherit;
-    animation: bolt-flicker 3.8s ease-in-out infinite;
+/* Widget on white (flexible) section */
+.energyscan-widget.on-light .energyscan-btn {
+    color: var(--bg-dark);
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
 }
 
 .energyscan-popup {
