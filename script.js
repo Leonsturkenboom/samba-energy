@@ -464,45 +464,31 @@ function initEnergyscanWidget() {
         if (!widget.contains(e.target)) popup.classList.remove('open');
     });
 
-    // Combined bottom positioning: stays above footer AND assets section
-    const assetsSection = document.getElementById('assets');
-
-    function updateWidgetBottom() {
-        const vh = window.innerHeight;
-
-        const footerOffset = footer
-            ? Math.max(0, vh - footer.getBoundingClientRect().top)
-            : 0;
-
-        let assetsOffset = 0;
-        if (assetsSection) {
-            const r = assetsSection.getBoundingClientRect();
-            if (r.top < vh && r.bottom > 0) {
-                assetsOffset = Math.max(0, vh - Math.max(0, r.top));
-            }
+    // Keep widget above footer
+    if (footer) {
+        function updateWidgetBottom() {
+            const footerTop = footer.getBoundingClientRect().top;
+            const overlap = window.innerHeight - footerTop;
+            widget.style.bottom = overlap > 0 ? (overlap + 16) + 'px' : '';
         }
-
-        const total = Math.max(footerOffset, assetsOffset);
-        widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
+        window.addEventListener('scroll', updateWidgetBottom, { passive: true });
+        updateWidgetBottom();
     }
 
-    window.addEventListener('scroll', updateWidgetBottom, { passive: true });
-    updateWidgetBottom();
-
-    // One-way reveal after #problem
+    // Show widget only after #problem section has been scrolled past (one-way)
     const trigger = document.getElementById('problem');
     if (trigger) {
         let revealed = false;
-        function checkReveal() {
+        function checkWidgetReveal() {
             if (revealed) return;
             if (trigger.getBoundingClientRect().bottom < window.innerHeight * 0.6) {
                 revealed = true;
                 widget.classList.add('visible');
-                window.removeEventListener('scroll', checkReveal);
+                window.removeEventListener('scroll', checkWidgetReveal);
             }
         }
-        window.addEventListener('scroll', checkReveal, { passive: true });
-        checkReveal();
+        window.addEventListener('scroll', checkWidgetReveal, { passive: true });
+        checkWidgetReveal();
     }
 }
 
@@ -1199,7 +1185,7 @@ function initContactForm() {
                 optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee'
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbzFXPE9C2OwreH4ztk1NXgCjjDh9Yat9b_VDDWNhDSitmrSvVwm-0mvNAPbK-d3epb7/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbxNEFCYYQ0pRdB6XbHnfzRow5bVYnVOwDjrE-lyU0QFxvGyRuUIjzfn9z-d45nbaZswbQ/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
