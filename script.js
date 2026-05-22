@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initMobileMenu();
     initLanguageToggle();
+    initCtaCycling();
     initSlashBackground();
     initScrollAnimations();
     initFlexibleTabs();
@@ -399,15 +400,34 @@ function applyTranslations() {
 
 function initLanguageToggle() {
     const btn = document.getElementById('langToggle');
-    // Set initial button text (default is NL)
-    btn.textContent = 'NL';
 
     btn.addEventListener('click', () => {
         currentLang = currentLang === 'en' ? 'nl' : 'en';
-        btn.textContent = currentLang === 'en' ? 'ENG' : 'NL';
+        btn.title = currentLang === 'en' ? 'Switch to Dutch' : 'Switch to English';
         document.documentElement.lang = currentLang;
         applyTranslations();
     });
+}
+
+function initCtaCycling() {
+    const btn = document.getElementById('ctaCycling');
+    const textEl = document.getElementById('ctaCyclingText');
+    const labels = ['PLAN DEMO', 'ENERGIESCAN'];
+    let index = 0;
+
+    btn.addEventListener('click', () => {
+        const target = document.getElementById('request');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    setInterval(() => {
+        textEl.classList.add('fade-out');
+        setTimeout(() => {
+            index = (index + 1) % labels.length;
+            textEl.textContent = labels[index];
+            textEl.classList.remove('fade-out');
+        }, 400);
+    }, 5000);
 }
 
 /* ----------------------------------------

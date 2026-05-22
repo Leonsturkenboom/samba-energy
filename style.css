@@ -176,22 +176,49 @@ body {
     z-index: 2;
 }
 
-.lang-toggle {
+.cta-cycling {
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    color: var(--white);
-    background: transparent;
-    border: 1.5px solid var(--white);
-    padding: 6px 14px;
+    color: var(--bg-dark);
+    background: var(--white);
+    border: none;
+    padding: 8px 16px;
     cursor: pointer;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
     margin-left: 20px;
+    min-width: 148px;
+    text-align: center;
 }
 
-.lang-toggle:hover {
-    background: var(--white);
+.cta-cycling:hover {
+    background: var(--yellow);
     color: var(--bg-dark);
+}
+
+.cta-cycling-text {
+    display: inline-block;
+    transition: opacity 0.4s ease;
+}
+
+.cta-cycling-text.fade-out {
+    opacity: 0;
+}
+
+.lang-globe {
+    font-size: 1.1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    margin-left: 8px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    line-height: 1;
+}
+
+.lang-globe:hover {
+    opacity: 1;
 }
 
 .mobile-menu-btn {
@@ -1771,9 +1798,17 @@ body {
         display: flex;
     }
 
-    .lang-toggle {
+    .cta-cycling {
         margin-left: auto;
-        margin-right: 12px;
+        margin-right: 4px;
+        min-width: 120px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .lang-globe {
+        margin-left: 0;
+        margin-right: 8px;
     }
 
     .nav-dashes {
