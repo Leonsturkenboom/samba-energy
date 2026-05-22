@@ -101,32 +101,32 @@ function emailWrapper(body) {
   return '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1.0">' +
     '</head>' +
-    '<body style="margin:0;padding:0;background:#f5f5f5;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;">' +
+    '<body style="margin:0;padding:0;background:#f5f5f5;">' +
     '<table width="100%" cellpadding="0" cellspacing="0" style="padding:32px 0;">' +
     '<tr><td align="center">' +
     '<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">' +
-    // Header
-    '<tr><td style="background:#111111;border-radius:12px 12px 0 0;padding:16px 28px;">' +
+    // Header — geen ronding
+    '<tr><td style="background:#111111;padding:16px 28px;">' +
     '<table width="100%" cellpadding="0" cellspacing="0"><tr>' +
-    '<td style="vertical-align:middle;white-space:nowrap;">' +
+    '<td style="vertical-align:middle;white-space:nowrap;padding-right:14px;">' +
     '<span style="font-family:\'Courier New\',Courier,monospace;font-size:14px;font-weight:700;color:#ffffff;letter-spacing:0.14em;">SAMBA.Energy</span>' +
-    '<span style="font-family:\'Courier New\',Courier,monospace;font-size:12px;color:#E8F53A;font-weight:600;letter-spacing:0.2em;margin-left:16px;">/ / / / / / / /</span>' +
     '</td>' +
-    '<td style="vertical-align:middle;text-align:right;width:30px;">' +
+    '<td style="vertical-align:middle;overflow:hidden;width:100%;">' +
+    '<span style="font-family:\'Courier New\',Courier,monospace;font-size:12px;color:#E8F53A;font-weight:600;letter-spacing:0.2em;white-space:nowrap;">/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /</span>' +
+    '</td>' +
+    '<td style="vertical-align:middle;padding-left:14px;width:30px;">' +
     '<img src="https://samba.energy/Logo%20SAMBA.svg" width="26" height="26" alt="" style="display:block;margin-left:auto;">' +
     '</td>' +
     '</tr></table>' +
     '</td></tr>' +
-    // Gele accent-lijn
-    '<tr><td style="background:#E8F53A;line-height:3px;font-size:0;height:3px;"></td></tr>' +
     // Body
     '<tr><td style="background:#ffffff;padding:36px 36px 40px;">' +
     body +
     SIGNATURE_HTML +
     '</td></tr>' +
-    // Footer
-    '<tr><td style="background:#f2f2f2;border-radius:0 0 12px 12px;padding:14px 28px;border-top:1px solid #e4e4e4;">' +
-    '<p style="font-size:11px;color:#aaaaaa;margin:0;font-family:\'Courier New\',Courier,monospace;letter-spacing:0.06em;">SAMBA.Energy &mdash; Smart Asset Management &amp; Business Automation</p>' +
+    // Footer met dashes tot einde
+    '<tr><td style="background:#f2f2f2;padding:14px 28px;border-top:1px solid #e4e4e4;overflow:hidden;">' +
+    '<p style="font-size:11px;color:#aaaaaa;margin:0;font-family:\'Courier New\',Courier,monospace;letter-spacing:0.06em;white-space:nowrap;overflow:hidden;">SAMBA.Energy /// Smart Asset Management &amp; Business Automation / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /</p>' +
     '</td></tr>' +
     '</table>' +
     '</td></tr></table></body></html>';
@@ -139,7 +139,7 @@ function serviceBlocks(block1Title, block1Body, block2Title, block2Body) {
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:14px;color:#555555;line-height:1.65;margin:0;">' + block1Body + '</p>' +
     '</td></tr>' +
     '<tr><td style="height:12px;"></td></tr>' +
-    '<tr><td style="border-left:3px solid #111111;padding:10px 0 10px 16px;vertical-align:top;">' +
+    '<tr><td style="border-left:3px solid #E8F53A;padding:10px 0 10px 16px;vertical-align:top;">' +
     '<p style="font-family:\'Courier New\',Courier,monospace;font-size:11px;font-weight:700;color:#111111;margin:0 0 5px;letter-spacing:0.1em;text-transform:uppercase;">' + block2Title + '</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:14px;color:#555555;line-height:1.65;margin:0;">' + block2Body + '</p>' +
     '</td></tr>' +
@@ -148,7 +148,7 @@ function serviceBlocks(block1Title, block1Body, block2Title, block2Body) {
 
 function buildAnalysisEmailNL(name, company) {
   return emailWrapper(
-    '<h1 style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:21px;font-weight:700;color:#111111;margin:0 0 16px;">Bedankt voor je aanvraag' + (name ? ', ' + name : '') + '.</h1>' +
+    '<h1 style="font-family:\'Courier New\',Courier,monospace;font-size:20px;font-weight:700;color:#111111;margin:0 0 16px;letter-spacing:0.02em;">Bedankt voor je aanvraag' + (name ? ', ' + name : '') + '.</h1>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We hebben je aanvraag voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen. Wij nemen zo snel mogelijk contact met je op om de situatie en de gewenste aanpak te bespreken.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Twee opties om over na te denken:</p>' +
     serviceBlocks(
@@ -178,7 +178,7 @@ function buildDemoEmailNL(name, company) {
 
 function buildAnalysisEmailEN(name, company) {
   return emailWrapper(
-    '<h1 style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:21px;font-weight:700;color:#111111;margin:0 0 16px;">Thanks for your request' + (name ? ', ' + name : '') + '.</h1>' +
+    '<h1 style="font-family:\'Courier New\',Courier,monospace;font-size:20px;font-weight:700;color:#111111;margin:0 0 16px;letter-spacing:0.02em;">Thanks for your request' + (name ? ', ' + name : '') + '.</h1>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We have received your request for <strong>' + (company || 'your company') + '</strong>. We will get in touch as soon as possible to discuss your situation and the best approach.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Two options to consider:</p>' +
     serviceBlocks(
