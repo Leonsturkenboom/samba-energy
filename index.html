@@ -110,7 +110,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260522">
+    <link rel="stylesheet" href="style.css?v=20260522b">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -689,7 +689,15 @@
             <p class="energyscan-popup-text">We helpen je graag weer inzicht te krijgen op je energierekening en mogelijke kostenbesparingen</p>
             <button class="energyscan-popup-cta" id="energyscanCta">Vraag energiescan aan</button>
         </div>
-        <button class="energyscan-btn" id="energyscanBtn">Start nu een energiescan!</button>
+        <button class="energyscan-btn" id="energyscanBtn" aria-label="Start nu een energiescan">
+            <span class="scan-tl"></span>
+            <span class="scan-tr"></span>
+            <span class="scan-bl"></span>
+            <span class="scan-br"></span>
+            <span class="scan-label">SCAN</span>
+            <span class="scan-line"></span>
+            <span class="scan-label">NU</span>
+        </button>
     </div>
 
 </body>
