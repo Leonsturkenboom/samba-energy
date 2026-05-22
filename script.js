@@ -449,6 +449,7 @@ function initEnergyscanWidget() {
     const popup  = document.getElementById('energyscanPopup');
     const close  = document.getElementById('energyscanClose');
     const cta    = document.getElementById('energyscanCta');
+    const footer = document.getElementById('footer');
 
     btn.addEventListener('click', () => popup.classList.toggle('open'));
     close.addEventListener('click', () => popup.classList.remove('open'));
@@ -462,6 +463,17 @@ function initEnergyscanWidget() {
     document.addEventListener('click', (e) => {
         if (!widget.contains(e.target)) popup.classList.remove('open');
     });
+
+    // Keep widget above footer
+    if (footer) {
+        function updateWidgetBottom() {
+            const footerTop = footer.getBoundingClientRect().top;
+            const overlap = window.innerHeight - footerTop;
+            widget.style.bottom = overlap > 0 ? (overlap + 16) + 'px' : '';
+        }
+        window.addEventListener('scroll', updateWidgetBottom, { passive: true });
+        updateWidgetBottom();
+    }
 }
 
 function updateCtaActiveState(activeId) {

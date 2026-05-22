@@ -2110,7 +2110,7 @@ body {
 /* Lightning bolt — behind scan frame */
 @keyframes bolt-breathe {
     0%, 100% { opacity: 0.4; }
-    50%       { opacity: 0.2; }
+    50%       { opacity: 0.05; }
 }
 
 .scan-bolt {
@@ -2138,10 +2138,16 @@ body {
 }
 
 /* Corner brackets */
+@keyframes corner-flash {
+    0%, 30%, 70%, 100% { border-color: currentColor; }
+    50%                 { border-color: var(--accent-yellow); }
+}
+
 .scan-tl, .scan-tr, .scan-bl, .scan-br {
     position: absolute;
     width: 14px;
     height: 14px;
+    animation: corner-flash 8s ease-in-out infinite;
 }
 
 .scan-tl {
