@@ -1416,6 +1416,13 @@ body {
     color: var(--white);
     transition: border-color 0.3s ease;
     outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: #E53935 !important;
 }
 
 .form-group input:focus,

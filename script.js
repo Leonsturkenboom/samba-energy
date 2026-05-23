@@ -1194,75 +1194,97 @@ function initCharts() {
    ---------------------------------------- */
 function initContactForm() {
     const form = document.getElementById('requestForm');
-    const formSuccess = document.getElementById('formSuccess');
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbyebLk155QdkBHVQZCEMsRvSF_QZ71RClbiybKh-j32TYoKTfPcaArI4fbir1RMQiIrjw/exec';
 
-    form.addEventListener('submit', (e) => {
+    // Track which button was clicked (e.submitter not supported on iOS < 15.4)
+    let lastClickedBtn = '';
+    form.querySelectorAll('.btn-submit').forEach(btn => {
+        btn.addEventListener('click', () => { lastClickedBtn = btn.textContent.trim(); });
+        btn.addEventListener('touchend', () => { lastClickedBtn = btn.textContent.trim(); });
+    });
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Basic validation
+        const emailEl = form.querySelector('#email');
+        const phoneEl = form.querySelector('#phone');
+
+        // Validation — use CSS class so mobile browsers respect the styling
         const required = form.querySelectorAll('[required]');
         let valid = true;
         required.forEach(input => {
             if (!input.value.trim()) {
                 valid = false;
-                input.style.borderColor = '#E53935';
+                input.classList.add('input-error');
             } else {
-                input.style.borderColor = '';
+                input.classList.remove('input-error');
             }
         });
 
-        // Email validation
-        const emailEl = form.querySelector('#email');
         if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
             valid = false;
-            emailEl.style.borderColor = '#E53935';
+            emailEl.classList.add('input-error');
         }
 
-        // Phone validation (optional field, but must be valid if filled)
-        const phoneEl = form.querySelector('#phone');
         if (phoneEl.value.trim()) {
             const digits = phoneEl.value.replace(/\D/g, '');
             if (digits.length < 8 || digits.length > 15) {
                 valid = false;
-                phoneEl.style.borderColor = '#E53935';
+                phoneEl.classList.add('input-error');
             }
         }
 
-        if (valid) {
-            const clickedBtn = e.submitter ? e.submitter.textContent.trim() : 'Aanvraag';
-            const payload = {
-                type: clickedBtn,
-                lang: currentLang,
-                companyName: form.querySelector('#companyName').value,
-                contactPerson: form.querySelector('#contactPerson').value,
-                email: emailEl.value,
-                phone: phoneEl.value || '',
-                situation: form.querySelector('#situation').value || '',
-                optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee',
-                honeypot: form.querySelector('[name="website"]').value || ''
-            };
+        if (!valid) return;
 
-            const GAS_URL = 'https://script.google.com/macros/s/AKfycbyebLk155QdkBHVQZCEMsRvSF_QZ71RClbiybKh-j32TYoKTfPcaArI4fbir1RMQiIrjw/exec';
-            const body = JSON.stringify(payload);
+        const buttons = form.querySelectorAll('.btn-submit');
+        const clickedBtn = (e.submitter ? e.submitter.textContent.trim() : lastClickedBtn) || 'Aanvraag';
 
-            // Fire-and-forget: redirect immediately, GAS handles email in background
-            if (navigator.sendBeacon) {
-                navigator.sendBeacon(GAS_URL, new Blob([body], { type: 'text/plain' }));
-            } else {
-                fetch(GAS_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body }).catch(() => {});
-            }
+        // Loading state
+        buttons.forEach(btn => { btn.disabled = true; btn.style.opacity = '0.6'; });
 
+        const payload = {
+            type: clickedBtn,
+            lang: currentLang,
+            companyName: form.querySelector('#companyName').value,
+            contactPerson: form.querySelector('#contactPerson').value,
+            email: emailEl.value,
+            phone: phoneEl.value || '',
+            situation: form.querySelector('#situation').value || '',
+            optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee',
+            honeypot: form.querySelector('[name="website"]').value || ''
+        };
+
+        try {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 12000);
+            await fetch(GAS_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(payload),
+                signal: controller.signal
+            });
+            clearTimeout(timeout);
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
             window.location.href = '/bedankt/';
+        } catch (err) {
+            buttons.forEach(btn => { btn.disabled = false; btn.style.opacity = ''; });
+            let errorEl = form.querySelector('.form-submit-error');
+            if (!errorEl) {
+                errorEl = document.createElement('p');
+                errorEl.className = 'form-submit-error';
+                errorEl.style.cssText = 'color:#E53935;font-size:0.9rem;margin-top:8px;text-align:center;';
+                form.querySelector('.form-buttons').insertAdjacentElement('afterend', errorEl);
+            }
+            errorEl.textContent = currentLang === 'en'
+                ? 'Something went wrong. Please try again or email us at leon@samba.energy.'
+                : 'Er is iets misgegaan. Probeer het opnieuw of mail ons via leon@samba.energy.';
         }
     });
 
-    // Clear error styling on input
+    // Clear error class on input
     form.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', () => {
-            el.style.borderColor = '';
-        });
+        el.addEventListener('input', () => el.classList.remove('input-error'));
     });
 }
 
