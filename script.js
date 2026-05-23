@@ -222,7 +222,7 @@ const translations = {
         'nav.request': 'AANVRAAG',
         'nav.success': 'SUCCES',
         'scan.sub': 'NU',
-        'widget.text': 'We helpen je graag inzicht te krijgen hoeveel ruimte er nog is op uw netaansluiting én hoeveel kosten u kunt besparen. Vraag hiervoor direct een energiescan bij ons aan.',
+        'widget.text': 'We helpen je graag inzicht te krijgen hoeveel ruimte er nog is op uw netaansluiting én hoeveel kosten u kunt besparen.',
         'widget.cta': 'Vraag energiescan aan',
         'hero.line1': 'Ritme in je assets,',
         'hero.line2': 'Grip op de zaak',
