@@ -466,20 +466,47 @@ function initEnergyscanWidget() {
 
     // Keep widget above footer and carousel
     const carousel = document.getElementById('assetsCarousel');
+    const navbar   = document.getElementById('navbar');
+
+    // Track which side of the carousel we're on so we know which edge to follow
+    let carouselSide = 'below';
+    if (carousel) {
+        const r0 = carousel.getBoundingClientRect();
+        if (r0.bottom <= 0) carouselSide = 'above';
+    }
 
     function updateWidgetBottom() {
-        const vh = window.innerHeight;
+        const vh      = window.innerHeight;
+        const navH    = navbar ? navbar.offsetHeight : 60;
+        const widgetH = btn.offsetHeight || 70;
 
         const footerOffset = footer
             ? Math.max(0, vh - footer.getBoundingClientRect().top)
             : 0;
 
-        const carouselOffset = carousel
-            ? Math.max(0, vh - carousel.getBoundingClientRect().top)
-            : 0;
+        let carouselOffset = 0;
+        if (carousel) {
+            const r = carousel.getBoundingClientRect();
+            // Update side state when carousel is fully out of viewport
+            if (r.top >= vh)   carouselSide = 'below'; // carousel fully below
+            if (r.bottom <= 0) carouselSide = 'above'; // carousel fully above
 
-        const total = Math.max(footerOffset, carouselOffset);
-        widget.style.bottom = total > 0 ? (total + 16) + 'px' : '';
+            if (carouselSide === 'below' && r.top < vh) {
+                // Approaching from below: push widget up above carousel top (same as footer)
+                carouselOffset = Math.max(0, vh - r.top);
+            } else if (carouselSide === 'above' && r.bottom > 0) {
+                // Coming back from above: park widget just below carousel bottom
+                carouselOffset = Math.max(0, vh - r.bottom - widgetH - 24);
+            }
+        }
+
+        const raw = Math.max(footerOffset, carouselOffset);
+        if (raw <= 0) { widget.style.bottom = ''; return; }
+
+        // Cap so widget never overlaps navbar (8px clearance below navbar bottom)
+        const maxBottom = Math.max(24, vh - navH - widgetH - 8);
+        const bottom    = Math.min(raw + 16, maxBottom);
+        widget.style.bottom = bottom > 24 ? bottom + 'px' : '';
     }
 
     window.addEventListener('scroll', updateWidgetBottom, { passive: true });
