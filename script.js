@@ -485,15 +485,16 @@ function initEnergyscanWidget() {
             : 0;
 
         let carouselOffset = 0;
+        let pushOffScreen  = false;
         if (carousel) {
             const r = carousel.getBoundingClientRect();
-            // Update side state when carousel is fully out of viewport
-            if (r.top >= vh)   carouselSide = 'below'; // carousel fully below
-            if (r.bottom <= 0) carouselSide = 'above'; // carousel fully above
+            if (r.top >= vh)   carouselSide = 'below';
+            if (r.bottom <= 0) carouselSide = 'above';
 
             if (carouselSide === 'below' && r.top < vh) {
-                // Approaching from below: push widget up above carousel top (same as footer)
+                // Approaching from below: push widget off-screen (no navbar cap)
                 carouselOffset = Math.max(0, vh - r.top);
+                pushOffScreen  = true;
             } else if (carouselSide === 'above' && r.bottom > 0) {
                 // Coming back from above: park widget just below carousel bottom
                 carouselOffset = Math.max(0, vh - r.bottom - widgetH - 24);
@@ -503,10 +504,15 @@ function initEnergyscanWidget() {
         const raw = Math.max(footerOffset, carouselOffset);
         if (raw <= 0) { widget.style.bottom = ''; return; }
 
-        // Cap so widget never overlaps navbar (8px clearance below navbar bottom)
-        const maxBottom = Math.max(24, vh - navH - widgetH - 8);
-        const bottom    = Math.min(raw + 16, maxBottom);
-        widget.style.bottom = bottom > 24 ? bottom + 'px' : '';
+        if (pushOffScreen) {
+            // Let widget go off-screen above viewport — no overlap, no visible jump
+            widget.style.bottom = (raw + 16) + 'px';
+        } else {
+            // Cap so widget never overlaps navbar (8px clearance)
+            const maxBottom = Math.max(24, vh - navH - widgetH - 8);
+            const bottom    = Math.min(raw + 16, maxBottom);
+            widget.style.bottom = bottom > 24 ? bottom + 'px' : '';
+        }
     }
 
     window.addEventListener('scroll', updateWidgetBottom, { passive: true });
