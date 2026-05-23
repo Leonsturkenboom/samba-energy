@@ -200,11 +200,13 @@
                 method: 'POST',
                 body: formData
             }).then(() => {
-                form.style.display = 'none';
-                document.getElementById('formSuccess').classList.add('visible');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'form_lead', form_type: 'contact' });
+                window.location.href = '/bedankt/';
             }).catch(() => {
-                form.style.display = 'none';
-                document.getElementById('formSuccess').classList.add('visible');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'form_lead', form_type: 'contact' });
+                window.location.href = '/bedankt/';
             });
         });
 
