@@ -3,13 +3,75 @@ var NOTIFY_EMAIL = 'leon@samba.energy';
 var NOTIFY_CC = 'andy@samba.energy';
 var PDF_URL = 'https://samba.energy/rapport-voorbeeld.pdf';
 
+// Vul het ID van je Google Sheet in om leads automatisch te loggen.
+// Sheet ID staat in de URL: docs.google.com/spreadsheets/d/[DIT_ID]/edit
+var SHEET_ID = '';
+
+function isValidEmail(email) {
+  return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
+
+function isValidPhone(phone) {
+  if (!phone || !phone.trim()) return true;
+  var digits = phone.replace(/\D/g, '');
+  return digits.length >= 8 && digits.length <= 15;
+}
+
+function getPdfBlob() {
+  var cache = CacheService.getScriptCache();
+  try {
+    var cached = cache.get('samba_pdf');
+    if (cached) {
+      var bytes = Utilities.base64Decode(cached);
+      return Utilities.newBlob(bytes, 'application/pdf', 'Voorbeeld_Rapport_SAMBA.Energy.pdf');
+    }
+  } catch(e) {}
+  var blob = UrlFetchApp.fetch(PDF_URL).getBlob();
+  blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
+  try {
+    var b64 = Utilities.base64Encode(blob.getBytes());
+    if (b64.length < 90000) cache.put('samba_pdf', b64, 21600);
+  } catch(e) {}
+  return blob;
+}
+
+function logToSheet(data, status) {
+  if (!SHEET_ID) return;
+  try {
+    var sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
+    sheet.appendRow([
+      new Date(),
+      data.type || '',
+      data.lang || '',
+      data.companyName || '',
+      data.contactPerson || '',
+      data.email || '',
+      data.phone || '',
+      data.situation || '',
+      data.optin_updates || '',
+      status || 'ok'
+    ]);
+  } catch(e) {}
+}
+
+function sendErrorNotification(context, err) {
+  try {
+    GmailApp.sendEmail(
+      NOTIFY_EMAIL,
+      'SAMBA form error — ' + context,
+      String(err),
+      { name: SENDER_NAME }
+    );
+  } catch(e) {}
+}
+
 function signatureHTML(lang) {
   var greeting = lang === 'en' ? 'Kind regards,' : 'Met vriendelijke groet,';
   return '<div style="margin-top:28px;">' +
     '<p style="margin:0 0 20px;font-family:\'Courier New\',Courier,monospace;font-size:15px;color:#555;">' + greeting + '</p>' +
     '<p style="margin:0 0 16px;font-family:\'Courier New\',Courier,monospace;font-size:15px;font-weight:400;color:#111111;">Leon Sturkenboom</p>' +
     '<div style="margin:14px 0;">' +
-    '<img src="https://samba.energy/images/samba-logo-email.png" width="160" alt="SAMBA.Energy" style="display:block;">' +
+    '<img src="https://samba.energy/images/samba-logo-email.png" width="240" alt="SAMBA.Energy" style="display:block;">' +
     '</div>' +
     '<p style="margin:0;font-family:\'Courier New\',Courier,monospace;font-size:15px;color:#555;">' +
     '<a href="https://samba.energy" style="color:#2563eb;text-decoration:none;">www.SAMBA.energy</a> /// 06 46444468</p>' +
@@ -17,7 +79,20 @@ function signatureHTML(lang) {
 }
 
 function doPost(e) {
-  var data = JSON.parse(e.postData.contents);
+  var data;
+  try {
+    data = JSON.parse(e.postData.contents);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'parse_error' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // Honeypot — bot detected, silently discard
+  if (data.honeypot) {
+    return ContentService.createTextOutput(JSON.stringify({ success: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   var type = data.type || 'Aanvraag';
   var lang = data.lang || 'nl';
   var companyName = data.companyName || '';
@@ -26,6 +101,18 @@ function doPost(e) {
   var phone = data.phone || '';
   var situation = data.situation || '';
   var optin = data.optin_updates || '';
+
+  // Input validation
+  if (!isValidEmail(email)) {
+    logToSheet(data, 'invalid_email');
+    return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'invalid_email' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+  if (!isValidPhone(phone)) {
+    logToSheet(data, 'invalid_phone');
+    return ContentService.createTextOutput(JSON.stringify({ success: false, error: 'invalid_phone' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
 
   var isAnalysis = type.toLowerCase().indexOf('demo') === -1;
   var isEN = lang === 'en';
@@ -44,12 +131,16 @@ function doPost(e) {
     'Situatie: ' + situation + '\n' +
     'Updates opt-in: ' + optin;
 
-  GmailApp.sendEmail(
-    NOTIFY_EMAIL,
-    notificationSubject,
-    notificationBody,
-    { cc: NOTIFY_CC, name: SENDER_NAME }
-  );
+  try {
+    GmailApp.sendEmail(
+      NOTIFY_EMAIL,
+      notificationSubject,
+      notificationBody,
+      { cc: NOTIFY_CC, name: SENDER_NAME }
+    );
+  } catch(err) {
+    sendErrorNotification('notification email', err);
+  }
 
   if (email) {
     var subject, htmlBody;
@@ -70,28 +161,33 @@ function doPost(e) {
         : buildDemoEmailNL(contactPerson, companyName);
     }
 
-    if (isAnalysis) {
-      try {
-        var pdfBlob = UrlFetchApp.fetch(PDF_URL).getBlob();
-        pdfBlob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
+    try {
+      if (isAnalysis) {
+        var pdfBlob = getPdfBlob();
         GmailApp.sendEmail(email, subject, '', {
           htmlBody: htmlBody,
           attachments: [pdfBlob],
           name: SENDER_NAME
         });
-      } catch (err) {
+      } else {
         GmailApp.sendEmail(email, subject, '', {
           htmlBody: htmlBody,
           name: SENDER_NAME
         });
       }
-    } else {
-      GmailApp.sendEmail(email, subject, '', {
-        htmlBody: htmlBody,
-        name: SENDER_NAME
-      });
+    } catch(err) {
+      sendErrorNotification('confirmation email to ' + email, err);
+      // Try without PDF if attachment failed
+      try {
+        GmailApp.sendEmail(email, subject, '', {
+          htmlBody: htmlBody,
+          name: SENDER_NAME
+        });
+      } catch(err2) {}
     }
   }
+
+  logToSheet(data, 'ok');
 
   return ContentService
     .createTextOutput(JSON.stringify({ success: true }))
@@ -104,9 +200,9 @@ function emailWrapper(body, lang) {
     '<body style="margin:0;padding:0;background:#ffffff;">' +
     '<table width="100%" cellpadding="0" cellspacing="0">' +
     '<tr><td align="center">' +
-    '<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;">' +
+    '<table width="720" cellpadding="0" cellspacing="0" style="max-width:720px;width:100%;background:#ffffff;">' +
     '<tr><td style="padding:40px 36px 44px;text-align:center;">' +
-    '<img src="https://samba.energy/Logo%20SAMBA.svg" width="200" alt="SAMBA.Energy" style="display:inline-block;">' +
+    '<img src="https://samba.energy/Logo%20SAMBA.svg" width="120" alt="SAMBA.Energy" style="display:inline-block;">' +
     '</td></tr>' +
     '<tr><td style="padding:0 36px 40px;">' +
     body + signatureHTML(lang || 'nl') +

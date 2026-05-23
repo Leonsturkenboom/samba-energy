@@ -1212,10 +1212,20 @@ function initContactForm() {
         });
 
         // Email validation
-        const email = form.querySelector('#email');
-        if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        const emailEl = form.querySelector('#email');
+        if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
             valid = false;
-            email.style.borderColor = '#E53935';
+            emailEl.style.borderColor = '#E53935';
+        }
+
+        // Phone validation (optional field, but must be valid if filled)
+        const phoneEl = form.querySelector('#phone');
+        if (phoneEl.value.trim()) {
+            const digits = phoneEl.value.replace(/\D/g, '');
+            if (digits.length < 8 || digits.length > 15) {
+                valid = false;
+                phoneEl.style.borderColor = '#E53935';
+            }
         }
 
         if (valid) {
@@ -1225,25 +1235,26 @@ function initContactForm() {
                 lang: currentLang,
                 companyName: form.querySelector('#companyName').value,
                 contactPerson: form.querySelector('#contactPerson').value,
-                email: form.querySelector('#email').value,
-                phone: form.querySelector('#phone').value || '',
+                email: emailEl.value,
+                phone: phoneEl.value || '',
                 situation: form.querySelector('#situation').value || '',
-                optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee'
+                optin_updates: form.querySelector('[name="optin_updates"]').checked ? 'ja' : 'nee',
+                honeypot: form.querySelector('[name="website"]').value || ''
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbyebLk155QdkBHVQZCEMsRvSF_QZ71RClbiybKh-j32TYoKTfPcaArI4fbir1RMQiIrjw/exec', {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(payload)
-            }).then(() => {
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
-                window.location.href = '/bedankt/';
-            }).catch(() => {
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
-                window.location.href = '/bedankt/';
-            });
+            const GAS_URL = 'https://script.google.com/macros/s/AKfycbyebLk155QdkBHVQZCEMsRvSF_QZ71RClbiybKh-j32TYoKTfPcaArI4fbir1RMQiIrjw/exec';
+            const body = JSON.stringify(payload);
+
+            // Fire-and-forget: redirect immediately, GAS handles email in background
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon(GAS_URL, new Blob([body], { type: 'text/plain' }));
+            } else {
+                fetch(GAS_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body }).catch(() => {});
+            }
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
+            window.location.href = '/bedankt/';
         }
     });
 
