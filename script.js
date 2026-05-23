@@ -484,35 +484,38 @@ function initEnergyscanWidget() {
             ? Math.max(0, vh - footer.getBoundingClientRect().top)
             : 0;
 
+        // navThreshold: minimum r.top at which widget still clears navbar
+        // (widget top = r.top - widgetH - 16 = navH when r.top = navH+widgetH+16)
+        const navThreshold     = navH + widgetH + 16;
+        // naturalWidgetTop: y-position of widget top at CSS natural position (bottom:24px)
+        const naturalWidgetTop = vh - 24 - widgetH;
+
         let carouselOffset = 0;
-        let pushOffScreen  = false;
         if (carousel) {
             const r = carousel.getBoundingClientRect();
             if (r.top >= vh)   carouselSide = 'below';
             if (r.bottom <= 0) carouselSide = 'above';
 
-            if (carouselSide === 'below' && r.top < vh) {
-                // Approaching from below: push widget off-screen (no navbar cap)
+            if (carouselSide === 'below' && r.top < vh && r.top > navThreshold) {
+                // Scrolling down: push widget above carousel top.
+                // Snaps to natural (carouselOffset=0) when widget top would reach navbar.
                 carouselOffset = Math.max(0, vh - r.top);
-                pushOffScreen  = true;
-            } else if (carouselSide === 'above' && r.bottom > 0) {
-                // Coming back from above: park widget just below carousel bottom
-                carouselOffset = Math.max(0, vh - r.bottom - widgetH - 24);
+
+            } else if (carouselSide === 'above'
+                       && r.bottom >= naturalWidgetTop && r.top > navThreshold) {
+                // Scrolling up: jump above carousel the moment carousel bottom
+                // reaches widget's natural top position. Snaps to natural if
+                // carousel rises too high (r.top <= navThreshold).
+                carouselOffset = Math.max(0, vh - r.top);
             }
         }
 
         const raw = Math.max(footerOffset, carouselOffset);
         if (raw <= 0) { widget.style.bottom = ''; return; }
 
-        if (pushOffScreen) {
-            // Let widget go off-screen above viewport — no overlap, no visible jump
-            widget.style.bottom = (raw + 16) + 'px';
-        } else {
-            // Cap so widget never overlaps navbar (8px clearance)
-            const maxBottom = Math.max(24, vh - navH - widgetH - 8);
-            const bottom    = Math.min(raw + 16, maxBottom);
-            widget.style.bottom = bottom > 24 ? bottom + 'px' : '';
-        }
+        const maxBottom = Math.max(24, vh - navH - widgetH - 8);
+        const bottom    = Math.min(raw + 16, maxBottom);
+        widget.style.bottom = bottom > 24 ? bottom + 'px' : '';
     }
 
     window.addEventListener('scroll', updateWidgetBottom, { passive: true });
