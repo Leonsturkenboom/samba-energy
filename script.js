@@ -1236,11 +1236,13 @@ function initContactForm() {
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(payload)
             }).then(() => {
-                form.style.display = 'none';
-                formSuccess.style.display = 'block';
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
+                window.location.href = '/bedankt/';
             }).catch(() => {
-                form.style.display = 'none';
-                formSuccess.style.display = 'block';
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
+                window.location.href = '/bedankt/';
             });
         }
     });
