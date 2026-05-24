@@ -230,14 +230,27 @@ function serviceBlocks(block1Title, block1Body, block2Title, block2Body) {
 }
 
 function buildAnalysisEmailNL(name, company) {
+  var f = 'font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;';
   var bullets =
     '<table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Kosten &amp; Capaciteit:</strong> Structurele besparingen en de resterende ruimte op je netaansluiting.</td></tr>' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Continuïteit &amp; Groei:</strong> Hoe je ondanks netcongestie kunt blijven groeien, elektrificeren en productiecontinuïteit kunt garanderen.</td></tr>' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Extra Kansen:</strong> Mogelijke inzet van flexcontracten (netbeheer) en beschikbare subsidies.</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:6px 10px 16px 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:6px 0 16px;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Kosten &amp; Capaciteit</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">Structurele besparingen en de resterende ruimte op je netaansluiting.</p>' +
+    '</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:0 10px 16px 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:0 0 16px;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Continuïteit &amp; Groei</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">Hoe je ondanks netcongestie kunt blijven groeien, verder elektrificeren en productiecontinuïteit kunt garanderen.</p>' +
+    '</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:0 10px 0 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:0;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Extra Kansen</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">Mogelijke inzet van flexcontracten (netbeheer) en beschikbare subsidies.</p>' +
+    '</td></tr>' +
     '</table>';
   return emailWrapper(
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
@@ -273,14 +286,27 @@ function buildDemoEmailNL(name, company) {
 }
 
 function buildAnalysisEmailEN(name, company) {
+  var f = 'font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;';
   var bullets =
     '<table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Cost &amp; Capacity:</strong> Structural savings and remaining capacity on your grid connection.</td></tr>' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Continuity &amp; Growth:</strong> How to keep growing, electrifying and guaranteeing production continuity despite grid congestion.</td></tr>' +
-    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
-    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Extra Opportunities:</strong> Possible use of flex contracts (grid operator) and available subsidies.</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:6px 10px 16px 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:6px 0 16px;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Cost &amp; Capacity</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">Structural savings and remaining capacity on your grid connection.</p>' +
+    '</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:0 10px 16px 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:0 0 16px;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Continuity &amp; Growth</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">How to keep growing, further electrifying and guaranteeing production continuity despite grid congestion.</p>' +
+    '</td></tr>' +
+    '<tr>' +
+    '<td style="width:18px;padding:0 10px 0 0;vertical-align:top;' + f + 'font-size:16px;font-weight:700;color:#E8F53A;line-height:1.4;">+</td>' +
+    '<td style="padding:0;vertical-align:top;">' +
+    '<p style="margin:0 0 2px;' + f + 'font-size:15px;font-weight:700;color:#111111;line-height:1.4;">Extra Opportunities</p>' +
+    '<p style="margin:0;' + f + 'font-size:15px;color:#444444;line-height:1.6;">Possible use of flex contracts (grid operator) and available subsidies.</p>' +
+    '</td></tr>' +
     '</table>';
   return emailWrapper(
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (name || '[NAME]') + ',</p>' +
