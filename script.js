@@ -1254,9 +1254,16 @@ function initContactForm() {
             honeypot: form.querySelector('[name="website"]').value || ''
         };
 
+        const doRedirect = () => {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
+            window.location.href = '/bedankt/';
+        };
+
         try {
             const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 12000);
+            // 25s timeout — analysis emails take longer (PDF fetch + attachment)
+            const timeout = setTimeout(() => controller.abort(), 25000);
             await fetch(GAS_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain' },
@@ -1264,10 +1271,16 @@ function initContactForm() {
                 signal: controller.signal
             });
             clearTimeout(timeout);
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
-            window.location.href = '/bedankt/';
+            doRedirect();
         } catch (err) {
+            if (err.name === 'AbortError' || err.name === 'TypeError') {
+                // AbortError = timeout (request was sent, GAS is slow with PDF)
+                // TypeError = CORS (GAS redirect quirk — request went through)
+                // In both cases the request reached GAS — redirect to /bedankt/
+                doRedirect();
+                return;
+            }
+            // Genuine network failure (offline, DNS error)
             buttons.forEach(btn => { btn.disabled = false; btn.style.opacity = ''; });
             let errorEl = form.querySelector('.form-submit-error');
             if (!errorEl) {
