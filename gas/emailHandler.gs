@@ -71,7 +71,9 @@ function signatureHTML(lang) {
     '<p style="margin:0 0 20px;font-family:\'Courier New\',Courier,monospace;font-size:15px;color:#555;">' + greeting + '</p>' +
     '<p style="margin:0 0 16px;font-family:\'Courier New\',Courier,monospace;font-size:15px;font-weight:400;color:#111111;">Leon Sturkenboom</p>' +
     '<div style="margin:14px 0;">' +
+    '<a href="https://samba.energy" style="display:inline-block;">' +
     '<img src="https://samba.energy/images/samba-logo-email.png" width="240" alt="SAMBA.Energy" style="display:block;">' +
+    '</a>' +
     '</div>' +
     '<p style="margin:0;font-family:\'Courier New\',Courier,monospace;font-size:15px;color:#555;">' +
     '<a href="https://samba.energy" style="color:#2563eb;text-decoration:none;">www.SAMBA.Energy</a> /// 06 46444468</p>' +
@@ -202,7 +204,9 @@ function emailWrapper(body, lang) {
     '<tr><td align="center">' +
     '<table width="720" cellpadding="0" cellspacing="0" style="max-width:720px;width:100%;background:#ffffff;">' +
     '<tr><td style="padding:40px 36px 44px;text-align:center;">' +
-    '<img src="https://samba.energy/Logo%20SAMBA.svg" width="120" alt="SAMBA.Energy" style="display:inline-block;">' +
+    '<a href="https://samba.energy" style="display:inline-block;">' +
+    '<img src="https://samba.energy/Logo%20SAMBA.svg" width="120" alt="SAMBA.Energy" style="display:block;">' +
+    '</a>' +
     '</td></tr>' +
     '<tr><td style="padding:0 36px 40px;">' +
     body + signatureHTML(lang || 'nl') +
@@ -255,7 +259,7 @@ function buildAnalysisEmailNL(name, company) {
 function buildDemoEmailNL(name, company) {
   return emailWrapper(
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in <strong>SAMBA.Energy</strong>. We hebben je aanvraag voor een demo van ons asset- en energiemanagement platform voor ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse. We hebben je aanvraag voor een demo van ons asset- en energiemanagement platform voor ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Tijdens de demo kijken we samen hoe <strong>SAMBA.Energy</strong> ervoor zorgt dat jouw assets optimaal kunnen worden ingezet. We nemen zo snel mogelijk contact met je op om een datum en tijdstip te plannen. Alvast twee opties om over na te denken:</p>' +
     serviceBlocks(
       'Online via video call',
