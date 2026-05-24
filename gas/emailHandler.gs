@@ -74,7 +74,7 @@ function signatureHTML(lang) {
     '<img src="https://samba.energy/images/samba-logo-email.png" width="240" alt="SAMBA.Energy" style="display:block;">' +
     '</div>' +
     '<p style="margin:0;font-family:\'Courier New\',Courier,monospace;font-size:15px;color:#555;">' +
-    '<a href="https://samba.energy" style="color:#2563eb;text-decoration:none;">www.SAMBA.energy</a> /// 06 46444468</p>' +
+    '<a href="https://samba.energy" style="color:#2563eb;text-decoration:none;">www.SAMBA.Energy</a> /// 06 46444468</p>' +
     '</div>';
 }
 
@@ -226,66 +226,88 @@ function serviceBlocks(block1Title, block1Body, block2Title, block2Body) {
 }
 
 function buildAnalysisEmailNL(name, company) {
+  var bullets =
+    '<table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Kosten &amp; Capaciteit:</strong> Structurele besparingen en de resterende ruimte op je netaansluiting.</td></tr>' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Continuïteit &amp; Groei:</strong> Hoe je ondanks netcongestie kunt blijven groeien, elektrificeren en productiecontinuïteit kunt garanderen.</td></tr>' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Extra Kansen:</strong> Mogelijke inzet van flexcontracten (netbeheer) en beschikbare subsidies.</td></tr>' +
+    '</table>';
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We hebben je aanvraag voor een energiescan voor <strong>' + (company || 'je bedrijf') + '</strong> ontvangen. Wij nemen zo snel mogelijk contact met je op om de situatie en de gewenste aanpak te bespreken.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Alvast twee opties om over na te denken:</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in <strong>SAMBA.Energy</strong>. We hebben je aanvraag voor een energiescan van ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Met deze scan brengen we direct jouw kansen in kaart. Je krijgt concreet inzicht in:</p>' +
+    bullets +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Wij nemen zo snel mogelijk contact met je op om de situatie en de gewenste aanpak te bespreken. Alvast twee varianten van de rapportage om over na te denken:</p>' +
     serviceBlocks(
-      'Slimme Energie Check',
-      'Snelle analyse op basis van je slimme meter of aangeleverde data. Je krijgt direct inzicht in besparingspotentieel en beschikbare netcapaciteit. Resultaat binnen 5 werkdagen.',
-      'Slimme Energie Rapport',
-      'Uitgebreide on-site analyse met 2 weken meting op locatie. We brengen samen in kaart welke assets flexibel inzetbaar zijn om je energiekosten maximaal te verlagen. De hoogste mate van zekerheid.'
+      'Slim met energie Check',
+      'Snelle analyse op basis van meter- of aangeleverde data. Je krijgt direct inzicht in besparingspotentieel en beschikbare netcapaciteit. Resultaat binnen 5 werkdagen.',
+      'Slim met energie Deep-dive',
+      'Uitgebreide on-site analyse met 2 weken meting op locatie. We brengen samen in kaart welke assets flexibel inzetbaar zijn en wat het je oplevert. De hoogste mate van zekerheid.'
     ) +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">In de bijlage vind je alvast een voorbeeld van ons Energy &amp; Cost Savings rapport. Na onze analyse ontvang je een persoonlijk rapport voor <strong>' + (company || 'je bedrijf') + '</strong>, inclusief advies over zonnepanelen en batterijopslag.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Vragen? Neem gerust contact met me op.</p>'
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">In de bijlage vind je alvast een voorbeeld van het rapport. Heb je vooraf al specifieke vragen of wensen? Neem gerust contact met me op.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>'
   );
 }
 
 function buildDemoEmailNL(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in <strong>SAMBA.Energy</strong>! We hebben je aanvraag voor een demo van ons asset- en energiemanagement platform voor <strong>' + (company || 'je bedrijf') + '</strong> in goede orde ontvangen. Wij nemen zo snel mogelijk contact met je op om een datum en tijdstip in te plannen.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Alvast twee opties om over na te denken:</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in <strong>SAMBA.Energy</strong>. We hebben je aanvraag voor een demo van ons asset- en energiemanagement platform voor ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Tijdens de demo kijken we samen hoe <strong>SAMBA.Energy</strong> ervoor zorgt dat jouw assets optimaal kunnen worden ingezet. We nemen zo snel mogelijk contact met je op om een datum en tijdstip te plannen. Alvast twee opties om over na te denken:</p>' +
     serviceBlocks(
       'Online via video call',
-      'Snel en efficiënt. Ideaal voor een eerste indruk van het <strong>SAMBA.Energy</strong> asset- en energiemanagement platform en de besparingsmogelijkheden in de specifieke situatie van <strong>' + (company || 'je bedrijf') + '</strong>.',
+      'Snel en efficiënt. Ideaal voor een eerste indruk van ons platform en de mogelijke besparingsmogelijkheden in de specifieke situatie van ' + (company || 'je bedrijf') + '.',
       'Fysiek op locatie',
-      'Voor een uitgebreidere kennismaking en diepere duik in ons <strong>SAMBA.Energy</strong> asset- en energiemanagement platform en de flex asset optimalisatie kansen voor <strong>' + (company || 'je bedrijf') + '</strong>. We kunnen dan ook direct de situatie ter plekke bekijken en de beste aanpak toetsen.'
+      'Voor een uitgebreidere kennismaking en een diepere duik in de flex-asset optimalisatie kansen. We kunnen dan direct de situatie ter plekke bekijken, de specifieke apparaten en installaties toetsen en de beste aanpak voor jullie situatie bepalen.'
     ) +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">De demo duurt ongeveer 30–60 minuten. Dan kijken we samen hoe <strong>SAMBA.Energy</strong> ervoor zorgt dat de flexibele assets van <strong>' + (company || 'je bedrijf') + '</strong> optimaal benut worden. Heb je vooraf al specifieke vragen of wensen voor de demo? Laat het gerust weten via een reply op deze mail.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">De demo duurt ongeveer 30–60 minuten. Heb je vooraf al specifieke vragen of wensen? Neem gerust contact met me op.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>'
   );
 }
 
 function buildAnalysisEmailEN(name, company) {
+  var bullets =
+    '<table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 20px;">' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Cost &amp; Capacity:</strong> Structural savings and remaining capacity on your grid connection.</td></tr>' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Continuity &amp; Growth:</strong> How to keep growing, electrifying and guaranteeing production continuity despite grid congestion.</td></tr>' +
+    '<tr><td style="padding:4px 0;font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;">' +
+    '<span style="color:#E8F53A;font-weight:700;margin-right:10px;">+</span><strong>Extra Opportunities:</strong> Possible use of flex contracts (grid operator) and available subsidies.</td></tr>' +
+    '</table>';
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">We have received your energy scan request for <strong>' + (company || 'your company') + '</strong>. We will get in touch as soon as possible to discuss your situation and the best approach.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Two options to consider:</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (name || '[NAME]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in <strong>SAMBA.Energy</strong>. We have received your energy scan request for ' + (company || 'your company') + '.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">With this scan we immediately map out your opportunities. You will gain concrete insight into:</p>' +
+    bullets +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">We will get in touch as soon as possible to discuss the situation and the best approach. Two report variants to consider:</p>' +
     serviceBlocks(
       'Smart Energy Check',
-      'Quick analysis based on your smart meter or shared data. Immediate insight into savings potential and available grid capacity. Result within 5 working days.',
-      'Smart Energy Report',
-      'Comprehensive on-site analysis with 2 weeks of on-site measurement. Together we map out which assets can be used flexibly to maximally reduce your energy costs. The highest level of certainty.'
+      'Quick analysis based on meter or shared data. Direct insight into savings potential and available grid capacity. Result within 5 working days.',
+      'Smart Energy Deep-dive',
+      'Comprehensive on-site analysis with 2 weeks of measurement on location. Together we map out which assets can be used flexibly and what it delivers. The highest level of certainty.'
     ) +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Attached you will find a sample of our Energy &amp; Cost Savings report. After our analysis, you will receive a personalised report for <strong>' + (company || 'your company') + '</strong>, including advice on solar panels and battery storage.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Questions? Feel free to reach out.</p>',
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">In the attachment you will find a sample of the report. Do you already have specific questions or wishes? Feel free to reach out.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Talk soon!</p>',
     'en'
   );
 }
 
 function buildDemoEmailEN(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear' + (name ? ' ' + name : '') + ',</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in <strong>SAMBA.Energy</strong>! We have received your demo request for <strong>' + (company || 'your company') + '</strong> for our asset and energy management platform. We will contact you as soon as possible to schedule a date and time.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Two options to consider:</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (name || '[NAME]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in <strong>SAMBA.Energy</strong>. We have received your demo request for our asset and energy management platform for ' + (company || 'your company') + '.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">During the demo we will explore together how <strong>SAMBA.Energy</strong> ensures your assets can be used to their full potential. We will get in touch as soon as possible to schedule a date and time. Two options to consider:</p>' +
     serviceBlocks(
       'Online via video call',
-      'Quick and efficient. Ideal for a first impression of the <strong>SAMBA.Energy</strong> asset and energy management platform and the savings potential specific to <strong>' + (company || 'your company') + '</strong>.',
+      'Quick and efficient. Ideal for a first impression of our platform and the possible savings opportunities in the specific situation of ' + (company || 'your company') + '.',
       'On location',
-      'For a more in-depth introduction and a closer look at our <strong>SAMBA.Energy</strong> platform and flexible asset optimisation opportunities for <strong>' + (company || 'your company') + '</strong>. We can also take a direct look at the situation on-site and assess the best approach together.'
+      'For a more in-depth introduction and a closer look at flex-asset optimisation opportunities. We can directly review the situation on-site, assess specific equipment and installations, and determine the best approach for your situation.'
     ) +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">The demo takes approximately 30–60 minutes. Together we\'ll explore how <strong>SAMBA.Energy</strong> ensures the flexible assets of <strong>' + (company || 'your company') + '</strong> are used to their full potential. Do you have specific questions or wishes for the demo? Feel free to let us know in a reply to this email.</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">The demo takes approximately 30–60 minutes. Do you already have specific questions or wishes? Feel free to reach out.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Talk soon!</p>',
     'en'
   );
