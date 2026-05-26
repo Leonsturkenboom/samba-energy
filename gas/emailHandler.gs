@@ -10,6 +10,11 @@ var PDF_DRIVE_FILE_ID = '14p2uatK1ZEjwaHm9AzZ_N8BGPGwCLl93';
 // Sheet ID staat in de URL: docs.google.com/spreadsheets/d/[DIT_ID]/edit
 var SHEET_ID = '';
 
+function firstName(fullName) {
+  if (!fullName || !fullName.trim()) return '';
+  return fullName.trim().split(/\s+/)[0];
+}
+
 function isValidEmail(email) {
   return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
@@ -262,7 +267,7 @@ function buildAnalysisEmailNL(name, company) {
     '</td></tr>' +
     '</table>';
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (firstName(name) || '[NAAM]') + ',</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse in <strong>SAMBA.Energy</strong>. We hebben je aanvraag voor een energiescan van ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Met deze scan brengen we direct jouw kansen in kaart. Je krijgt concreet inzicht in:</p>' +
     bullets +
@@ -281,7 +286,7 @@ function buildAnalysisEmailNL(name, company) {
 
 function buildDemoEmailNL(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (name || '[NAAM]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Beste ' + (firstName(name) || '[NAAM]') + ',</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Bedankt voor je interesse. We hebben je aanvraag voor een demo van ons asset- en energiemanagement platform voor ' + (company || 'je bedrijf') + ' in goede orde ontvangen.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">Tijdens de demo kijken we samen hoe <strong>SAMBA.Energy</strong> ervoor zorgt dat jouw assets optimaal kunnen worden ingezet. We nemen zo snel mogelijk contact met je op om een datum en tijdstip te plannen. Alvast twee opties om over na te denken:</p>' +
     serviceBlocks(
@@ -320,7 +325,7 @@ function buildAnalysisEmailEN(name, company) {
     '</td></tr>' +
     '</table>';
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (name || '[NAME]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (firstName(name) || '[NAME]') + ',</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in <strong>SAMBA.Energy</strong>. We have received your energy scan request for ' + (company || 'your company') + '.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">With this scan we immediately map out your opportunities. You will gain concrete insight into:</p>' +
     bullets +
@@ -339,7 +344,7 @@ function buildAnalysisEmailEN(name, company) {
 
 function buildDemoEmailEN(name, company) {
   return emailWrapper(
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (name || '[NAME]') + ',</p>' +
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#111111;line-height:1.7;margin:0 0 20px;">Dear ' + (firstName(name) || '[NAME]') + ',</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 20px;">Thank you for your interest in <strong>SAMBA.Energy</strong>. We have received your demo request for our asset and energy management platform for ' + (company || 'your company') + '.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 14px;">During the demo we will explore together how <strong>SAMBA.Energy</strong> ensures your assets can be used to their full potential. We will get in touch as soon as possible to schedule a date and time. Two options to consider:</p>' +
     serviceBlocks(
