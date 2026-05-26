@@ -21,18 +21,9 @@ function isValidPhone(phone) {
 }
 
 function getPdfBlob() {
-  try {
-    // Primary: fetch from Google Drive (fast, same account)
-    var file = DriveApp.getFileById(PDF_DRIVE_FILE_ID);
-    var blob = file.getBlob();
-    blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
-    return blob;
-  } catch(e) {
-    // Fallback: fetch from website if Drive access fails
-    var blob = UrlFetchApp.fetch('https://samba.energy/rapport-voorbeeld.pdf').getBlob();
-    blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
-    return blob;
-  }
+  var blob = UrlFetchApp.fetch('https://samba.energy/rapport-voorbeeld.pdf').getBlob();
+  blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
+  return blob;
 }
 
 function logToSheet(data, status) {
