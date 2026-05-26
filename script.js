@@ -1249,7 +1249,7 @@ function initContactForm() {
 
         if (phoneEl.value.trim()) {
             const digits = phoneEl.value.replace(/\D/g, '');
-            if (digits.length < 8 || digits.length > 15) {
+            if (digits.length < 10 || digits.length > 15) {
                 valid = false;
                 setFieldError(phoneEl, currentLang === 'en' ? 'Please enter a valid phone number.' : 'Vul een geldig telefoonnummer in.');
             } else {

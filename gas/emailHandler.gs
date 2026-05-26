@@ -17,7 +17,7 @@ function isValidEmail(email) {
 function isValidPhone(phone) {
   if (!phone || !phone.trim()) return true;
   var digits = phone.replace(/\D/g, '');
-  return digits.length >= 8 && digits.length <= 15;
+  return digits.length >= 10 && digits.length <= 15;
 }
 
 function getPdfBlob() {
