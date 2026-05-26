@@ -4,7 +4,7 @@ var NOTIFY_CC = 'andy@samba.energy';
 
 // Google Drive file ID van het voorbeeldrapport.
 // Bij aanpassing: gebruik "Upload nieuwe versie" in Drive — ID blijft dan hetzelfde.
-var PDF_DRIVE_FILE_ID = '1nbhpkhQfOqf6ZKY9xgz-mjMQWqPSU3HW';
+var PDF_DRIVE_FILE_ID = '14p2uatK1ZEjwaHm9AzZ_N8BGPGwCLl93';
 
 // Vul het ID van je Google Sheet in om leads automatisch te loggen.
 // Sheet ID staat in de URL: docs.google.com/spreadsheets/d/[DIT_ID]/edit
