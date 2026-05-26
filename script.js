@@ -1283,17 +1283,17 @@ function initContactForm() {
             window.location.href = '/bedankt/';
         };
 
-        // Fire and forget — keepalive keeps the request alive even after page navigation.
-        // GAS processing (PDF fetch + email send) can take 10-25s; the user doesn't wait.
-        fetch(GAS_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify(payload),
-            keepalive: true
-        }).catch(() => {}); // Ignore response/errors — we always redirect
+        // sendBeacon: fire-and-forget, never blocks navigation, continues in background.
+        // Blob with type 'text/plain' avoids CORS preflight — GAS receives e.postData.contents.
+        const blob = new Blob([JSON.stringify(payload)], { type: 'text/plain' });
+        const sent = typeof navigator.sendBeacon === 'function' && navigator.sendBeacon(GAS_URL, blob);
+        if (!sent) {
+            // Fallback for very old browsers that don't support sendBeacon
+            fetch(GAS_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) }).catch(() => {});
+        }
 
-        // Brief loading state visible, then redirect to /bedankt/
-        await new Promise(r => setTimeout(r, 1500));
+        // Brief visual feedback (buttons remain disabled), then redirect
+        await new Promise(r => setTimeout(r, 400));
         doRedirect();
     });
 
