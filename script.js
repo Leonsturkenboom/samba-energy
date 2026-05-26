@@ -179,7 +179,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Discover your savings',
-        'request.subtitle': 'We analyse your situation and show you what SAMBA can do for your business. Leave your details and receive our sample Energy &amp; Cost Savings report in your inbox. Or book a demo of our platform on-site or online.',
+        'request.subtitle': 'We analyse your situation and show you what SAMBA.Energy can do for you. Leave your details and receive a sample report directly in your inbox. Or book a demo of our platform on-site or online.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -293,7 +293,7 @@ const translations = {
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Ontdek jouw besparing',
-        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA voor je kan betekenen. Laat je gegevens achter en ontvang direct ons voorbeeld Energy &amp; Cost Savings rapport in je mailbox. Of boek een demo van ons platform op locatie of online.',
+        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA.Energy voor je kan betekenen. Laat je gegevens achter en ontvang direct een voorbeeldrapport in je mailbox. Of boek een demo van ons platform op locatie of online.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -1209,28 +1209,51 @@ function initContactForm() {
         const emailEl = form.querySelector('#email');
         const phoneEl = form.querySelector('#phone');
 
+        // Helper: show or clear inline field error
+        const setFieldError = (el, msg) => {
+            el.classList.add('input-error');
+            let hint = el.parentElement.querySelector('.field-error');
+            if (!hint) {
+                hint = document.createElement('p');
+                hint.className = 'field-error';
+                hint.style.cssText = 'color:#E53935;font-size:0.82rem;margin:4px 0 0;';
+                el.insertAdjacentElement('afterend', hint);
+            }
+            hint.textContent = msg;
+        };
+        const clearFieldError = (el) => {
+            el.classList.remove('input-error');
+            const hint = el.parentElement.querySelector('.field-error');
+            if (hint) hint.remove();
+        };
+
         // Validation — use CSS class so mobile browsers respect the styling
         const required = form.querySelectorAll('[required]');
         let valid = true;
         required.forEach(input => {
             if (!input.value.trim()) {
                 valid = false;
-                input.classList.add('input-error');
+                const label = input.closest('.form-group')?.querySelector('label')?.textContent.replace('*','').trim() || '';
+                setFieldError(input, currentLang === 'en' ? 'This field is required.' : 'Dit veld is verplicht.');
             } else {
-                input.classList.remove('input-error');
+                clearFieldError(input);
             }
         });
 
         if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
             valid = false;
-            emailEl.classList.add('input-error');
+            setFieldError(emailEl, currentLang === 'en' ? 'Please enter a valid email address.' : 'Vul een geldig e-mailadres in.');
+        } else if (emailEl.value) {
+            clearFieldError(emailEl);
         }
 
         if (phoneEl.value.trim()) {
             const digits = phoneEl.value.replace(/\D/g, '');
             if (digits.length < 8 || digits.length > 15) {
                 valid = false;
-                phoneEl.classList.add('input-error');
+                setFieldError(phoneEl, currentLang === 'en' ? 'Please enter a valid phone number.' : 'Vul een geldig telefoonnummer in.');
+            } else {
+                clearFieldError(phoneEl);
             }
         }
 
@@ -1295,9 +1318,13 @@ function initContactForm() {
         }
     });
 
-    // Clear error class on input
+    // Clear field errors on input
     form.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', () => el.classList.remove('input-error'));
+        el.addEventListener('input', () => {
+            el.classList.remove('input-error');
+            const hint = el.parentElement.querySelector('.field-error');
+            if (hint) hint.remove();
+        });
     });
 }
 

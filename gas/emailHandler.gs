@@ -1,7 +1,10 @@
 var SENDER_NAME = 'SAMBA.Energy';
 var NOTIFY_EMAIL = 'leon@samba.energy';
 var NOTIFY_CC = 'andy@samba.energy';
-var PDF_URL = 'https://samba.energy/rapport-voorbeeld.pdf';
+
+// Google Drive file ID van het voorbeeldrapport.
+// Bij aanpassing: gebruik "Upload nieuwe versie" in Drive — ID blijft dan hetzelfde.
+var PDF_DRIVE_FILE_ID = '1nbhpkhQfOqf6ZKY9xgz-mjMQWqPSU3HW';
 
 // Vul het ID van je Google Sheet in om leads automatisch te loggen.
 // Sheet ID staat in de URL: docs.google.com/spreadsheets/d/[DIT_ID]/edit
@@ -18,20 +21,11 @@ function isValidPhone(phone) {
 }
 
 function getPdfBlob() {
-  var cache = CacheService.getScriptCache();
-  try {
-    var cached = cache.get('samba_pdf');
-    if (cached) {
-      var bytes = Utilities.base64Decode(cached);
-      return Utilities.newBlob(bytes, 'application/pdf', 'Voorbeeld_Rapport_SAMBA.Energy.pdf');
-    }
-  } catch(e) {}
-  var blob = UrlFetchApp.fetch(PDF_URL).getBlob();
+  // Fetch directly from Google Drive — no external HTTP request, much faster.
+  // To update the report: right-click file in Drive → "Upload nieuwe versie".
+  var file = DriveApp.getFileById(PDF_DRIVE_FILE_ID);
+  var blob = file.getBlob();
   blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
-  try {
-    var b64 = Utilities.base64Encode(blob.getBytes());
-    if (b64.length < 90000) cache.put('samba_pdf', b64, 21600);
-  } catch(e) {}
   return blob;
 }
 
@@ -196,10 +190,24 @@ function doPost(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-function emailWrapper(body, lang) {
+function preheaderText(isAnalysis, lang) {
+  if (lang === 'en') {
+    return isAnalysis
+      ? 'Discover your savings potential, remaining grid capacity and growth opportunities.'
+      : 'Discover how SAMBA.Energy makes your assets perform at their best.';
+  }
+  return isAnalysis
+    ? 'Ontdek jouw besparingskansen, restcapaciteit en groeimogelijkheden.'
+    : 'Ontdek hoe SAMBA.Energy jouw assets optimaal laat renderen.';
+}
+
+function emailWrapper(body, lang, isAnalysis) {
+  var preheader = preheaderText(isAnalysis !== false, lang);
+  var padding = '&zwnj;&nbsp;'.repeat(60);
   return '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1.0"></head>' +
     '<body style="margin:0;padding:0;background:#ffffff;">' +
+    '<span style="display:none;max-height:0;overflow:hidden;mso-hide:all;">' + preheader + padding + '</span>' +
     '<table width="100%" cellpadding="0" cellspacing="0">' +
     '<tr><td align="center">' +
     '<table width="720" cellpadding="0" cellspacing="0" style="max-width:720px;width:100%;background:#ffffff;">' +
@@ -265,7 +273,8 @@ function buildAnalysisEmailNL(name, company) {
       'Uitgebreide on-site analyse met 2 weken meting op locatie. We brengen samen in kaart welke assets flexibel inzetbaar zijn en wat het je oplevert. De hoogste mate van zekerheid.'
     ) +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">In de bijlage vind je alvast een voorbeeld van het rapport. Heb je vooraf al specifieke vragen of wensen? Neem gerust contact met me op.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>'
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>',
+    'nl', true
   );
 }
 
@@ -281,7 +290,8 @@ function buildDemoEmailNL(name, company) {
       'Voor een uitgebreidere kennismaking en een diepere duik in de flex-asset optimalisatie kansen. We kunnen dan direct de situatie ter plekke bekijken, de specifieke apparaten en installaties toetsen en de beste aanpak voor jullie situatie bepalen.'
     ) +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">De demo duurt ongeveer 30–60 minuten. Heb je vooraf al specifieke vragen of wensen? Neem gerust contact met me op.</p>' +
-    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>'
+    '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">We spreken elkaar snel!</p>',
+    'nl', false
   );
 }
 
@@ -322,7 +332,7 @@ function buildAnalysisEmailEN(name, company) {
     ) +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">In the attachment you will find a sample of the report. Do you already have specific questions or wishes? Feel free to reach out.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Talk soon!</p>',
-    'en'
+    'en', true
   );
 }
 
@@ -339,7 +349,7 @@ function buildDemoEmailEN(name, company) {
     ) +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">The demo takes approximately 30–60 minutes. Do you already have specific questions or wishes? Feel free to reach out.</p>' +
     '<p style="font-family:\'Helvetica Neue\',Helvetica,Arial,sans-serif;font-size:15px;color:#444444;line-height:1.7;margin:0 0 28px;">Talk soon!</p>',
-    'en'
+    'en', false
   );
 }
 
