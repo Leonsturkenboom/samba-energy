@@ -21,7 +21,11 @@ function isValidPhone(phone) {
 }
 
 function getPdfBlob() {
-  var blob = UrlFetchApp.fetch('https://samba.energy/rapport-voorbeeld.pdf').getBlob();
+  // Fetches PDF from Google Drive — fast, no external request.
+  // Requires drive.readonly scope in appsscript.json manifest.
+  // To update the report: right-click file in Drive → "Upload nieuwe versie".
+  var file = DriveApp.getFileById(PDF_DRIVE_FILE_ID);
+  var blob = file.getBlob();
   blob.setName('Voorbeeld_Rapport_SAMBA.Energy.pdf');
   return blob;
 }

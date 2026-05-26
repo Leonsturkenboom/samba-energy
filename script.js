@@ -1283,39 +1283,18 @@ function initContactForm() {
             window.location.href = '/bedankt/';
         };
 
-        try {
-            const controller = new AbortController();
-            // 25s timeout — analysis emails take longer (PDF fetch + attachment)
-            const timeout = setTimeout(() => controller.abort(), 25000);
-            await fetch(GAS_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(payload),
-                signal: controller.signal
-            });
-            clearTimeout(timeout);
-            doRedirect();
-        } catch (err) {
-            if (err.name === 'AbortError' || err.name === 'TypeError') {
-                // AbortError = timeout (request was sent, GAS is slow with PDF)
-                // TypeError = CORS (GAS redirect quirk — request went through)
-                // In both cases the request reached GAS — redirect to /bedankt/
-                doRedirect();
-                return;
-            }
-            // Genuine network failure (offline, DNS error)
-            buttons.forEach(btn => { btn.disabled = false; btn.style.opacity = ''; });
-            let errorEl = form.querySelector('.form-submit-error');
-            if (!errorEl) {
-                errorEl = document.createElement('p');
-                errorEl.className = 'form-submit-error';
-                errorEl.style.cssText = 'color:#E53935;font-size:0.9rem;margin-top:8px;text-align:center;';
-                form.querySelector('.form-buttons').insertAdjacentElement('afterend', errorEl);
-            }
-            errorEl.textContent = currentLang === 'en'
-                ? 'Something went wrong. Please try again or email us at leon@samba.energy.'
-                : 'Er is iets misgegaan. Probeer het opnieuw of mail ons via leon@samba.energy.';
-        }
+        // Fire and forget — keepalive keeps the request alive even after page navigation.
+        // GAS processing (PDF fetch + email send) can take 10-25s; the user doesn't wait.
+        fetch(GAS_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(payload),
+            keepalive: true
+        }).catch(() => {}); // Ignore response/errors — we always redirect
+
+        // Brief loading state visible, then redirect to /bedankt/
+        await new Promise(r => setTimeout(r, 1500));
+        doRedirect();
     });
 
     // Clear field errors on input
