@@ -1277,10 +1277,11 @@ function initContactForm() {
             honeypot: form.querySelector('[name="website"]').value || ''
         };
 
+        const isDemo = clickedBtn.toLowerCase().includes('demo');
         const doRedirect = () => {
             window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'form_lead', form_type: 'aanvraag' });
-            window.location.href = '/bedankt/';
+            window.dataLayer.push({ event: 'form_lead', form_type: isDemo ? 'demo' : 'aanvraag' });
+            window.location.href = isDemo ? '/bedankt-demo/' : '/bedankt/';
         };
 
         // sendBeacon: fire-and-forget, never blocks navigation, continues in background.
