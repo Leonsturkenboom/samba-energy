@@ -179,7 +179,7 @@ const translations = {
         'success.quote3': '"Thanks to SAMBA we stay below our grid limit and avoid high fines. It paid for itself in 6 months."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Discover your savings',
-        'request.subtitle': 'We analyse your situation and show you what SAMBA.Energy can do for you. Leave your details and receive a sample report directly in your inbox. Or book a demo of our platform on-site or online.',
+        'request.subtitle': 'With an energy scan we analyse your situation and show how much you can save and how much capacity is left on your grid connection. Request one below and receive a sample report directly in your inbox. Prefer to see our platform first? Book a demo, on-site or online.',
         'request.company': 'Company name *',
         'request.contact': 'Contact person *',
         'request.email': 'Email address *',
@@ -187,7 +187,7 @@ const translations = {
         'request.situation': 'Your situation (optional)',
         'request.optin': 'Sign me up for updates about SAMBA',
         'request.cta.demo': 'Schedule a demo',
-        'request.cta.analysis': 'Calculate my savings',
+        'request.cta.analysis': 'Request energy scan',
         'request.note': 'Completely without obligation, we are happy to discuss all options.',
         'request.success.title': 'Thank you!',
         'request.success.text': 'We have received your request and will contact you as soon as possible.',
@@ -293,7 +293,7 @@ const translations = {
         'success.quote3': '"Dankzij SAMBA blijven we onder onze netlimiet en voorkomen we hoge boetes. Het heeft zichzelf in 6 maanden terugverdiend."',
         'success.role3': 'CEO, EcoLogistics',
         'request.title': 'Ontdek jouw besparing',
-        'request.subtitle': 'Wij analyseren jouw situatie en laten zien wat SAMBA.Energy voor je kan betekenen. Laat je gegevens achter en ontvang direct een voorbeeldrapport in je mailbox. Of boek een demo van ons platform op locatie of online.',
+        'request.subtitle': 'Met een energiescan analyseren wij jouw situatie en laten we zien hoeveel je kunt besparen en hoeveel ruimte er nog is op je netaansluiting. Vraag hem hieronder aan en ontvang direct een voorbeeldrapport in je mailbox. Liever eerst ons platform zien? Plan een demo, op locatie of online.',
         'request.company': 'Bedrijfsnaam *',
         'request.contact': 'Contactpersoon *',
         'request.email': 'E-mailadres *',
@@ -301,7 +301,7 @@ const translations = {
         'request.situation': 'Uw situatie (optioneel)',
         'request.optin': 'Meld me aan voor updates over SAMBA',
         'request.cta.demo': 'Plan een demo',
-        'request.cta.analysis': 'Bereken mijn besparing',
+        'request.cta.analysis': 'Vraag energiescan aan',
         'request.note': 'Geheel vrijblijvend bespreken we graag alle mogelijkheden door.',
         'request.success.title': 'Bedankt!',
         'request.success.text': 'We hebben je aanvraag ontvangen en nemen zo snel mogelijk contact met je op.',
@@ -416,6 +416,10 @@ function initLanguageToggle() {
     });
 }
 
+// Wisselt PLAN DEMO / ENERGIESCAN. Kort genoeg dat een bezoeker de wissel
+// al in de hero ziet, nog voordat er gescrold wordt.
+const CTA_CYCLE_MS = 3000;
+
 function initCtaCycling() {
     const btn = document.getElementById('ctaCycling');
     const textEl = document.getElementById('ctaCyclingText');
@@ -440,7 +444,7 @@ function initCtaCycling() {
             textEl.textContent = labels[index];
             textEl.classList.remove('fade-out');
         }, 400);
-    }, 8000);
+    }, CTA_CYCLE_MS);
 }
 
 function initEnergyscanWidget() {
